@@ -7,10 +7,50 @@
   <meta name="description" content="Project Excellence — fast, mobile-first CVS Photo training and operational support." />
   <title>Project Excellence | CVS Photo</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    #master-guide{display:none}#master-guide:target{display:block}#master-guide:target~#app{display:none}#master-guide:target~.master-launch{display:none}
+    .master-launch{position:fixed;right:18px;bottom:18px;z-index:20;padding:12px 16px;border-radius:999px;background:#8f171d;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 8px 24px rgba(39,37,34,.22)}
+    .heart-text{font-size:2rem;line-height:1}.card-icon{font-size:1.75rem}.standalone-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.standalone-top a{text-decoration:none}
+    @media(max-width:600px){.master-launch{right:12px;bottom:12px;font-size:.82rem}.standalone-top{align-items:flex-start;flex-direction:column}}
+  </style>
 </head>
 <body>
+  <section id="master-guide">
+    <div class="app-shell">
+      <header class="site-header"><div class="brand-row"><a class="brand-lockup" href="./#poster-printer" style="text-decoration:none;color:inherit"><span class="cvs-brand"><span class="heart-text">♥</span><span class="cvs-word">CVS</span></span><span class="brand-divider"></span><span class="project-name"><strong>Project Excellence</strong><small>Operational Excellence. Every Time.</small></span></a><div class="header-tools"><span class="department-pill">CVS PHOTO</span><span class="version-pill">v2.2</span></div></div><div class="red-rule"></div><div class="context-row"><div class="context-inner"><span class="context-label">Master Training Guide</span><span class="context-status"><span></span> New-hire quick support</span></div></div></header>
+      <main class="container">
+        <div class="standalone-top"><a class="back-btn" href="./#poster-printer">← Back</a><span class="status-pill">Training Draft — Leadership Review</span></div>
+        <section class="page-heading"><p class="eyebrow">Master training guide</p><h2>Load Roll Paper — Epson SureColor P6000</h2><p class="page-description">A fast guide designed to help new hires remember the workflow and know when to ask for help.</p></section>
+        <article class="master-guide">
+          <section class="master-overview">
+            <div class="master-status-row"><span class="master-badge">MASTER TEMPLATE</span></div>
+            <div class="master-meta"><span><strong>Time</strong>5–8 minutes</span><span><strong>Skill level</strong>Team Member and above</span><span><strong>Goal</strong>Load correctly the first time</span></div>
+            <div class="start-here"><div class="start-here-heading"><span>START HERE</span><h3>Six actions to remember</h3><p>Keep the sequence simple and complete the quality check before resuming output.</p></div><ol class="quick-steps">
+              <li class="quick-step"><span class="quick-step-number">1</span><div><strong>Open</strong><p>Open the roll-paper cover.</p></div></li>
+              <li class="quick-step"><span class="quick-step-number">2</span><div><strong>Remove</strong><p>Release and remove the current roll.</p></div></li>
+              <li class="quick-step"><span class="quick-step-number">3</span><div><strong>Prepare</strong><p>Confirm the new roll and adapters.</p></div></li>
+              <li class="quick-step"><span class="quick-step-number">4</span><div><strong>Seat</strong><p>Align and lock the new roll.</p></div></li>
+              <li class="quick-step"><span class="quick-step-number">5</span><div><strong>Feed</strong><p>Feed the leading edge straight.</p></div></li>
+              <li class="quick-step"><span class="quick-step-number">6</span><div><strong>Verify</strong><p>Confirm settings and print readiness.</p></div></li>
+            </ol></div>
+            <div class="master-caution"><span>!</span><p><strong>Never force the equipment.</strong> Stop and ask a trained colleague or shift leader if the roll will not seat, the paper will not feed, or an error remains.</p></div>
+          </section>
+          <section class="master-checks"><div><p class="eyebrow">Before resuming output</p><h3>Quick quality check</h3><ul><li>Roll and adapters are secure.</li><li>Paper feeds straight without slack.</li><li>Media settings match the installed roll.</li><li>Automatic cutting is correct.</li></ul></div><div class="leadership-note"><p class="eyebrow">Training standard</p><h3>Fast, clear, and consistent</h3><p>Store leadership should verify approved media settings and local escalation steps before final rollout.</p></div></section>
+        </article>
+      </main>
+      <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><span class="heart-text">♥</span><span>Project Excellence</span></div><p>CVS Photo operational support</p><span class="footer-version">Version 2.2</span></div></footer>
+    </div>
+  </section>
   <div id="app"></div>
+  <a class="master-launch" href="#master-guide">Open P6000 Master Guide</a>
   <script src="data.js"></script>
+  <script>
+    PE_DATA.version="2.2";
+    const remap=(page,id)=>PE_DATA.pages[page].cards=PE_DATA.pages[page].cards.map(card=>card.id==="support"?Object.assign({},card,{id}):card);
+    remap("main-photo","support-main");remap("ipos","support-ipos");
+    if(!PE_DATA.pages["poster-printer"].cards.some(card=>card.id==="support-poster"))PE_DATA.pages["poster-printer"].cards.push({id:"support-poster",icon:"☎",title:"Support Contacts",description:"Leadership and escalation guidance."});
+    PE_DATA.guides["support-main"]="Support Contacts";PE_DATA.guides["support-poster"]="Support Contacts";PE_DATA.guides["support-ipos"]="Support Contacts";
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
