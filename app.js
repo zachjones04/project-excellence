@@ -1,4 +1,8 @@
 const app = document.getElementById("app");
+PE_DATA.version = "2.1";
+
+let currentPage = location.hash.replace("#", "") || "home";
+let supportParent = "home";
 
 const pageParents = {
   "main-photo": "home",
@@ -9,9 +13,7 @@ const pageParents = {
   "main-maintenance": "main-photo",
   "main-troubleshooting": "main-photo",
   "poster-supplies": "poster-printer",
-  "support-main": "main-photo",
-  "support-poster": "poster-printer",
-  "support-ipos": "ipos",
+  "support": "home",
   "guide-canvas": "main-products",
   "guide-photo-books": "main-products",
   "guide-calendars": "main-products",
@@ -30,8 +32,10 @@ const pageParents = {
 
 function routeTo(id, push = true) {
   const target = id || "home";
+  if (target === "support") supportParent = currentPage;
+  currentPage = target;
   render(target);
-  if (push) history.pushState({ page: target }, "", `#${target}`);
+  if (push) history.pushState({ page: target, supportParent }, "", `#${target}`);
 }
 
 function render(id = "home") {
@@ -61,8 +65,8 @@ function renderHeader() {
 
 function renderBack(id) {
   if (id === "home") return "";
-  const parent = pageParents[id] || "home";
-  return `<button type="button" class="back-btn" aria-label="Go back to the previous section" onclick="routeTo('${parent}')">← Back</button>`;
+  const parent = id === "support" ? supportParent : (pageParents[id] || "home");
+  return `<button type="button" class="back-btn" aria-label="Go back to the previous section" style="min-height:44px;min-width:96px;padding:12px 18px;" onclick="routeTo('${parent}')">← Back</button>`;
 }
 
 function heading(title, description) {
@@ -92,7 +96,6 @@ function renderContent(id) {
 function renderSupplies(id) {
   const data = PE_DATA.supplies[id];
   return `${heading(data.title, data.description)}
-    <label class="sr-only" for="supplySearch">Search supplies, item numbers, or notes</label>
     <input class="search" id="supplySearch" type="search" aria-label="Search supplies, item numbers, or notes" placeholder="Search supplies, item numbers, or notes..." oninput="filterTable()" />
     <div class="table-wrap"><table id="supplyTable">
       <thead><tr><th>Category</th><th>Item</th><th>CVS Item #</th><th>Notes</th></tr></thead>
@@ -102,7 +105,7 @@ function renderSupplies(id) {
 }
 
 function renderGuide(id, title) {
-  if (id.startsWith("support-")) return renderSupport();
+  if (id === "support") return renderSupport();
   return `${heading(title, "Use this guide for quick, point-of-need support. Final steps and photos will be added during store documentation.")}
     <article class="guide">
       <div class="info-grid">
@@ -151,5 +154,9 @@ function filterTable() {
   });
 }
 
-window.addEventListener("popstate", () => render(location.hash.replace("#", "") || "home"));
-window.addEventListener("load", () => render(location.hash.replace("#", "") || "home"));
+window.addEventListener("popstate", event => {
+  supportParent = event.state?.supportParent || supportParent;
+  currentPage = location.hash.replace("#", "") || "home";
+  render(currentPage);
+});
+window.addEventListener("load", () => render(currentPage));
