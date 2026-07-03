@@ -48,6 +48,7 @@
     PE_DATA.version="2.2";
     const remap=(page,id)=>PE_DATA.pages[page].cards=PE_DATA.pages[page].cards.map(card=>card.id==="support"?Object.assign({},card,{id}):card);
     remap("main-photo","support-main");remap("ipos","support-ipos");
+    PE_DATA.pages["poster-printer"].cards=PE_DATA.pages["poster-printer"].cards.map(card=>card.id==="guide-load-paper"?Object.assign({},card,{id:"master-guide",title:"Load Roll Paper",description:"Fast Epson P6000 roll-paper training guide for new hires."}):card);
     if(!PE_DATA.pages["poster-printer"].cards.some(card=>card.id==="support-poster"))PE_DATA.pages["poster-printer"].cards.push({id:"support-poster",icon:"☎",title:"Support Contacts",description:"Leadership and escalation guidance."});
     PE_DATA.guides["support-main"]="Support Contacts";PE_DATA.guides["support-poster"]="Support Contacts";PE_DATA.guides["support-ipos"]="Support Contacts";
   </script>
