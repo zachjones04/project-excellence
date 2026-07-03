@@ -6,28 +6,23 @@ Project Excellence is a mobile-first operational knowledge system created for a 
 
 https://zachjones04.github.io/project-excellence/
 
-## Current Version
+## Current Approved Version
 
-**v2.2 Alpha**
-
-## v2.2 Changes
-
-- Added the first original Project Excellence procedure: **Load Roll Paper — Epson SureColor P6000**.
-- Recreated the procedure as privacy-safe Project Excellence diagrams rather than publishing photographed internal reference pages.
-- Added an 18-step mobile workflow covering roll removal, adapter setup, roll seating, paper feeding, settings confirmation, cutting, and final checks.
-- Added leadership-review status, quality checks, common mistakes, and escalation guidance.
-- Added page-specific browser titles and improved guide presentation on mobile.
+**v2.1 Alpha**
 
 ## Versioning Policy
 
 Routine website updates increase the version by **0.1**. Full-version upgrades are made only when specifically approved.
+
+## Content Review Policy
+
+Operational content, procedure wording, and instructional images must not be published to the live site until Zachery reviews the preview and gives explicit approval. Draft content should be prepared and tested offline first.
 
 ## Workstation Links
 
 - Main Photo Printer & Assembly: `https://zachjones04.github.io/project-excellence/#main-photo`
 - Poster Printer: `https://zachjones04.github.io/project-excellence/#poster-printer`
 - IPOS Register: `https://zachjones04.github.io/project-excellence/#ipos`
-- P6000 Roll Paper Guide: `https://zachjones04.github.io/project-excellence/#guide-load-paper`
 
 ## Repository Structure
 
@@ -35,12 +30,45 @@ Routine website updates increase the version by **0.1**. Full-version upgrades a
 - `styles.css` — visual design and mobile layout
 - `data.js` — workstation, guide, and supply content
 - `app.js` — navigation, rendering, and search logic
-- `assets/` — original Project Excellence diagrams
 - `qr-codes/` — printable QR code images and destination links
 
 ## Content Standard
 
-Public guide pages should use original Project Excellence wording and diagrams whenever possible. Real equipment photos may be used only when they add clear identification value and have been tightly cropped, reviewed, and cleared of customer data, employee information, internal URLs, restricted contact information, store identifiers, and confidential documents.
+Public guide pages should use original Project Excellence wording and visuals whenever possible. Real equipment photos may be used when they add clear identification value and have been tightly cropped, corrected, reviewed, and cleared of customer data, employee information, internal URLs, restricted contact information, store identifiers, and confidential documents.
+
+CVS-branded assets should only be used when they are approved for this public project. The preferred visual system is a clean Project Excellence design using the existing red, black, white, and gray palette, with real equipment details or polished custom illustrations where needed.
+
+## Current Project Status
+
+### Completed
+
+- Project charter and objectives
+- Three-workstation information architecture
+- Website prototype and v2.0 rebuild
+- GitHub Pages deployment
+- Internal source-level QA review
+- v2.1 non-content QA fixes
+- QR code generation
+- QR code repository folder
+
+### In Progress
+
+- Original procedure content
+- High-quality instructional visuals
+- Product-specific assembly guides
+- Printer maintenance guides
+- Troubleshooting library
+- Store-specific supply photos and locations
+- Associate testing and feedback
+
+### Planned
+
+- Preview each content update before publication
+- Final content validation with store leadership
+- Pre- and post-implementation survey analysis
+- Usability testing on multiple phones
+- Final QR signage
+- Capstone presentation and results summary
 
 ## Important Content Notice
 
