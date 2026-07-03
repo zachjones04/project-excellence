@@ -1,0 +1,14 @@
+# Keep non-website project materials out of this repository
+Project_Bible*
+project-bible/
+project-docs/
+documentation/
+notes/
+research/
+backups/
+*.docx
+*.xlsx
+*.pptx
+*.pdf
+*.csv
+*.zip
