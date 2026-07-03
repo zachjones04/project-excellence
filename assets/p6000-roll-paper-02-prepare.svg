@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Prepare replacement roll</title>
+  <desc id="desc">A clean diagram of a roll with adapters on both ends and a callout for two-inch and three-inch core positions.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#cc0000"/></marker></defs>
+  <rect width="1200" height="520" rx="28" fill="#fff"/>
+  <text x="56" y="64" font-family="Arial" font-size="30" font-weight="700" fill="#202020">2. Set the core size, seat the adapters, and lock</text>
+  <g transform="translate(70 135)">
+    <ellipse cx="520" cy="120" rx="310" ry="110" fill="#f4f4f4" stroke="#202020" stroke-width="5"/>
+    <rect x="210" y="10" width="620" height="220" fill="#fafafa" stroke="#202020" stroke-width="5"/>
+    <ellipse cx="210" cy="120" rx="68" ry="110" fill="#dddddd" stroke="#202020" stroke-width="5"/>
+    <ellipse cx="830" cy="120" rx="68" ry="110" fill="#dddddd" stroke="#202020" stroke-width="5"/>
+    <circle cx="210" cy="120" r="34" fill="#fff" stroke="#202020" stroke-width="5"/>
+    <circle cx="830" cy="120" r="34" fill="#fff" stroke="#202020" stroke-width="5"/>
+    <path d="M75 120 H145" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <path d="M965 120 H895" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <rect x="40" y="70" width="52" height="100" rx="10" fill="#3a3a3a"/>
+    <rect x="948" y="70" width="52" height="100" rx="10" fill="#3a3a3a"/>
+    <path d="M65 70 V20" stroke="#cc0000" stroke-width="8"/>
+    <path d="M975 70 V20" stroke="#cc0000" stroke-width="8"/>
+  </g>
+  <g transform="translate(800 300)">
+    <rect width="330" height="150" rx="22" fill="#f7f7f7" stroke="#dddddd" stroke-width="3"/>
+    <text x="24" y="36" font-family="Arial" font-size="22" font-weight="700" fill="#202020">Adapter core setting</text>
+    <circle cx="75" cy="91" r="32" fill="#fff" stroke="#202020" stroke-width="4"/><circle cx="75" cy="91" r="15" fill="#cc0000"/>
+    <text x="120" y="97" font-family="Arial" font-size="22" fill="#202020">2-inch core</text>
+    <circle cx="235" cy="91" r="32" fill="#fff" stroke="#202020" stroke-width="4"/><circle cx="235" cy="91" r="23" fill="#cc0000"/>
+    <text x="280" y="97" font-family="Arial" font-size="22" fill="#202020">3-inch</text>
+  </g>
+</svg>
