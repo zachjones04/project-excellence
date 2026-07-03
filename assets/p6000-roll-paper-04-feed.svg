@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Feed paper and confirm settings</title>
+  <desc id="desc">A clean diagram showing paper entering the feed slot, aligning to a center reference line, and a simplified control panel with load paper and roll paper cut labels.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#cc0000"/></marker></defs>
+  <rect width="1200" height="520" rx="28" fill="#fff"/>
+  <text x="56" y="64" font-family="Arial" font-size="30" font-weight="700" fill="#202020">4. Feed straight, position automatically, and verify settings</text>
+  <g transform="translate(70 120)">
+    <rect x="0" y="120" width="650" height="230" rx="28" fill="#e8e8e8" stroke="#202020" stroke-width="5"/>
+    <rect x="85" y="62" width="480" height="75" rx="36" fill="#fafafa" stroke="#202020" stroke-width="5"/>
+    <path d="M190 138 V290 H460 V138" fill="#fff" stroke="#202020" stroke-width="5"/>
+    <line x1="325" y1="145" x2="325" y2="310" stroke="#cc0000" stroke-width="5" stroke-dasharray="12 10"/>
+    <path d="M325 75 V125" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <text x="350" y="235" font-family="Arial" font-size="20" fill="#555">Center line</text>
+    <path d="M185 310 H465" stroke="#202020" stroke-width="4"/>
+  </g>
+  <g transform="translate(790 115)">
+    <rect width="345" height="300" rx="24" fill="#2c2c2c"/>
+    <text x="28" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#fff">Control check</text>
+    <rect x="28" y="65" width="289" height="54" rx="12" fill="#fff"/>
+    <text x="48" y="100" font-family="Arial" font-size="21" font-weight="700" fill="#202020">LOAD PAPER</text>
+    <rect x="28" y="136" width="289" height="54" rx="12" fill="#fff"/>
+    <text x="48" y="171" font-family="Arial" font-size="20" font-weight="700" fill="#202020">KEEP SETTINGS ABOVE</text>
+    <rect x="28" y="207" width="289" height="54" rx="12" fill="#fff"/>
+    <text x="48" y="242" font-family="Arial" font-size="20" font-weight="700" fill="#202020">ROLL PAPER / CUT</text>
+    <circle cx="303" cy="284" r="22" fill="#cc0000"/>
+    <path d="M293 276 l20 16 M313 276 l-20 16" stroke="#fff" stroke-width="4"/>
+  </g>
+</svg>
