@@ -1,5 +1,4 @@
 const app = document.getElementById("app");
-PE_DATA.version = "2.1";
 
 let currentPage = location.hash.replace("#", "") || "home";
 let supportParent = "home";
@@ -36,19 +35,30 @@ function routeTo(id, push = true) {
   currentPage = target;
   render(target);
   if (push) history.pushState({ page: target, supportParent }, "", `#${target}`);
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function render(id = "home") {
   app.innerHTML = `
     <div class="app-shell">
       ${renderHeader()}
-      <main class="container">
+      <main class="container" id="main-content">
         ${renderBack(id)}
         ${renderContent(id)}
       </main>
       <footer class="footer">Project Excellence | Version ${PE_DATA.version} | CVS Photo operational support</footer>
     </div>
   `;
+  document.title = `${getPageTitle(id)} | Project Excellence`;
+}
+
+function getPageTitle(id) {
+  if (id === "home") return PE_DATA.home.title;
+  if (PE_DATA.pages[id]) return PE_DATA.pages[id].title;
+  if (PE_DATA.supplies[id]) return PE_DATA.supplies[id].title;
+  if (PE_DATA.detailedGuides?.[id]) return PE_DATA.detailedGuides[id].title;
+  if (PE_DATA.guides[id]) return PE_DATA.guides[id];
+  return "Page Not Found";
 }
 
 function renderHeader() {
@@ -66,7 +76,7 @@ function renderHeader() {
 function renderBack(id) {
   if (id === "home") return "";
   const parent = id === "support" ? supportParent : (pageParents[id] || "home");
-  return `<button type="button" class="back-btn" aria-label="Go back to the previous section" style="min-height:44px;min-width:96px;padding:12px 18px;" onclick="routeTo('${parent}')">← Back</button>`;
+  return `<button type="button" class="back-btn" aria-label="Go back to the previous section" onclick="routeTo('${parent}')">← Back</button>`;
 }
 
 function heading(title, description) {
@@ -89,6 +99,7 @@ function renderContent(id) {
     return heading(page.title, page.description) + cards(page.cards);
   }
   if (PE_DATA.supplies[id]) return renderSupplies(id);
+  if (PE_DATA.detailedGuides?.[id]) return renderDetailedGuide(PE_DATA.detailedGuides[id]);
   if (PE_DATA.guides[id]) return renderGuide(id, PE_DATA.guides[id]);
   return heading("Page Not Found", "Return home and choose a workstation.") + cards(PE_DATA.home.cards);
 }
@@ -96,12 +107,87 @@ function renderContent(id) {
 function renderSupplies(id) {
   const data = PE_DATA.supplies[id];
   return `${heading(data.title, data.description)}
+    <label class="sr-only" for="supplySearch">Search supplies, item numbers, or notes</label>
     <input class="search" id="supplySearch" type="search" aria-label="Search supplies, item numbers, or notes" placeholder="Search supplies, item numbers, or notes..." oninput="filterTable()" />
     <div class="table-wrap"><table id="supplyTable">
       <thead><tr><th>Category</th><th>Item</th><th>CVS Item #</th><th>Notes</th></tr></thead>
       <tbody>${data.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody>
     </table></div>
     <div class="quick-note"><strong>Implementation note:</strong> Add photos of boxes and store-specific shelf locations during the store walk.</div>`;
+}
+
+function renderDetailedGuide(guide) {
+  const materials = guide.materials.map(item => `<li>${item}</li>`).join("");
+  const phases = guide.phases.map(phase => `
+    <section class="guide-phase" aria-labelledby="${phase.id}-title">
+      <div class="phase-heading">
+        <span class="phase-label">${phase.label}</span>
+        <h3 id="${phase.id}-title">${phase.title}</h3>
+      </div>
+      <figure class="phase-visual">
+        <img src="${phase.image}" alt="${phase.alt}" loading="lazy" />
+        <figcaption>${phase.caption}</figcaption>
+      </figure>
+      <div class="procedure-steps">
+        ${phase.steps.map(step => `
+          <div class="procedure-step">
+            <div class="step-number" aria-hidden="true">${step.number}</div>
+            <div class="step-copy">
+              <h4>${step.title}</h4>
+              <p>${step.text}</p>
+              ${step.note ? `<p class="step-note"><strong>${step.noteLabel || "Note"}:</strong> ${step.note}</p>` : ""}
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `).join("");
+
+  return `${heading(guide.title, guide.description)}
+    <article class="guide detailed-guide">
+      <div class="info-grid">
+        <div class="info-box"><div class="info-label">Status</div><span class="status-pill status-review">${guide.status}</span></div>
+        <div class="info-box"><div class="info-label">Guide Version</div>${guide.version}</div>
+        <div class="info-box"><div class="info-label">Equipment</div>${guide.equipment}</div>
+      </div>
+
+      <div class="guide-alert" role="note">
+        <strong>Before employees rely on this guide:</strong> ${guide.reviewNotice}
+      </div>
+
+      <section class="guide-summary-grid">
+        <div>
+          <h3>When to Use</h3>
+          <p>${guide.whenToUse}</p>
+        </div>
+        <div>
+          <h3>Materials Needed</h3>
+          <ul>${materials}</ul>
+        </div>
+      </section>
+
+      <div class="privacy-note">
+        <strong>Visual standard:</strong> These diagrams were created for Project Excellence from equipment references. No internal documents, employee information, customer data, or support numbers are shown.
+      </div>
+
+      ${phases}
+
+      <section class="guide-checks">
+        <div>
+          <h3>Final Quality Check</h3>
+          <ul>${guide.qualityChecks.map(item => `<li>${item}</li>`).join("")}</ul>
+        </div>
+        <div>
+          <h3>Common Mistakes</h3>
+          <ul>${guide.commonMistakes.map(item => `<li>${item}</li>`).join("")}</ul>
+        </div>
+      </section>
+
+      <section class="escalation-box">
+        <h3>Stop and Escalate</h3>
+        <p>${guide.escalation}</p>
+      </section>
+    </article>`;
 }
 
 function renderGuide(id, title) {
