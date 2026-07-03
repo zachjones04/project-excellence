@@ -1,6 +1,6 @@
 # Project Excellence
 
-Project Excellence is a mobile-first operational knowledge system created for a CVS Retail Management Internship capstone. It gives colleagues quick, QR-based access to photo procedures, supply references, troubleshooting support, and workstation-specific guidance.
+Project Excellence is a mobile-first CVS Photo operational knowledge system created for a CVS Retail Management Internship capstone.
 
 ## Live Site
 
@@ -8,71 +8,41 @@ https://zachjones04.github.io/project-excellence/
 
 ## Current Approved Version
 
-**v2.1 Alpha**
+**v2.2 Alpha**
 
-## Versioning Policy
+## v2.2 Release
 
-Routine website updates increase the version by **0.1**. Full-version upgrades are made only when specifically approved.
+- Published the softer CVS-inspired website design.
+- Added cleaner spacing, warm off-white surfaces, charcoal text, deeper red accents, and lighter shadows.
+- Preserved the Main Photo, Poster Printer, and IPOS workstation structure.
+- Published the first web-native master training template for loading roll paper on the Epson SureColor P6000.
+- Added a six-action quick sequence, quality check, escalation warning, time estimate, and skill-level guidance.
+- Connected the Poster Printer hub to the master guide.
 
-## Content Review Policy
+## Versioning and Review Policy
 
-Operational content, procedure wording, and instructional images must not be published to the live site until Zachery reviews the preview and gives explicit approval. Draft content should be prepared and tested offline first.
+Routine website updates increase the version by **0.1**. Full-version upgrades require specific approval. Operational content, procedure wording, and instructional images must be reviewed by Zachery before they are published.
 
-## Workstation Links
+## Direct Links
 
-- Main Photo Printer & Assembly: `https://zachjones04.github.io/project-excellence/#main-photo`
+- Main Photo: `https://zachjones04.github.io/project-excellence/#main-photo`
 - Poster Printer: `https://zachjones04.github.io/project-excellence/#poster-printer`
-- IPOS Register: `https://zachjones04.github.io/project-excellence/#ipos`
+- IPOS: `https://zachjones04.github.io/project-excellence/#ipos`
+- P6000 Master Guide: `https://zachjones04.github.io/project-excellence/#master-guide`
 
-## Repository Structure
+## Public Content Standard
 
-- `index.html` — application shell
-- `styles.css` — visual design and mobile layout
-- `data.js` — workstation, guide, and supply content
-- `app.js` — navigation, rendering, and search logic
-- `qr-codes/` — printable QR code images and destination links
+Use original Project Excellence wording and visuals whenever possible. Real equipment photos must be cropped, corrected, reviewed, and cleared of customer data, employee information, internal URLs, restricted contacts, store identifiers, and confidential documents before publication.
 
-## Content Standard
+## Status
 
-Public guide pages should use original Project Excellence wording and visuals whenever possible. Real equipment photos may be used when they add clear identification value and have been tightly cropped, corrected, reviewed, and cleared of customer data, employee information, internal URLs, restricted contact information, store identifiers, and confidential documents.
+Completed: website deployment, three-workstation structure, v2.1 navigation fixes, v2.2 CVS redesign, QR code generation, and the first public master template.
 
-CVS-branded assets should only be used when they are approved for this public project. The preferred visual system is a clean Project Excellence design using the existing red, black, white, and gray palette, with real equipment details or polished custom illustrations where needed.
+In progress: P6000 procedure validation and visual refinement, product assembly guides, maintenance guides, troubleshooting, store-specific supply locations, and associate testing.
 
-## Current Project Status
+## Important Notice
 
-### Completed
-
-- Project charter and objectives
-- Three-workstation information architecture
-- Website prototype and v2.0 rebuild
-- GitHub Pages deployment
-- Internal source-level QA review
-- v2.1 non-content QA fixes
-- QR code generation
-- QR code repository folder
-
-### In Progress
-
-- Original procedure content
-- High-quality instructional visuals
-- Product-specific assembly guides
-- Printer maintenance guides
-- Troubleshooting library
-- Store-specific supply photos and locations
-- Associate testing and feedback
-
-### Planned
-
-- Preview each content update before publication
-- Final content validation with store leadership
-- Pre- and post-implementation survey analysis
-- Usability testing on multiple phones
-- Final QR signage
-- Capstone presentation and results summary
-
-## Important Content Notice
-
-This repository and GitHub Pages site are public. Do not add customer data, passwords, employee personal information, restricted contact information, confidential company documents, or protected internal procedures. All operational content should be reviewed and approved by store leadership before colleagues rely on it.
+This repository and site are public. Do not add customer data, passwords, employee personal information, restricted contact information, confidential company documents, or protected internal procedures. Store leadership should approve operational content before colleagues rely on it.
 
 ## Author
 
