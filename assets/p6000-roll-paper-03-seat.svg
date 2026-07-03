@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Seat and lock roll</title>
+  <desc id="desc">A clean diagram showing the roll aligned to the right guide, the left holder moving inward, and the locking lever moving upward.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#cc0000"/></marker></defs>
+  <rect width="1200" height="520" rx="28" fill="#fff"/>
+  <text x="56" y="64" font-family="Arial" font-size="30" font-weight="700" fill="#202020">3. Align right, seat left, and raise the lock lever</text>
+  <g transform="translate(75 130)">
+    <rect x="0" y="170" width="770" height="100" rx="24" fill="#e7e7e7" stroke="#202020" stroke-width="5"/>
+    <rect x="120" y="35" width="560" height="165" rx="82" fill="#fafafa" stroke="#202020" stroke-width="5"/>
+    <circle cx="120" cy="117" r="58" fill="#cfcfcf" stroke="#202020" stroke-width="5"/>
+    <circle cx="680" cy="117" r="58" fill="#cfcfcf" stroke="#202020" stroke-width="5"/>
+    <rect x="692" y="30" width="46" height="175" rx="12" fill="#333"/>
+    <rect x="30" y="60" width="55" height="140" rx="12" fill="#333"/>
+    <path d="M30 130 H105" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <path d="M740 117 H700" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <path d="M55 55 V15" stroke="#cc0000" stroke-width="10" marker-end="url(#arrow)"/>
+    <path d="M88 235 l20 -30 l20 30 z" fill="#cc0000"/>
+    <path d="M128 235 l20 -30 l20 30 z" fill="#202020"/>
+    <line x1="108" y1="250" x2="148" y2="250" stroke="#202020" stroke-width="4" stroke-dasharray="8 6"/>
+  </g>
+  <g transform="translate(885 130)">
+    <rect width="250" height="265" rx="22" fill="#f7f7f7" stroke="#dddddd" stroke-width="3"/>
+    <text x="24" y="42" font-family="Arial" font-size="21" font-weight="700" fill="#202020">Alignment order</text>
+    <text x="30" y="90" font-family="Arial" font-size="20" fill="#202020">1. Right adapter</text>
+    <text x="30" y="130" font-family="Arial" font-size="20" fill="#202020">2. Left triangle marks</text>
+    <text x="30" y="170" font-family="Arial" font-size="20" fill="#202020">3. Firmly seat holder</text>
+    <text x="30" y="210" font-family="Arial" font-size="20" fill="#202020">4. Lever up = locked</text>
+  </g>
+</svg>
