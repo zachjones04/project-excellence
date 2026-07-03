@@ -1,5 +1,5 @@
 const PE_DATA = {
-  version: "2.1",
+  version: "2.2",
   home: {
     title: "Select Your Workstation",
     description: "Choose the area where you need help. QR codes will link directly to each workstation.",
@@ -39,7 +39,7 @@ const PE_DATA = {
       cards: [
         { id: "guide-poster-products", icon: "🖼️", title: "Poster Products", description: "Posters, vinyl, sticker paper, metallic paper, and product types." },
         { id: "poster-supplies", icon: "🔎", title: "Supplies & Item Numbers", description: "Ink, paper rolls, item numbers, and notes." },
-        { id: "guide-load-paper", icon: "📄", title: "Load Paper", description: "Large-format paper loading workflow." },
+        { id: "guide-load-paper", icon: "📄", title: "Load Roll Paper", description: "Complete Epson SureColor P6000 roll removal, loading, alignment, and settings workflow." },
         { id: "guide-replace-ink", icon: "🧪", title: "Replace Ink", description: "Ink replacement and basic cartridge notes." },
         { id: "guide-poster-troubleshooting", icon: "⚠️", title: "Troubleshooting", description: "Color issues, alignment, feed errors, and basic fixes." }
       ]
@@ -82,6 +82,100 @@ const PE_DATA = {
       ]
     }
   },
+  detailedGuides: {
+    "guide-load-paper": {
+      title: "Load Roll Paper — Epson SureColor P6000",
+      description: "Use this guide to remove the current roll, prepare the replacement media, load it correctly, and confirm the printer settings.",
+      status: "Draft — Leadership Review",
+      version: "2.2",
+      equipment: "Epson SureColor P6000",
+      reviewNotice: "Store leadership should verify the procedure and approved media settings before this page is used as the final training standard.",
+      whenToUse: "Use this procedure when a roll runs out, when the next queued order requires a different roll width or media type, or when the printer prompts for roll-paper loading.",
+      materials: [
+        "Correct approved roll media for the queued order",
+        "Two roll-paper adapters",
+        "A clean, dry surface for storing the removed roll",
+        "Clean, dry hands"
+      ],
+      phases: [
+        {
+          id: "remove-roll",
+          label: "Phase 1",
+          title: "Remove the Current Roll",
+          image: "assets/p6000-roll-paper-01-remove.svg",
+          alt: "Original diagram showing the roll-paper cover opening, paper rewinding, and the current roll being removed from the Epson P6000.",
+          caption: "Open, rewind, unlock, and store the current roll before preparing the replacement.",
+          steps: [
+            { number: 1, title: "Pause output when needed", text: "If the paper has run out or the next queued order needs a different width or media type, pause output to the Epson SureColor P6000 before changing the roll." },
+            { number: 2, title: "Open the roll-paper cover", text: "Raise the roll-paper cover so the installed roll and paper holders are accessible." },
+            { number: 3, title: "Release and rewind the paper", text: "Press the printer's paper-release control and wait until the paper rewinds onto the roll." },
+            { number: 4, title: "Remove and store the roll", text: "Press the lock levers down, slide the roll to the left side, lift it out, and place it in a clean location. Do not place the paper surface on a dirty or rough surface." }
+          ]
+        },
+        {
+          id: "prepare-roll",
+          label: "Phase 2",
+          title: "Prepare the Replacement Roll",
+          image: "assets/p6000-roll-paper-02-prepare.svg",
+          alt: "Original diagram showing a replacement roll, two roll adapters, and the two-inch and three-inch core settings.",
+          caption: "Set the adapters for the roll core, seat them fully, and lock them before moving the roll into place.",
+          steps: [
+            { number: 5, title: "Remove the adapters from the old roll", text: "Lift the tension-lever handles and pull the adapters out of both ends of the current roll." },
+            { number: 6, title: "Position the new roll", text: "Place the replacement roll on top of the printer with the leading edge extending toward you from the top side of the roll." },
+            { number: 7, title: "Set the correct core size", text: "Slide and lock the button on each adapter for the new roll's core size: 2-inch or 3-inch." },
+            { number: 8, title: "Insert and lock both adapters", text: "Push an adapter fully into each end of the roll, then press the tension levers down to lock them.", noteLabel: "Caution", note: "Do not force an adapter into the core. Confirm the core-size setting if it will not seat normally." }
+          ]
+        },
+        {
+          id: "seat-roll",
+          label: "Phase 3",
+          title: "Seat and Lock the Roll",
+          image: "assets/p6000-roll-paper-03-seat.svg",
+          alt: "Original diagram showing the right roll guide, the left paper holder, alignment marks, and the locking lever.",
+          caption: "Align the right adapter first, then seat the left holder firmly and lock the roll in place.",
+          steps: [
+            { number: 9, title: "Align the right adapter", text: "Slide the roll to the far right until the right adapter rests against the right roll-paper guide." },
+            { number: 10, title: "Align the left paper holder", text: "Move the left paper holder until its triangular alignment mark lines up with the left adapter at the end of the roll." },
+            { number: 11, title: "Roll the paper back into position", text: "Turn the roll slowly backward so the paper is neat and correctly positioned before feeding." },
+            { number: 12, title: "Seat and lock the roll", text: "Press the left paper holder to the right until both adapters are firmly seated, then pull the holder lever up to lock the roll in place." }
+          ]
+        },
+        {
+          id: "feed-confirm",
+          label: "Phase 4",
+          title: "Feed the Paper and Confirm Settings",
+          image: "assets/p6000-roll-paper-04-feed.svg",
+          alt: "Original diagram showing the paper feed slot, center alignment line, load-paper control, and roll-paper cut setting.",
+          caption: "Feed the paper evenly, let the printer position it, and verify the displayed media and cutting settings.",
+          steps: [
+            { number: 13, title: "Start paper loading", text: "If the paper-load light is not on, press the Load Paper control. Feed the paper through the slot and pull it down evenly until the leading edge aligns with the center reference line. Keep the paper tight around the roll." },
+            { number: 14, title: "Close the cover and position the paper", text: "Close the roll-paper cover, press Load Paper, and wait for the printer to move the media into position automatically." },
+            { number: 15, title: "Confirm the paper settings", text: "When the printer asks whether to change paper settings, choose Keep Settings Above when the displayed type is correct. Choose Change Settings only when the displayed type is wrong." },
+            { number: 16, title: "Inspect and trim the leading edge", text: "Check that the leading edge is straight and unfolded. If it is uneven or folded, use the printer's Cut control to trim the edge." },
+            { number: 17, title: "Confirm automatic cutting", text: "For standard roll paper, verify that the scissors/auto-cut indicator is on. If it is not, open Paper Source and select Roll Paper / Cut." },
+            { number: 18, title: "Resume output", text: "Confirm the correct roll width and media type, then resume any paused output for the queued order." }
+          ]
+        }
+      ],
+      qualityChecks: [
+        "Both adapters are fully seated and locked.",
+        "The roll is firmly held between the right guide and left holder.",
+        "Paper feeds straight and remains tight around the roll.",
+        "The leading edge is even, unfolded, and correctly positioned.",
+        "The displayed media type and roll width match the installed roll.",
+        "Auto-cut is enabled when the selected media requires it."
+      ],
+      commonMistakes: [
+        "Installing adapters in the wrong 2-inch or 3-inch core position.",
+        "Forcing an adapter into the roll instead of checking the core setting.",
+        "Leaving an adapter or holder partially seated.",
+        "Feeding the paper unevenly or allowing slack around the roll.",
+        "Selecting Change Settings when the displayed settings are already correct.",
+        "Resuming output before confirming the roll width and media type."
+      ],
+      escalation: "Stop the process and ask a photo-trained colleague or shift leader for help if the roll will not seat normally, the printer does not rewind or feed the paper, the media is damaged, or an error remains after the approved loading steps. Do not force the roll, adapters, holders, or paper path."
+    }
+  },
   guides: {
     "guide-canvas": "Canvas Assembly",
     "guide-photo-books": "Photo Book Assembly",
@@ -90,7 +184,7 @@ const PE_DATA = {
     "guide-drinkware": "Drinkware Assembly",
     "guide-specialty": "Cards & Specialty Products",
     "guide-poster-products": "Poster Products",
-    "guide-load-paper": "Load Poster Paper",
+    "guide-load-paper": "Load Roll Paper",
     "guide-replace-ink": "Replace Poster Ink",
     "guide-poster-troubleshooting": "Poster Printer Troubleshooting",
     "guide-photo-checkout": "Photo Checkout",
