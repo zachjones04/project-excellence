@@ -9,7 +9,9 @@ const pageParents = {
   "main-maintenance": "main-photo",
   "main-troubleshooting": "main-photo",
   "poster-supplies": "poster-printer",
-  "support": "home",
+  "support-main": "main-photo",
+  "support-poster": "poster-printer",
+  "support-ipos": "ipos",
   "guide-canvas": "main-products",
   "guide-photo-books": "main-products",
   "guide-calendars": "main-products",
@@ -60,7 +62,7 @@ function renderHeader() {
 function renderBack(id) {
   if (id === "home") return "";
   const parent = pageParents[id] || "home";
-  return `<button class="back-btn" onclick="routeTo('${parent}')">← Back</button>`;
+  return `<button type="button" class="back-btn" aria-label="Go back to the previous section" onclick="routeTo('${parent}')">← Back</button>`;
 }
 
 function heading(title, description) {
@@ -69,8 +71,8 @@ function heading(title, description) {
 
 function cards(items) {
   return `<div class="card-grid">${items.map(item => `
-    <button class="card" onclick="routeTo('${item.id}')">
-      <span class="card-icon">${item.icon}</span>
+    <button type="button" class="card" aria-label="Open ${item.title}" onclick="routeTo('${item.id}')">
+      <span class="card-icon" aria-hidden="true">${item.icon}</span>
       <span class="card-title">${item.title}</span>
       <span class="card-desc">${item.description}</span>
     </button>`).join("")}</div>`;
@@ -90,7 +92,8 @@ function renderContent(id) {
 function renderSupplies(id) {
   const data = PE_DATA.supplies[id];
   return `${heading(data.title, data.description)}
-    <input class="search" id="supplySearch" placeholder="Search supplies, item numbers, or notes..." oninput="filterTable()" />
+    <label class="sr-only" for="supplySearch">Search supplies, item numbers, or notes</label>
+    <input class="search" id="supplySearch" type="search" aria-label="Search supplies, item numbers, or notes" placeholder="Search supplies, item numbers, or notes..." oninput="filterTable()" />
     <div class="table-wrap"><table id="supplyTable">
       <thead><tr><th>Category</th><th>Item</th><th>CVS Item #</th><th>Notes</th></tr></thead>
       <tbody>${data.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody>
@@ -99,12 +102,12 @@ function renderSupplies(id) {
 }
 
 function renderGuide(id, title) {
-  if (id === "support") return renderSupport();
+  if (id.startsWith("support-")) return renderSupport();
   return `${heading(title, "Use this guide for quick, point-of-need support. Final steps and photos will be added during store documentation.")}
     <article class="guide">
       <div class="info-grid">
         <div class="info-box"><div class="info-label">Status</div><span class="status-pill">Template Ready</span></div>
-        <div class="info-box"><div class="info-label">Version</div>1.0 Draft</div>
+        <div class="info-box"><div class="info-label">Version</div>${PE_DATA.version} Draft</div>
         <div class="info-box"><div class="info-label">Owner</div>Project Excellence</div>
       </div>
       <h3>Purpose</h3>
