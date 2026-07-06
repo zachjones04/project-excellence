@@ -3,6 +3,8 @@ name: P6000 JPEG repair v2
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - "tools/repair_p6000.py"
 
 permissions:
   contents: write
