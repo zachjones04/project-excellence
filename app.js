@@ -39,29 +39,6 @@ function render(id = "home") {
   const target = valid ? id : "not-found";
   document.title = `${pageTitle(target)} | Project Excellence`;
   app.innerHTML = `<div class="app-shell"><a class="skip-link" href="#main-content">Skip to content</a>${header()}<main class="container" id="main-content" tabindex="-1">${back(target)}${content(target)}</main>${footer()}</div>`;
-  hydrateGuidePhotos();
-}
-
-async function hydrateGuidePhotos() {
-  const photos = [...document.querySelectorAll("img[data-embedded-photo]")];
-  await Promise.all(photos.map(async img => {
-    const svgPath = img.getAttribute("data-embedded-photo");
-    if (!svgPath) return;
-    try {
-      const response = await fetch(svgPath, { cache: "no-store" });
-      if (!response.ok) throw new Error(`Photo asset returned ${response.status}`);
-      const svg = await response.text();
-      const match = svg.match(/data:image\/(?:jpeg|jpg|png);base64,[A-Za-z0-9+/=]+/i);
-      if (!match) throw new Error("Embedded photo data was not found");
-      img.src = match[0];
-      img.removeAttribute("data-embedded-photo");
-      img.classList.add("photo-ready");
-    } catch (error) {
-      const frame = img.closest(".visual-step-media");
-      if (frame) frame.innerHTML = `<div class="photo-fallback" role="img" aria-label="${img.alt}"><span aria-hidden="true">📷</span><strong>Photo could not load</strong><small>Refresh the page. If it still does not appear, use the written step and notify the project owner.</small></div>`;
-      console.error("Project Excellence photo load error:", svgPath, error);
-    }
-  }));
 }
 
 function label(id) {
@@ -76,9 +53,14 @@ function content(id) {
   if (id === "home") return heading(PE_DATA.home.title, PE_DATA.home.description, id) + cards(PE_DATA.home.cards);
   if (PE_DATA.pages[id]) return heading(PE_DATA.pages[id].title, PE_DATA.pages[id].description, id) + cards(PE_DATA.pages[id].cards);
   if (PE_DATA.supplies[id]) return supplies(id);
+  if (id === "guide-load-paper") return paperGuidePrep(id);
   if (PE_DATA.employeeGuides?.[id]) return employeeGuide(id, PE_DATA.employeeGuides[id]);
   if (PE_DATA.guides[id]) return guide(id, PE_DATA.guides[id]);
   return heading("Page Not Found", "Return home and choose a workstation.", id) + `<button class="primary-action" type="button" onclick="routeTo('home')">Return home</button>`;
+}
+
+function paperGuidePrep(id) {
+  return `${heading("Load Roll Paper — Epson SureColor P6000", "This guide is being rebuilt with a clean, approved real-photo sequence.", id)}<article class="guide"><div class="guide-banner"><div class="guide-banner-icon">↻</div><div><span>GUIDE REFRESH IN PROGRESS</span><strong>Use trained support until the verified photo guide returns</strong></div></div><section class="guide-section"><span class="section-number">01</span><div><h3>Temporary direction</h3><p>Ask a photo-trained colleague or shift leader to assist with loading or replacing roll paper. Do not force the roll holder, adapters, cover, or paper feed.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Next update</h3><p>The next build will use normal high-quality JPG files, a clear six-step sequence, and no SVG wrappers or base64 photo loader.</p></div></section></article>`;
 }
 
 function supplies(id) {
@@ -92,10 +74,7 @@ function list(items = []) {
 
 function employeeGuide(id, g) {
   const meta = [["Equipment", g.equipment], ["Task", g.task], ["Time", g.time], ["Difficulty", g.difficulty]].map(([label, value]) => `<div class="guide-meta-item"><span>${label}</span><strong>${value}</strong></div>`).join("");
-  const steps = g.steps.map(step => {
-    const embeddedPhoto = step.image.toLowerCase().endsWith(".svg") ? ` data-embedded-photo="${step.image}"` : "";
-    return `<article class="visual-step"><div class="visual-step-media"><img src="${step.image}"${embeddedPhoto} alt="${step.alt}" loading="lazy" decoding="async" width="720" height="480"></div><div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p>${step.tip ? `<div class="step-tip"><strong>Helpful check:</strong> ${step.tip}</div>` : ""}</div></div></article>`;
-  }).join("");
+  const steps = g.steps.map(step => `<article class="visual-step"><div class="visual-step-media"><img src="${step.image}" alt="${step.alt}" loading="lazy" decoding="async" width="720" height="480"></div><div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p>${step.tip ? `<div class="step-tip"><strong>Helpful check:</strong> ${step.tip}</div>` : ""}</div></div></article>`).join("");
   const warnings = g.warnings?.length ? `<section class="warning-panel" aria-label="Important safety reminders"><div class="warning-icon">!</div><div><p class="eyebrow">Important</p><h3>Protect the printer, paper, and your hands</h3><ul>${list(g.warnings)}</ul></div></section>` : "";
   const troubleshooting = g.troubleshooting?.length ? `<section class="troubleshooting-panel"><div class="section-heading"><p class="eyebrow">Common problems</p><h3>Try these checks before escalating</h3></div><div class="issue-grid">${g.troubleshooting.map(item => `<article class="issue-card"><h4>${item.issue}</h4><p>${item.action}</p></article>`).join("")}</div></section>` : "";
   const related = g.related?.length ? `<section class="related-panel"><div><p class="eyebrow">Related support</p><h3>Continue with another guide</h3></div><div class="related-links">${g.related.map(item => `<button type="button" onclick="routeTo('${item.id}')">${item.title}<span>→</span></button>`).join("")}</div></section>` : "";
