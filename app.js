@@ -39,6 +39,29 @@ function render(id = "home") {
   const target = valid ? id : "not-found";
   document.title = `${pageTitle(target)} | Project Excellence`;
   app.innerHTML = `<div class="app-shell"><a class="skip-link" href="#main-content">Skip to content</a>${header()}<main class="container" id="main-content" tabindex="-1">${back(target)}${content(target)}</main>${footer()}</div>`;
+  hydrateGuidePhotos();
+}
+
+async function hydrateGuidePhotos() {
+  const photos = [...document.querySelectorAll("img[data-embedded-photo]")];
+  await Promise.all(photos.map(async img => {
+    const svgPath = img.getAttribute("data-embedded-photo");
+    if (!svgPath) return;
+    try {
+      const response = await fetch(svgPath, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Photo asset returned ${response.status}`);
+      const svg = await response.text();
+      const match = svg.match(/data:image\/(?:jpeg|jpg|png);base64,[A-Za-z0-9+/=]+/i);
+      if (!match) throw new Error("Embedded photo data was not found");
+      img.src = match[0];
+      img.removeAttribute("data-embedded-photo");
+      img.classList.add("photo-ready");
+    } catch (error) {
+      const frame = img.closest(".visual-step-media");
+      if (frame) frame.innerHTML = `<div class="photo-fallback" role="img" aria-label="${img.alt}"><span aria-hidden="true">📷</span><strong>Photo could not load</strong><small>Refresh the page. If it still does not appear, use the written step and notify the project owner.</small></div>`;
+      console.error("Project Excellence photo load error:", svgPath, error);
+    }
+  }));
 }
 
 function label(id) {
@@ -69,7 +92,10 @@ function list(items = []) {
 
 function employeeGuide(id, g) {
   const meta = [["Equipment", g.equipment], ["Task", g.task], ["Time", g.time], ["Difficulty", g.difficulty]].map(([label, value]) => `<div class="guide-meta-item"><span>${label}</span><strong>${value}</strong></div>`).join("");
-  const steps = g.steps.map(step => `<article class="visual-step"><div class="visual-step-media"><img src="${step.image}" alt="${step.alt}" loading="lazy" width="1200" height="800"></div><div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p>${step.tip ? `<div class="step-tip"><strong>Helpful check:</strong> ${step.tip}</div>` : ""}</div></div></article>`).join("");
+  const steps = g.steps.map(step => {
+    const embeddedPhoto = step.image.toLowerCase().endsWith(".svg") ? ` data-embedded-photo="${step.image}"` : "";
+    return `<article class="visual-step"><div class="visual-step-media"><img src="${step.image}"${embeddedPhoto} alt="${step.alt}" loading="lazy" decoding="async" width="720" height="480"></div><div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p>${step.tip ? `<div class="step-tip"><strong>Helpful check:</strong> ${step.tip}</div>` : ""}</div></div></article>`;
+  }).join("");
   const warnings = g.warnings?.length ? `<section class="warning-panel" aria-label="Important safety reminders"><div class="warning-icon">!</div><div><p class="eyebrow">Important</p><h3>Protect the printer, paper, and your hands</h3><ul>${list(g.warnings)}</ul></div></section>` : "";
   const troubleshooting = g.troubleshooting?.length ? `<section class="troubleshooting-panel"><div class="section-heading"><p class="eyebrow">Common problems</p><h3>Try these checks before escalating</h3></div><div class="issue-grid">${g.troubleshooting.map(item => `<article class="issue-card"><h4>${item.issue}</h4><p>${item.action}</p></article>`).join("")}</div></section>` : "";
   const related = g.related?.length ? `<section class="related-panel"><div><p class="eyebrow">Related support</p><h3>Continue with another guide</h3></div><div class="related-links">${g.related.map(item => `<button type="button" onclick="routeTo('${item.id}')">${item.title}<span>→</span></button>`).join("")}</div></section>` : "";
