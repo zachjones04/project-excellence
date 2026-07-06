@@ -32,9 +32,11 @@ for stem in stems:
         raise RuntimeError(f"No end quote after embedded image in {svg_path}")
     end = min(end_candidates)
     encoded = "".join(svg[start:end].split())
-    image_bytes = base64.b64decode(encoded)
-    if not image_bytes.startswith(b"\xff\xd8\xff") or len(image_bytes) < 40000:
-        raise RuntimeError(f"Invalid JPEG extracted from {svg_path}: {len(image_bytes)} bytes")
+    encoded += "=" * (-len(encoded) % 4)
+    image_bytes = base64.b64decode(encoded, validate=False)
+    print(f"  {stem}: {len(image_bytes):,} bytes; complete={image_bytes.endswith(bytes([255, 217]))}")
+    if not image_bytes.startswith(bytes([255, 216, 255])) or not image_bytes.endswith(bytes([255, 217])) or len(image_bytes) < 40000:
+        raise RuntimeError(f"Invalid or incomplete JPEG extracted from {svg_path}: {len(image_bytes)} bytes")
     jpg_path.write_bytes(image_bytes)
     svg_path.unlink()
     print(f"  {jpg_path.relative_to(root)} — {len(image_bytes):,} bytes")
