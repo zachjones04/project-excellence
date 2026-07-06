@@ -1,0 +1,160 @@
+name: Rebuild P6000 real-photo assets
+
+on:
+  push:
+    paths:
+      - ".github/workflows/rebuild-p6000-photos.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract real JPEGs and remove fragile rendering path
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          import re
+
+          root = Path('.')
+          photo_dir = root / 'assets' / 'p6000-real'
+          stems = [
+              'step-01-open-cover',
+              'step-02-remove-roll',
+              'step-03-core-size',
+              'step-04-attach-adapters',
+              'step-05-seat-roll',
+              'step-06-feed-edge',
+              'step-07-align-close',
+              'step-08-load-confirm',
+          ]
+
+          for stem in stems:
+              svg_path = photo_dir / f'{stem}.svg'
+              jpg_path = photo_dir / f'{stem}.jpg'
+              if not svg_path.exists():
+                  raise SystemExit(f'Missing source asset: {svg_path}')
+              svg = svg_path.read_text(encoding='utf-8')
+              match = re.search(r'data:image/(?:jpeg|jpg);base64,([^\"\'<>]+)', svg, re.I)
+              if not match:
+                  raise SystemExit(f'Embedded JPEG was not found in {svg_path}')
+              image_bytes = base64.b64decode(match.group(1), validate=True)
+              if not image_bytes.startswith(b'\xff\xd8\xff') or len(image_bytes) < 40000:
+                  raise SystemExit(f'Invalid or unexpectedly small JPEG in {svg_path}')
+              jpg_path.write_bytes(image_bytes)
+              svg_path.unlink()
+              print(f'Created {jpg_path} ({len(image_bytes):,} bytes)')
+
+          data_path = root / 'data.js'
+          data = data_path.read_text(encoding='utf-8')
+          replacements = 0
+          for stem in stems:
+              old = f'assets/p6000-real/{stem}.svg'
+              new = f'assets/p6000-real/{stem}.jpg'
+              count = data.count(old)
+              if count != 1:
+                  raise SystemExit(f'Expected one reference to {old}; found {count}')
+              data = data.replace(old, new)
+              replacements += count
+          if replacements != 8:
+              raise SystemExit(f'Expected eight image replacements; made {replacements}')
+          data_path.write_text(data, encoding='utf-8')
+
+          app_path = root / 'app.js'
+          app = app_path.read_text(encoding='utf-8')
+          app, call_count = re.subn(r'\n  hydrateGuidePhotos\(\);', '', app, count=1)
+          app, function_count = re.subn(
+              r'\nasync function hydrateGuidePhotos\(\) \{.*?\n\}\n\nfunction label',
+              '\nfunction label',
+              app,
+              count=1,
+              flags=re.S,
+          )
+          app, embedded_line_count = re.subn(
+              r'\n\s*const embeddedPhoto = step\.image\.toLowerCase\(\)\.endsWith\("\.svg"\) \? ` data-embedded-photo="\$\{step\.image\}"` : "";',
+              '',
+              app,
+              count=1,
+          )
+          embedded_attr_count = app.count('${embeddedPhoto}')
+          app = app.replace('${embeddedPhoto}', '')
+          if (call_count, function_count, embedded_line_count, embedded_attr_count) != (1, 1, 1, 1):
+              raise SystemExit(
+                  'Unexpected app.js structure: '
+                  f'call={call_count}, function={function_count}, line={embedded_line_count}, attr={embedded_attr_count}'
+              )
+          if 'hydrateGuidePhotos' in app or 'data-embedded-photo' in app:
+              raise SystemExit('The embedded-photo workaround still exists in app.js')
+          app_path.write_text(app, encoding='utf-8')
+
+          css_path = root / 'guide.css'
+          css = css_path.read_text(encoding='utf-8')
+          patterns = [
+              r'\.visual-step-media:before\{[^}]*\}',
+              r'\.visual-step-media img\.photo-ready\{[^}]*\}',
+              r'\.photo-fallback\{[^}]*\}',
+              r'\.photo-fallback span\{[^}]*\}',
+              r'\.photo-fallback strong\{[^}]*\}',
+              r'\.photo-fallback small\{[^}]*\}',
+              r'@keyframes photoFade\{from\{[^}]*\}to\{[^}]*\}\}',
+              r'@media\(prefers-reduced-motion:reduce\)\{\.visual-step-media img\.photo-ready\{[^}]*\}\}',
+          ]
+          for pattern in patterns:
+              css = re.sub(pattern, '', css)
+          old_img_rule = re.search(r'\.visual-step-media img\{[^}]*\}', css)
+          if not old_img_rule:
+              raise SystemExit('Could not find the guide photo rule in guide.css')
+          new_img_rule = (
+              '.visual-step-media img{position:relative;z-index:1;display:block;'
+              'width:100%;height:100%;max-width:900px;object-fit:contain;'
+              'background:#f8f6f3;border-radius:10px;'
+              'box-shadow:0 3px 14px rgba(49,43,38,.08);image-rendering:auto}'
+          )
+          css = css[:old_img_rule.start()] + new_img_rule + css[old_img_rule.end():]
+          css = css.replace(
+              '.visual-step-media{position:relative;display:grid;place-items:center;aspect-ratio:3/2;padding:12px;background:linear-gradient(145deg,#ece8e3,#f7f4f0);overflow:hidden}',
+              '.visual-step-media{position:relative;display:grid;place-items:center;aspect-ratio:3/2;padding:12px;background:#f3f0ec;overflow:hidden}',
+          )
+          if 'photo-ready' in css or 'photo-fallback' in css or 'Loading photo' in css:
+              raise SystemExit('Obsolete photo-loading CSS still exists')
+          css_path.write_text(css, encoding='utf-8')
+
+          index_path = root / 'index.html'
+          index = index_path.read_text(encoding='utf-8')
+          if index.count('20260705-photo-fix') != 4:
+              raise SystemExit('Unexpected cache-busting references in index.html')
+          index = index.replace('20260705-photo-fix', '20260705-real-jpg')
+          index_path.write_text(index, encoding='utf-8')
+
+          for stem in stems:
+              jpg_path = photo_dir / f'{stem}.jpg'
+              if not jpg_path.exists() or jpg_path.stat().st_size < 40000:
+                  raise SystemExit(f'Final JPEG validation failed: {jpg_path}')
+          if list(photo_dir.glob('*.svg')):
+              raise SystemExit('One or more obsolete SVG assets remain')
+          if '.svg' in data_path.read_text(encoding='utf-8'):
+              raise SystemExit('An SVG guide reference remains in data.js')
+
+          workflow = root / '.github' / 'workflows' / 'rebuild-p6000-photos.yml'
+          workflow.unlink()
+          print('P6000 real-photo rebuild validated successfully.')
+          PY
+
+      - name: Commit repaired guide
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace fragile P6000 SVGs with real JPEG photos [p6000-cleanup]"
+          git push origin HEAD:main
