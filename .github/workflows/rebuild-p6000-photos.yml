@@ -1,9 +1,8 @@
 name: Rebuild P6000 real-photo assets
 
 on:
-  push:
-    paths:
-      - ".github/workflows/rebuild-p6000-photos.yml"
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -13,10 +12,11 @@ jobs:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out repair branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: photo-repair
 
       - name: Extract real JPEGs and remove fragile rendering path
         shell: bash
@@ -150,11 +150,11 @@ jobs:
           print('P6000 real-photo rebuild validated successfully.')
           PY
 
-      - name: Commit repaired guide
+      - name: Commit repaired guide to branch
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Replace fragile P6000 SVGs with real JPEG photos [p6000-cleanup]"
-          git push origin HEAD:main
+          git push origin HEAD:photo-repair
