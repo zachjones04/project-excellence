@@ -1,0 +1,89 @@
+name: Diagnose P6000 photo history
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/diagnose-p6000-history.yml
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Inspect historical embedded images
+        shell: bash
+        run: |
+          python3 -m pip install --quiet pillow
+          python3 - <<'PY'
+          import base64
+          import hashlib
+          import io
+          import pathlib
+          import re
+          import subprocess
+          from PIL import Image, ImageOps
+
+          source_commit = "5f1c3149d3110a3062c791aa516942730fbc5b7d"
+          paths = [
+              "assets/p6000-real/step-01-open-cover.svg",
+              "assets/p6000-real/step-02-remove-roll.svg",
+              "assets/p6000-real/step-03-core-size.svg",
+              "assets/p6000-real/step-04-attach-adapters.svg",
+              "assets/p6000-real/step-05-seat-roll.svg",
+              "assets/p6000-real/step-06-feed-edge.svg",
+              "assets/p6000-real/step-07-align-close.svg",
+              "assets/p6000-real/step-08-load-confirm.svg",
+          ]
+
+          def dhash(image, size=16):
+              image = ImageOps.exif_transpose(image).convert("L").resize((size + 1, size), Image.Resampling.LANCZOS)
+              pixels = list(image.getdata())
+              value = 0
+              for y in range(size):
+                  row = pixels[y * (size + 1):(y + 1) * (size + 1)]
+                  for x in range(size):
+                      value = (value << 1) | int(row[x] > row[x + 1])
+              return f"{value:0{size * size // 4}x}"
+
+          lines = ["P6000 HISTORICAL IMAGE DIAGNOSTIC", f"source_commit={source_commit}", ""]
+          for path in paths:
+              try:
+                  svg = subprocess.check_output(["git", "show", f"{source_commit}:{path}"], text=True)
+                  match = re.search(r"data:image/(?:jpeg|jpg);base64,([^\"'<>]+)", svg, flags=re.IGNORECASE)
+                  if not match:
+                      lines.append(f"{path}\n  ERROR=embedded JPEG not found\n")
+                      continue
+                  data = base64.b64decode(match.group(1), validate=True)
+                  image = Image.open(io.BytesIO(data))
+                  normalized = ImageOps.exif_transpose(image).convert("RGB")
+                  lines.extend([
+                      path,
+                      f"  bytes={len(data)}",
+                      f"  sha256={hashlib.sha256(data).hexdigest()}",
+                      f"  format={image.format}",
+                      f"  original_size={image.size[0]}x{image.size[1]}",
+                      f"  normalized_size={normalized.size[0]}x{normalized.size[1]}",
+                      f"  pixel_sha256={hashlib.sha256(normalized.tobytes()).hexdigest()}",
+                      f"  dhash16={dhash(image)}",
+                      "",
+                  ])
+              except Exception as error:
+                  lines.append(f"{path}\n  ERROR={type(error).__name__}: {error}\n")
+
+          pathlib.Path("P6000_HISTORY_DIAGNOSTIC.txt").write_text("\n".join(lines), encoding="utf-8")
+          PY
+      - name: Commit report and remove workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add P6000_HISTORY_DIAGNOSTIC.txt
+          git rm .github/workflows/diagnose-p6000-history.yml
+          git commit -m "Record P6000 historical image diagnostic"
+          git push
