@@ -91,32 +91,44 @@ const PE_DATA = {
         {
           number: "1",
           title: "Open the roll-paper cover and release the holder",
-          text: "Lift the roll-paper cover. Push the holder lock lever down, then slide the movable holder to the left."
+          text: "Lift the roll-paper cover. Push the holder lock lever down, then slide the movable holder to the left.",
+          image: "assets/p6000/open.webp",
+          alt: "Epson P6000 roll-paper cover open with the holder release visible."
         },
         {
           number: "2",
           title: "Remove the current roll",
-          text: "Rewind any loose paper. Hold the roll securely, move it away from the fixed side, and lift it out."
+          text: "Rewind any loose paper. Hold the roll securely, move it away from the fixed side, and lift it out.",
+          image: "assets/p6000/remove.webp",
+          alt: "Current roll being lifted out of the Epson P6000."
         },
         {
           number: "3",
           title: "Prepare the new roll and adapters",
-          text: "Match both adapters to the roll core size. Insert one adapter into each end of the new roll and secure both tension levers."
+          text: "Match both adapters to the roll core size. Insert one adapter into each end of the new roll and secure both tension levers.",
+          image: "assets/p6000/prepare.avif",
+          alt: "Roll-media adapters positioned beside a new roll of paper."
         },
         {
           number: "4",
           title: "Place and lock the new roll",
-          text: "Set the roll into the printer with the paper facing the feed slot. Seat both adapter ends, slide the holder right, and raise the lock lever."
+          text: "Set the roll into the printer with the paper facing the feed slot. Seat both adapter ends, slide the holder right, and raise the lock lever.",
+          image: "assets/p6000/seat.avif",
+          alt: "New roll seated in the Epson P6000 holder."
         },
         {
           number: "5",
           title: "Feed and align the paper",
-          text: "Press the Load button when needed. Insert the leading edge evenly, pull it down until it is straight and centered, then close the cover."
+          text: "Press the Load button when needed. Insert the leading edge evenly, pull it down until it is straight and centered, then close the cover.",
+          image: "assets/p6000/feed.webp",
+          alt: "Leading edge of roll paper being guided into the Epson P6000 feed slot."
         },
         {
           number: "6",
           title: "Load and confirm the settings",
-          text: "Press Load and allow the printer to position the paper. Confirm that the displayed media type and roll information match the installed roll, then press OK."
+          text: "Press Load and allow the printer to position the paper. Confirm that the displayed media type and roll information match the installed roll, then press OK.",
+          image: "assets/p6000/verify.avif",
+          alt: "Epson P6000 control panel displaying the loaded roll-paper settings."
         }
       ]
     }
