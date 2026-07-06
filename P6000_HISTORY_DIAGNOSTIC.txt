@@ -1,0 +1,44 @@
+P6000 HISTORICAL IMAGE DIAGNOSTIC
+source_commit=5f1c3149d3110a3062c791aa516942730fbc5b7d
+
+assets/p6000-real/step-01-open-cover.svg
+  ERROR=Error: Invalid base64-encoded string: number of data characters (16233) cannot be 1 more than a multiple of 4
+
+assets/p6000-real/step-02-remove-roll.svg
+  ERROR=Error: Invalid base64-encoded string: number of data characters (10773) cannot be 1 more than a multiple of 4
+
+assets/p6000-real/step-03-core-size.svg
+  bytes=10983
+  sha256=d8d8a28937949e57e3db4bc84628d68683bd8380a6a5221d6162747ac23f2196
+  format=JPEG
+  original_size=520x347
+  normalized_size=520x347
+  pixel_sha256=56d5026b355c4ed4f1ca2026b3d23faa4ceb233cc9658b67a3a2377a887cc98e
+  dhash16=139025c058cbc8c7e1658f658f22cb3299327b327b125a125d925c309e62ce40
+
+assets/p6000-real/step-04-attach-adapters.svg
+  ERROR=Error: Incorrect padding
+
+assets/p6000-real/step-05-seat-roll.svg
+  ERROR=OSError: broken data stream when reading image file
+
+assets/p6000-real/step-06-feed-edge.svg
+  bytes=8396
+  sha256=2db79b5aa34e3ab6e669174f888b1298f7d9ac794a5108f3be1468fcf6c4a8af
+  format=JPEG
+  original_size=520x347
+  normalized_size=520x347
+  pixel_sha256=bcb7b6eeb91e957f591ae4b8f7667c26faf736fbf00d27593f557c5ee3ba1615
+  dhash16=b99ec3fe9f06800701bb399b24cb29fb3bfb9003802500da020180bf07cf9b02
+
+assets/p6000-real/step-07-align-close.svg
+  bytes=8267
+  sha256=d8e1e698f2b8d9a3bf60d925245327cd11151926a2208bc17d0c1e5a4f3ef34f
+  format=JPEG
+  original_size=520x347
+  normalized_size=520x347
+  pixel_sha256=cb7917560b714278e376c54e707596fb8c40a06895d8667708dd26de936a60c0
+  dhash16=599b69be6f01c003807d1c3d1de51eff1ded28010003803ec240c01f03ef5581
+
+assets/p6000-real/step-08-load-confirm.svg
+  ERROR=Error: Incorrect padding
