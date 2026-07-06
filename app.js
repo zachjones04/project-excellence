@@ -1,5 +1,5 @@
 const app = document.getElementById("app");
-const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","main-troubleshooting":"main-photo","poster-supplies":"poster-printer","support-main":"main-photo","support-poster":"poster-printer","support-ipos":"ipos","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-drinkware":"main-products","guide-specialty":"main-products","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-poster-troubleshooting":"poster-printer","guide-photo-checkout":"ipos","guide-qr-pickup":"ipos","guide-register-troubleshooting":"ipos","guide-customer-questions":"ipos"};
+const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","main-troubleshooting":"main-photo","poster-supplies":"poster-printer","support-main":"main-photo","support-poster":"poster-printer","support-ipos":"ipos","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-poster-troubleshooting":"poster-printer","guide-photo-checkout":"ipos","guide-qr-pickup":"ipos","guide-register-troubleshooting":"ipos","guide-customer-questions":"ipos"};
 
 function routeTo(id, push = true) {
   const target = id || "home";
@@ -53,14 +53,9 @@ function content(id) {
   if (id === "home") return heading(PE_DATA.home.title, PE_DATA.home.description, id) + cards(PE_DATA.home.cards);
   if (PE_DATA.pages[id]) return heading(PE_DATA.pages[id].title, PE_DATA.pages[id].description, id) + cards(PE_DATA.pages[id].cards);
   if (PE_DATA.supplies[id]) return supplies(id);
-  if (id === "guide-load-paper") return paperGuidePrep(id);
   if (PE_DATA.employeeGuides?.[id]) return employeeGuide(id, PE_DATA.employeeGuides[id]);
   if (PE_DATA.guides[id]) return guide(id, PE_DATA.guides[id]);
   return heading("Page Not Found", "Return home and choose a workstation.", id) + `<button class="primary-action" type="button" onclick="routeTo('home')">Return home</button>`;
-}
-
-function paperGuidePrep(id) {
-  return `${heading("Load Roll Paper — Epson SureColor P6000", "This guide is being rebuilt with a clean, approved real-photo sequence.", id)}<article class="guide"><div class="guide-banner"><div class="guide-banner-icon">↻</div><div><span>GUIDE REFRESH IN PROGRESS</span><strong>Use trained support until the verified photo guide returns</strong></div></div><section class="guide-section"><span class="section-number">01</span><div><h3>Temporary direction</h3><p>Ask a photo-trained colleague or shift leader to assist with loading or replacing roll paper. Do not force the roll holder, adapters, cover, or paper feed.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Next update</h3><p>The next build will use normal high-quality JPG files, a clear six-step sequence, and no SVG wrappers or base64 photo loader.</p></div></section></article>`;
 }
 
 function supplies(id) {
@@ -68,22 +63,17 @@ function supplies(id) {
   return `${heading(d.title, d.description, id)}<section class="search-panel"><div class="search-icon">⌕</div><div class="search-copy"><strong>Find a supply</strong><span>Search by name, item number, category, or note.</span></div><label class="sr-only" for="supplySearch">Search supplies</label><input class="search" id="supplySearch" type="search" placeholder="Search supplies..." oninput="filterTable()"><span class="search-results" id="searchResults" aria-live="polite"></span></section><div class="table-wrap"><table id="supplyTable"><thead><tr><th>Category</th><th>Item</th><th>CVS Item #</th><th>Notes</th></tr></thead><tbody>${d.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
 
-function list(items = []) {
-  return items.map(item => `<li>${item}</li>`).join("");
+function stepCards(steps = []) {
+  return steps.map(step => `<article class="visual-step instruction-step">${step.image ? `<div class="visual-step-media"><img src="${step.image}" alt="${step.alt || ""}" loading="lazy" decoding="async"></div>` : ""}<div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p></div></div></article>`).join("");
 }
 
-function employeeGuide(id, g) {
-  const meta = [["Equipment", g.equipment], ["Task", g.task], ["Time", g.time], ["Difficulty", g.difficulty]].map(([label, value]) => `<div class="guide-meta-item"><span>${label}</span><strong>${value}</strong></div>`).join("");
-  const steps = g.steps.map(step => `<article class="visual-step"><div class="visual-step-media"><img src="${step.image}" alt="${step.alt}" loading="lazy" decoding="async" width="720" height="480"></div><div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p>${step.tip ? `<div class="step-tip"><strong>Helpful check:</strong> ${step.tip}</div>` : ""}</div></div></article>`).join("");
-  const warnings = g.warnings?.length ? `<section class="warning-panel" aria-label="Important safety reminders"><div class="warning-icon">!</div><div><p class="eyebrow">Important</p><h3>Protect the printer, paper, and your hands</h3><ul>${list(g.warnings)}</ul></div></section>` : "";
-  const troubleshooting = g.troubleshooting?.length ? `<section class="troubleshooting-panel"><div class="section-heading"><p class="eyebrow">Common problems</p><h3>Try these checks before escalating</h3></div><div class="issue-grid">${g.troubleshooting.map(item => `<article class="issue-card"><h4>${item.issue}</h4><p>${item.action}</p></article>`).join("")}</div></section>` : "";
-  const related = g.related?.length ? `<section class="related-panel"><div><p class="eyebrow">Related support</p><h3>Continue with another guide</h3></div><div class="related-links">${g.related.map(item => `<button type="button" onclick="routeTo('${item.id}')">${item.title}<span>→</span></button>`).join("")}</div></section>` : "";
-  return `${heading(g.title, g.description, id)}<article class="employee-guide master-guide"><section class="guide-overview"><div class="guide-overview-main"><span class="guide-type">${g.guideType || "Employee procedure"}</span><h3>${g.objective}</h3><p>Last reviewed: ${g.updated || "Project Excellence"}</p></div><div class="guide-meta-grid">${meta}</div></section><section class="prep-grid"><div class="prep-card"><p class="eyebrow">What you need</p><h3>Supplies and equipment</h3><ul>${list(g.supplies)}</ul></div><div class="prep-card"><p class="eyebrow">Before you start</p><h3>Prepare the task</h3><ul>${list(g.before)}</ul></div></section>${warnings}<section class="steps-heading"><p class="eyebrow">Step-by-step procedure</p><h3>Follow each photo in order</h3><p>Complete the steps from left to right. Stop when something does not match the photo or requires force.</p></section><section class="visual-steps" aria-label="${g.task} steps">${steps}</section><section class="completion-panel"><div><p class="eyebrow">Before resuming output</p><h3>Final quality check</h3><ul>${list(g.checks)}</ul></div><div class="stop-card"><span>!</span><p><strong>Stop instead of forcing it.</strong> ${g.escalation}</p></div></section>${troubleshooting}${related}</article>`;
+function employeeGuide(id, guideData) {
+  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><span class="section-number">02</span><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(guideData.steps)}</div></div></section></article>`;
 }
 
 function guide(id, title) {
   if (id.startsWith("support-")) return support(id);
-  return `${heading(title, "Use this guide for quick, point-of-need support. Final steps and visuals will be added after review.", id)}<article class="guide"><div class="guide-banner"><div class="guide-banner-icon">✓</div><div><span>PROJECT EXCELLENCE GUIDE</span><strong>${title}</strong></div></div><div class="info-grid"><div class="info-box"><div class="info-label">Status</div><span class="status-pill">Template Ready</span></div><div class="info-box"><div class="info-label">Version</div><strong>${PE_DATA.version} Draft</strong></div><div class="info-box"><div class="info-label">Owner</div><strong>Project Excellence</strong></div></div><section class="guide-section"><span class="section-number">01</span><div><h3>Purpose</h3><p>Complete the task accurately and consistently.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Quick Workflow</h3><ol><li>Confirm the order.</li><li>Gather the correct supplies.</li><li>Complete the approved process.</li><li>Check quality.</li></ol></div></section></article>`;
+  return `${heading(title, "Find the material location, then follow the approved instructions in order.", id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Material Location</h3><p>Store-specific location to be confirmed.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Step-by-Step Instructions</h3><p>The approved instructions for this task will be added during the guide build.</p></div></section></article>`;
 }
 
 function support(id) {
