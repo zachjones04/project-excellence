@@ -1,0 +1,134 @@
+name: Publish approved P6000 photos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-approved-p6000.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract and validate approved JPG files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import base64
+          import hashlib
+          import pathlib
+          import re
+          import subprocess
+
+          source_commit = "5f1c3149d3110a3062c791aa516942730fbc5b7d"
+          source_paths = [
+              "assets/p6000-real/step-01-open-cover.svg",
+              "assets/p6000-real/step-02-remove-roll.svg",
+              "assets/p6000-real/step-03-core-size.svg",
+              "assets/p6000-real/step-04-attach-adapters.svg",
+              "assets/p6000-real/step-05-seat-roll.svg",
+              "assets/p6000-real/step-06-feed-edge.svg",
+              "assets/p6000-real/step-07-align-close.svg",
+              "assets/p6000-real/step-08-load-confirm.svg",
+          ]
+          expected = {
+              "ac486e89a611b23cd444b1922f87c78a1e67fab1a7cf3c9369b96f68a511f9b9": "open.jpg",
+              "75f3d970c6ff9d532fa459551036d86b71fe9cb341aa68d3009dfc8f8df58b7e": "remove.jpg",
+              "af93d7ff118429ebbc3b75029925f2bcd03dca0a623ac6f6745dc48632a147e5": "prepare.jpg",
+              "7971a334d16d2c9175f0a68b932e01aa2dc6543684870d70f1f7995c06fceeb0": "seat.jpg",
+              "62e6184d8681b7ab45b90c79e8775bd416c8d90664a6ec351a4975dbd65ae4df": "feed.jpg",
+              "1c0d4cfdf56e912734cd098500a1c39553d06b39453de1d958167c4331e18d71": "verify.jpg",
+          }
+
+          destination = pathlib.Path("assets/p6000")
+          destination.mkdir(parents=True, exist_ok=True)
+          found = {}
+
+          for source_path in source_paths:
+              svg = subprocess.check_output(
+                  ["git", "show", f"{source_commit}:{source_path}"],
+                  text=True,
+              )
+              match = re.search(
+                  r'data:image/(?:jpeg|jpg);base64,([^\"\'<>]+)',
+                  svg,
+                  flags=re.IGNORECASE,
+              )
+              if not match:
+                  raise RuntimeError(f"Embedded JPEG not found: {source_path}")
+              image_bytes = base64.b64decode(match.group(1), validate=True)
+              digest = hashlib.sha256(image_bytes).hexdigest()
+              print(f"{source_path}: {digest} ({len(image_bytes):,} bytes)")
+              if digest not in expected:
+                  continue
+              filename = expected[digest]
+              if filename in found:
+                  raise RuntimeError(f"Duplicate approved image match: {filename}")
+              output_path = destination / filename
+              output_path.write_bytes(image_bytes)
+              found[filename] = source_path
+
+          required = set(expected.values())
+          missing = sorted(required - set(found))
+          if missing:
+              raise RuntimeError(f"Approved images were not recovered: {missing}")
+
+          for digest, filename in expected.items():
+              image_bytes = (destination / filename).read_bytes()
+              if not image_bytes.startswith(b"\xff\xd8\xff"):
+                  raise RuntimeError(f"Invalid JPEG signature: {filename}")
+              actual = hashlib.sha256(image_bytes).hexdigest()
+              if actual != digest:
+                  raise RuntimeError(f"SHA-256 mismatch: {filename}")
+
+          data_path = pathlib.Path("data.js")
+          data = data_path.read_text(encoding="utf-8")
+          replacements = {
+              "assets/p6000/open.webp": "assets/p6000/open.jpg",
+              "assets/p6000/remove.webp": "assets/p6000/remove.jpg",
+              "assets/p6000/prepare.avif": "assets/p6000/prepare.jpg",
+              "assets/p6000/seat.avif": "assets/p6000/seat.jpg",
+              "assets/p6000/feed.webp": "assets/p6000/feed.jpg",
+              "assets/p6000/verify.avif": "assets/p6000/verify.jpg",
+          }
+          for old, new in replacements.items():
+              if data.count(old) != 1:
+                  raise RuntimeError(f"Expected one data.js reference to {old}")
+              data = data.replace(old, new)
+          if 'version: "2.5"' not in data:
+              raise RuntimeError("Website version changed unexpectedly")
+          data_path.write_text(data, encoding="utf-8")
+
+          print("Recovered and validated all six approved P6000 JPG files:")
+          for filename in sorted(found):
+              print(f"  {filename} <- {found[filename]}")
+          PY
+
+      - name: Commit approved files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/p6000 data.js
+          git rm .github/workflows/publish-approved-p6000.yml
+          git commit -m "Publish approved P6000 guide photos"
+          git push
+
+      - name: Remove workflow after validation failure
+        if: failure()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -f .github/workflows/publish-approved-p6000.yml ]; then
+            git rm .github/workflows/publish-approved-p6000.yml
+            git commit -m "Remove failed P6000 publishing workflow" || true
+            git push || true
+          fi
