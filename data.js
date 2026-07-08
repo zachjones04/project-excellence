@@ -104,27 +104,41 @@ const PE_DATA = {
         },
         {
           number: "3",
+          title: "Release the adapter tabs",
+          text: "On the adapter at each end of the roll, press the gray release tabs before pulling the adapter away from the cardboard core.",
+          image: "assets/p6000/release-tabs.jpg",
+          alt: "Close-up of the Epson P6000 roll adapter release tabs being pressed."
+        },
+        {
+          number: "4",
+          title: "Open the adapter lever",
+          text: "Flip the adapter lever open so the adapter can slide off or lock onto the new roll without forcing it.",
+          image: "assets/p6000/adapter-lever.jpg",
+          alt: "Close-up of the Epson P6000 roll adapter lever opened."
+        },
+        {
+          number: "5",
           title: "Prepare the new roll and adapters",
           text: "Match both adapters to the roll core size. Insert one adapter into each end of the new roll and secure both tension levers.",
           image: "assets/p6000/prepare.jpg",
           alt: "Close-up of the Epson P6000 roll adapter size selector."
         },
         {
-          number: "4",
+          number: "6",
           title: "Place and lock the new roll",
           text: "Set the roll into the printer with the paper facing the feed slot. Seat both adapter ends, slide the holder right, and raise the lock lever.",
           image: "assets/p6000/seat.jpg",
           alt: "In-store Epson P6000 roll paper seated in the loaded position."
         },
         {
-          number: "5",
+          number: "7",
           title: "Feed and align the paper",
           text: "Press the Load button when needed. Insert the leading edge evenly, pull it down until it is straight and centered, then close the cover.",
           image: "assets/p6000/feed.jpg",
           alt: "In-store photo showing the leading edge of roll paper being fed into the Epson P6000."
         },
         {
-          number: "6",
+          number: "8",
           title: "Load and confirm the settings",
           text: "Press Load and allow the printer to position the paper. Confirm that the displayed media type and roll information match the installed roll, then press OK.",
           image: "assets/p6000/verify.jpg",
