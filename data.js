@@ -118,27 +118,34 @@ const PE_DATA = {
         },
         {
           number: "5",
+          title: "Remove and keep the adapters",
+          text: "Pull the adapter straight off the old cardboard core. Keep both adapters nearby because they must go onto the new roll.",
+          image: "assets/p6000/adapter-removed.jpg",
+          alt: "Epson P6000 roll adapter removed from the cardboard core and ready to reuse."
+        },
+        {
+          number: "6",
           title: "Prepare the new roll and adapters",
           text: "Match the adapter setting to the core size printed on the roll or shown inside the cardboard core. Push one adapter into each end until it sits flush, then close both gray levers.",
           image: "assets/p6000/prepare.jpg",
           alt: "Close-up of the Epson P6000 roll adapter size selector."
         },
         {
-          number: "6",
+          number: "7",
           title: "Place and lock the new roll",
           text: "Place the roll back into the printer with the loose paper edge coming forward toward the feed slot. Seat both adapter ends, slide the holder back in, and raise the lock lever.",
           image: "assets/p6000/seat.jpg",
           alt: "In-store Epson P6000 roll paper seated in the loaded position."
         },
         {
-          number: "7",
+          number: "8",
           title: "Feed and align the paper",
           text: "Guide the leading edge into the feed slot with both hands. Keep it straight and centered as you pull it down to the shown position, then close the roll-paper cover.",
           image: "assets/p6000/feed.jpg",
           alt: "In-store photo showing the leading edge of roll paper being fed into the Epson P6000."
         },
         {
-          number: "8",
+          number: "9",
           title: "Load and confirm the settings",
           text: "Press the Load button and let the printer pull the paper into position. Confirm the media type and roll information on the screen, then press OK if everything matches.",
           image: "assets/p6000/verify.jpg",
