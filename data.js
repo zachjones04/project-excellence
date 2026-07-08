@@ -85,7 +85,7 @@ const PE_DATA = {
   employeeGuides: {
     "guide-load-paper": {
       title: "Load Roll Paper — Epson SureColor P6000",
-      description: "Find the correct roll paper, then follow each loading step in order.",
+      description: "Find the correct roll paper, then follow the 8 simple loading steps in order.",
       materialLocation: "Poster paper rolls are stored in the poster-printer supply area. The roll-media adapters stay on the current roll or beside the Epson P6000.",
       steps: [
         {
