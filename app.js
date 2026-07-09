@@ -68,7 +68,7 @@ function stepCards(steps = []) {
 }
 
 function employeeGuide(id, guideData) {
-  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><span class="section-number">02</span><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(guideData.steps)}</div></div></section></article>`;
+  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(guideData.steps)}</div></div></section></article>`;
 }
 
 function guide(id, title) {
