@@ -90,62 +90,76 @@ const PE_DATA = {
       steps: [
         {
           number: "1",
-          title: "Open, unlock, and slide the holder out",
-          text: "Lift the long roll-paper cover. Push the holder lock lever down, then slide the left holder outward until the left adapter is clear and the roll can lift out.",
-          image: "assets/p6000/open.jpg",
-          alt: "In-store Epson P6000 with the roll-paper cover open and the left holder unlocked."
+          title: "Press the blue lock lever",
+          text: "Open the roll-paper cover. On the left holder, press the blue lock lever down to unlock it.",
+          image: "assets/p6000/unlock-lever.jpg",
+          alt: "In-store close-up of a hand pressing the blue lock lever on the Epson P6000 left holder."
         },
         {
           number: "2",
+          title: "Slide the holder left",
+          text: "Keep the lever down and slide the left holder to the left, away from the roll.",
+          image: "assets/p6000/slide-holder-left.jpg",
+          alt: "In-store close-up of the Epson P6000 left holder being slid left away from the roll."
+        },
+        {
+          number: "3",
+          title: "Make sure the roll is clear",
+          text: "Stop when the metal pin is clear of the roll adapter. The roll should now have enough room to lift out.",
+          image: "assets/p6000/holder-clear.jpg",
+          alt: "In-store close-up of the Epson P6000 left holder slid left with the roll adapter clear."
+        },
+        {
+          number: "4",
           title: "Lift the old roll out",
           text: "Rewind any loose paper back onto the roll. Hold both black adapter ends, lift the whole roll assembly straight up and out, and set it on a clean flat surface.",
           image: "assets/p6000/remove.jpg",
           alt: "In-store photo showing the old roll assembly lifted out of the Epson P6000."
         },
         {
-          number: "3",
+          number: "5",
           title: "Release the adapter tabs",
           text: "Each end of the roll has a black adapter. Press the gray release tabs on one adapter so it can loosen from the cardboard core. Repeat on the other end.",
           image: "assets/p6000/release-tabs.jpg",
           alt: "Close-up of the Epson P6000 roll adapter release tabs being pressed."
         },
         {
-          number: "4",
+          number: "6",
           title: "Open the adapter lever",
           text: "Swing the gray adapter lever fully open. This loosens the adapter so it can slide off without forcing or twisting it.",
           image: "assets/p6000/adapter-lever.jpg",
           alt: "Close-up of the Epson P6000 roll adapter lever opened."
         },
         {
-          number: "5",
+          number: "7",
           title: "Remove and keep the adapters",
           text: "Pull the adapter straight off the old cardboard core. Keep both adapters nearby because they must go onto the new roll.",
           image: "assets/p6000/adapter-removed.jpg",
           alt: "Epson P6000 roll adapter removed from the cardboard core and ready to reuse."
         },
         {
-          number: "6",
+          number: "8",
           title: "Prepare the new roll and adapters",
           text: "Match the adapter setting to the core size printed on the roll or shown inside the cardboard core. Push one adapter into each end of the new roll until it sits flush, then close both gray levers.",
           image: "assets/p6000/prepare.jpg",
           alt: "Close-up of the Epson P6000 roll adapter size selector."
         },
         {
-          number: "7",
+          number: "9",
           title: "Seat and lock the new roll",
           text: "Place the roll back into the printer with the loose paper edge coming forward toward the feed slot. Seat the right adapter first, slide the left holder inward until both adapters are seated, then raise the lock lever.",
           image: "assets/p6000/seat.jpg",
           alt: "In-store Epson P6000 roll paper seated in the loaded position."
         },
         {
-          number: "8",
+          number: "10",
           title: "Feed and align the paper",
           text: "Guide the leading edge into the feed slot with both hands. Keep it straight and centered as you pull it down to the shown position.",
           image: "assets/p6000/feed.jpg",
           alt: "In-store photo showing the leading edge of roll paper being fed into the Epson P6000."
         },
         {
-          number: "9",
+          number: "11",
           title: "Load and confirm the settings",
           text: "Close the roll-paper cover. Press the Load button and let the printer pull the paper into position. Confirm the media type and roll information on the screen, then press OK if everything matches.",
           image: "assets/p6000/verify.jpg",
