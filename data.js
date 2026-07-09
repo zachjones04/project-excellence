@@ -16,7 +16,7 @@ const PE_DATA = {
       cards: [
         { id: "main-products", icon: "BOX", title: "Product Guides", description: "Canvas, books, calendars, magnets, cards, and specialty products." },
         { id: "main-supplies", icon: "#", title: "Supplies & Item Numbers", description: "Look up supply names, item numbers, and notes." },
-        { id: "main-maintenance", icon: "TOOL", title: "Printer Maintenance", description: "Replace paper, replace print kits, daily checks, and basic care." },
+        { id: "main-maintenance", icon: "MT", title: "Printer Maintenance", description: "Replace paper, replace print kits, daily checks, and basic care." },
         { id: "main-troubleshooting", icon: "!", title: "Troubleshooting", description: "Printer offline, paper jams, poor print quality, and common fixes." },
         { id: "support-main", icon: "TEL", title: "Support Contacts", description: "Store leadership, help desk, and escalation notes." }
       ]
