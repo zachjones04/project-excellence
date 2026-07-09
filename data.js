@@ -1,5 +1,5 @@
 const PE_DATA = {
-  version: "2.5",
+  version: "2.6",
   home: {
     title: "Select Your Workstation",
     description: "Choose the area where you need help. QR codes link directly to each workstation.",

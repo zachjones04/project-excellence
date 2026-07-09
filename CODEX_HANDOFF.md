@@ -15,6 +15,8 @@ The immediate focus has been the Epson SureColor P6000 **Load Roll Paper** guide
 
 ## Current state as of July 9, 2026
 
+End-session closeout: Zachery explicitly requested the public whole-site version bump and project record update. The site now displays version `2.6`, and `index.html` uses cache key `20260709-end-session-v26`.
+
 The poster-printer hub is intentionally simplified to task categories only: Supplies & Item Numbers, Load Roll Paper, Replace Ink, Troubleshooting, and Support Contacts. The broader **Full Poster Printer Guide** route still exists at `#guide-poster-products` for reuse/reference, but it is not shown as a top-level hub card.
 
 New website-ready P6000 assets added:

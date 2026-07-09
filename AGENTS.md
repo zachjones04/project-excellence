@@ -54,7 +54,7 @@ Do not replace them without Zachery’s approval.
 
 ## Current version rule
 
-The repository currently displays version `2.5` because of an earlier mistaken bump. Do not increment it for Load Roll Paper page refinements. Do not silently change it back either; discuss any correction with Zachery first.
+The repository intentionally displays version `2.6` after Zachery requested an end-session version bump on July 9, 2026. Do not increment it for small single-page refinements. Only bump it again for a session closeout, a meaningful multi-page release, or when Zachery explicitly requests it.
 
 ## Testing minimum
 
