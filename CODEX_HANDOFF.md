@@ -11,11 +11,11 @@ The immediate focus has been the Epson SureColor P6000 **Load Roll Paper** guide
 - Repository: `zachjones04/project-excellence`
 - Branch used for the live site: `main`
 - Live site: `https://zachjones04.github.io/project-excellence/`
-- Target routes: `#guide-poster-products`, `#guide-load-paper`, `#guide-replace-ink`, `#guide-poster-troubleshooting`
+- Target routes: `#poster-printer`, `#guide-load-paper`, `#guide-replace-ink`, `#guide-poster-troubleshooting`
 
 ## Current state as of July 9, 2026
 
-The poster-printer section now has a broader **Full Poster Printer Guide** at `#guide-poster-products`. It uses real in-store P6000 overview photos and routes employees to the right next action: Load Roll Paper, Replace Ink, Supplies & Item Numbers, Troubleshooting, or Support Contacts.
+The poster-printer hub is intentionally simplified to task categories only: Supplies & Item Numbers, Load Roll Paper, Replace Ink, Troubleshooting, and Support Contacts. The broader **Full Poster Printer Guide** route still exists at `#guide-poster-products` for reuse/reference, but it is not shown as a top-level hub card.
 
 New website-ready P6000 assets added:
 

@@ -36,7 +36,6 @@ const PE_DATA = {
       title: "Poster Printer",
       description: "Use this hub for poster printing, large-format supplies, maintenance, and troubleshooting.",
       cards: [
-        { id: "guide-poster-products", icon: "P6", title: "Full Printer Guide", description: "Start here for paper, ink, output checks, quality checks, and next steps." },
         { id: "poster-supplies", icon: "#", title: "Supplies & Item Numbers", description: "Ink, paper rolls, item numbers, and notes." },
         { id: "guide-load-paper", icon: "RL", title: "Load Roll Paper", description: "Material location and step-by-step Epson P6000 loading instructions." },
         { id: "guide-replace-ink", icon: "INK", title: "Replace Ink", description: "Ink location and step-by-step replacement instructions." },
