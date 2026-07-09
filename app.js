@@ -13,12 +13,13 @@ function pageTitle(id) {
   if (id === "home") return PE_DATA.home.title;
   if (PE_DATA.pages[id]) return PE_DATA.pages[id].title;
   if (PE_DATA.supplies[id]) return PE_DATA.supplies[id].title;
+  if (PE_DATA.printerGuides?.[id]) return PE_DATA.printerGuides[id].title;
   if (PE_DATA.employeeGuides?.[id]) return PE_DATA.employeeGuides[id].title;
   return PE_DATA.guides[id] || "Page Not Found";
 }
 
 function heading(title, description, id) {
-  const label = id === "home" ? "Choose a workstation" : PE_DATA.pages[id] ? "Workstation support" : PE_DATA.supplies[id] ? "Supply reference" : PE_DATA.employeeGuides?.[id] ? "Employee quick guide" : "Quick guide";
+  const label = id === "home" ? "Choose a workstation" : PE_DATA.pages[id] ? "Workstation support" : PE_DATA.supplies[id] ? "Supply reference" : PE_DATA.printerGuides?.[id] ? "Printer guide" : PE_DATA.employeeGuides?.[id] ? "Employee quick guide" : "Quick guide";
   return `<section class="page-heading ${id === "home" ? "home-heading" : ""}"><p class="eyebrow">${label}</p><h2>${title}</h2><p class="page-description">${description || ""}</p>${id === "home" ? '<div class="hero-chips"><span>QR-ready</span><span>Mobile-first</span><span>Fast task support</span></div>' : ""}</section>`;
 }
 
@@ -35,7 +36,7 @@ function back(id) {
 }
 
 function render(id = "home") {
-  const valid = id === "home" || PE_DATA.pages[id] || PE_DATA.supplies[id] || PE_DATA.employeeGuides?.[id] || PE_DATA.guides[id];
+  const valid = id === "home" || PE_DATA.pages[id] || PE_DATA.supplies[id] || PE_DATA.printerGuides?.[id] || PE_DATA.employeeGuides?.[id] || PE_DATA.guides[id];
   const target = valid ? id : "not-found";
   document.title = `${pageTitle(target)} | Project Excellence`;
   app.innerHTML = `<div class="app-shell"><a class="skip-link" href="#main-content">Skip to content</a>${header()}<main class="container" id="main-content" tabindex="-1">${back(target)}${content(target)}</main>${footer()}</div>`;
@@ -53,6 +54,7 @@ function content(id) {
   if (id === "home") return heading(PE_DATA.home.title, PE_DATA.home.description, id) + cards(PE_DATA.home.cards);
   if (PE_DATA.pages[id]) return heading(PE_DATA.pages[id].title, PE_DATA.pages[id].description, id) + cards(PE_DATA.pages[id].cards);
   if (PE_DATA.supplies[id]) return supplies(id);
+  if (PE_DATA.printerGuides?.[id]) return printerGuide(id, PE_DATA.printerGuides[id]);
   if (PE_DATA.employeeGuides?.[id]) return employeeGuide(id, PE_DATA.employeeGuides[id]);
   if (PE_DATA.guides[id]) return guide(id, PE_DATA.guides[id]);
   return heading("Page Not Found", "Return home and choose a workstation.", id) + `<button class="primary-action" type="button" onclick="routeTo('home')">Return home</button>`;
@@ -69,6 +71,14 @@ function stepCards(steps = []) {
 
 function employeeGuide(id, guideData) {
   return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(guideData.steps)}</div></div></section></article>`;
+}
+
+function printerGuide(id, guideData) {
+  const actions = guideData.actions.map(action => `<button class="printer-action" type="button" onclick="routeTo('${action.target}')"><span>${action.label}</span><strong>${action.title}</strong><small>${action.text}</small></button>`).join("");
+  const sections = guideData.sections.map(section => `<section class="printer-panel"><p class="eyebrow">${section.label}</p><h3>${section.title}</h3><ul>${section.items.map(item => `<li>${item}</li>`).join("")}</ul></section>`).join("");
+  const steps = stepCards(guideData.steps);
+  const checks = guideData.checks.map(item => `<li>${item}</li>`).join("");
+  return `${heading(guideData.title, guideData.description, id)}<article class="guide printer-guide"><section class="printer-hero"><div><p class="eyebrow">${guideData.heroLabel}</p><h3>${guideData.heroTitle}</h3><p>${guideData.heroText}</p><div class="printer-actions">${actions}</div></div><figure><img src="${guideData.heroImage}" alt="${guideData.heroAlt}" loading="eager" decoding="async"></figure></section><section class="printer-panels">${sections}</section><section class="guide-section guide-steps-section"><div><h3>Printer Walkthrough</h3><div class="visual-steps">${steps}</div></div></section><section class="printer-checks"><div><p class="eyebrow">Final check</p><h3>Before the next order prints</h3></div><ul>${checks}</ul></section></article>`;
 }
 
 function guide(id, title) {

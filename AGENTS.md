@@ -32,14 +32,23 @@ Before changing any file, read `CODEX_HANDOFF.md` in the repository root.
 
 ## Current image requirement
 
-The Load Roll Paper page must use these approved local assets:
+The Load Roll Paper page currently uses these approved local in-store assets:
 
-- `assets/p6000/open.jpg`
+- `assets/p6000/unlock-lever.jpg`
+- `assets/p6000/slide-holder-left.jpg`
+- `assets/p6000/holder-clear.jpg`
 - `assets/p6000/remove.jpg`
+- `assets/p6000/adapter-lever.jpg`
+- `assets/p6000/adapter-removed.jpg`
 - `assets/p6000/prepare.jpg`
 - `assets/p6000/seat.jpg`
 - `assets/p6000/feed.jpg`
 - `assets/p6000/verify.jpg`
+
+The full poster printer guide additionally uses:
+
+- `assets/p6000/overview.jpg`
+- `assets/p6000/loaded-roll.jpg`
 
 Do not replace them without Zachery’s approval.
 
@@ -54,7 +63,7 @@ Before requesting publication approval:
 - Run the site locally.
 - Open the home page and all three workstation routes.
 - Open `#guide-load-paper` directly.
-- Confirm all six approved images load.
+- Confirm all approved P6000 images load.
 - Test Back navigation.
 - Test desktop and phone-size layouts.
 - Confirm no console errors.

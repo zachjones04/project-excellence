@@ -11,7 +11,31 @@ The immediate focus has been the Epson SureColor P6000 **Load Roll Paper** guide
 - Repository: `zachjones04/project-excellence`
 - Branch used for the live site: `main`
 - Live site: `https://zachjones04.github.io/project-excellence/`
-- Target route: `#guide-load-paper`
+- Target routes: `#guide-poster-products`, `#guide-load-paper`, `#guide-replace-ink`, `#guide-poster-troubleshooting`
+
+## Current state as of July 9, 2026
+
+The poster-printer section now has a broader **Full Poster Printer Guide** at `#guide-poster-products`. It uses real in-store P6000 overview photos and routes employees to the right next action: Load Roll Paper, Replace Ink, Supplies & Item Numbers, Troubleshooting, or Support Contacts.
+
+New website-ready P6000 assets added:
+
+- `assets/p6000/overview.jpg`
+- `assets/p6000/loaded-roll.jpg`
+
+The Load Roll Paper guide now uses 10 local in-store photos:
+
+- `assets/p6000/unlock-lever.jpg`
+- `assets/p6000/slide-holder-left.jpg`
+- `assets/p6000/holder-clear.jpg`
+- `assets/p6000/remove.jpg`
+- `assets/p6000/adapter-lever.jpg`
+- `assets/p6000/adapter-removed.jpg`
+- `assets/p6000/prepare.jpg`
+- `assets/p6000/seat.jpg`
+- `assets/p6000/feed.jpg`
+- `assets/p6000/verify.jpg`
+
+The placeholder `#guide-replace-ink` and `#guide-poster-troubleshooting` pages have been replaced with simple employee quick guides. The ink and troubleshooting pages are text-first until the Drive ink/output photos are selected and converted into approved website-ready assets.
 
 ## Current state as of July 7, 2026
 
