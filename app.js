@@ -20,7 +20,7 @@ function pageTitle(id) {
 
 function heading(title, description, id) {
   const label = id === "home" ? "Choose a workstation" : PE_DATA.pages[id] ? "Workstation support" : PE_DATA.supplies[id] ? "Supply reference" : PE_DATA.printerGuides?.[id] ? "Printer guide" : PE_DATA.employeeGuides?.[id] ? "Employee quick guide" : "Quick guide";
-  return `<section class="page-heading ${id === "home" ? "home-heading" : ""}"><p class="eyebrow">${label}</p><h2>${title}</h2><p class="page-description">${description || ""}</p>${id === "home" ? '<div class="hero-chips"><span>QR-ready</span><span>Mobile-first</span><span>Fast task support</span></div>' : ""}</section>`;
+  return `<section class="page-heading ${id === "home" ? "home-heading" : ""}"><p class="eyebrow">${label}</p><h1>${title}</h1><p class="page-description">${description || ""}</p>${id === "home" ? '<div class="hero-chips"><span>QR-ready</span><span>Mobile-first</span><span>Fast task support</span></div>' : ""}</section>`;
 }
 
 function header() {
