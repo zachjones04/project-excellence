@@ -1,8 +1,21 @@
 # Main Photo Reference Photo Map
 
-Status: source/reference map for the Main Photo maintenance guides.
+Status: source/reference map plus selected website-ready image exports for the Main Photo maintenance guides.
 
-These Drive photos were found in `Project Excellence - Guide Photo Library`. They are raw source/reference photos, not yet exported into approved website-ready assets. Do not wire them into public guide image slots until the files are reviewed, converted, and stored under `assets/main-photo/`.
+These Drive photos were found in `Project Excellence - Guide Photo Library`. The selected guide images listed below have been exported into `assets/main-photo/` and wired into the public guide steps. Remaining Drive photos are still raw source/reference photos until reviewed and stored locally.
+
+Website-ready selections currently used:
+
+- `assets/main-photo/kodak305/overview.jpg`
+- `assets/main-photo/kodak305/open-interior-overview.jpg`
+- `assets/main-photo/kodak7000/control-panel-ready.jpg`
+- `assets/main-photo/kodak7000/open-interior-ribbon-paper.jpg`
+- `assets/main-photo/kodak8810/printer-overview-ready.jpg`
+- `assets/main-photo/kodak8810/side-panel-open.jpg`
+- `assets/main-photo/cx3240/printer-overview.jpg`
+- `assets/main-photo/cx3240/paper-loaded-in-tray.jpg`
+- `assets/main-photo/kiosk/front-overview.jpg`
+- `assets/main-photo/kiosk/side-door-open-interior.jpg`
 
 ## Kodak 305 Printer
 
