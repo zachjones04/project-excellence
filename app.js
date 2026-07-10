@@ -83,7 +83,7 @@ function printerGuide(id, guideData) {
 
 function guide(id, title) {
   if (id.startsWith("support-")) return support(id);
-  return `${heading(title, "Find the material location, then follow the approved instructions in order.", id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Material Location</h3><p>Store-specific location to be confirmed.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Step-by-Step Instructions</h3><p>The approved instructions for this task will be added during the guide build.</p></div></section></article>`;
+  return `${heading(title, "Use this as a quick decision page when a dedicated guide is not available yet.", id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Start at the workstation</h3><p>Identify the order, product, printer, register, or customer question before changing supplies or moving an order.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Use the closest finished guide</h3><p>Return to the workstation hub and choose the closest matching guide. If the guide does not match what you see, ask a photo-trained colleague or shift supervisor before forcing a workaround.</p></div></section></article>`;
 }
 
 function support(id) {

@@ -70,7 +70,7 @@ const PE_DATA = {
   supplies: {
     "main-supplies": {
       title: "Main Photo Supplies",
-      description: "Initial supply reference. Store-specific locations and photos will be added during implementation.",
+      description: "Use this reference to identify common Main Photo supplies, item numbers, and counting notes.",
       rows: [
         ["Print Kit", "Kodak 6850 Digital Print Kit", "265443", "Count print kit in printer as .5"],
         ["Print Kit", "Kodak 8800 Digital Print Kit", "832490", "Count print kit in printer as .5"],
