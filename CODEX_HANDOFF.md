@@ -21,6 +21,8 @@ Overnight-style follow-up work added Main Photo quick-guide coverage without cha
 
 The Google Drive photo library contains raw/reference photos for Kodak 305, Kodak 7000, Kodak 8810, Fujifilm CX3240, and Kodak Kiosk. Those photo sets were mapped in `MAIN_PHOTO_REFERENCE_PHOTO_MAP.md`, but they are **not** embedded in the public website yet because the Drive library marks them as raw source photos rather than approved web visuals, and Codex could not obtain repo-safe local image bytes through the connector during this pass. The next photo task is to export/review selected Main Photo images into `assets/main-photo/`, then add them to the matching guide steps.
 
+Second overnight follow-up work completed the remaining IPOS/Register guide placeholders. `#guide-photo-checkout`, `#guide-qr-pickup`, `#guide-register-troubleshooting`, and `#guide-customer-questions` now render as seven-step employee quick guides. The shared support pages no longer show blank contact placeholders; they now provide route-aware escalation guidance for Main Photo, Poster Printer, and IPOS. A full route audit after this update found zero placeholder routes.
+
 The poster-printer hub is intentionally simplified to task categories only: Supplies & Item Numbers, Load Roll Paper, Replace Ink, Troubleshooting, and Support Contacts. The broader **Full Poster Printer Guide** route still exists at `#guide-poster-products` for reuse/reference, but it is not shown as a top-level hub card.
 
 New website-ready P6000 assets added:
