@@ -25,11 +25,11 @@ const PE_DATA = {
       title: "Product Guides",
       description: "Select the photo product you are making.",
       cards: [
-        { id: "guide-canvas", icon: "CV", title: "Canvas", description: "Material location and step-by-step assembly instructions." },
-        { id: "guide-photo-books", icon: "BK", title: "Photo Books", description: "Material location and step-by-step assembly instructions." },
-        { id: "guide-calendars", icon: "CAL", title: "Calendars", description: "Material location and step-by-step assembly instructions." },
-        { id: "guide-magnets", icon: "MAG", title: "Magnets", description: "Material location and step-by-step assembly instructions." },
-        { id: "guide-specialty", icon: "SP", title: "Cards & Specialty", description: "Material location and step-by-step assembly instructions." }
+        { id: "guide-canvas", icon: "CV", title: "Canvas", description: "Gather the kit, inspect the print, wrap the canvas, and quality check the corners." },
+        { id: "guide-photo-books", icon: "BK", title: "Photo Books", description: "Check page order, assemble cleanly, inspect the spine, and package the book." },
+        { id: "guide-calendars", icon: "CAL", title: "Calendars", description: "Verify month order, bind or assemble the pages, and check the finished calendar." },
+        { id: "guide-magnets", icon: "MAG", title: "Magnets", description: "Match the order, apply the print cleanly, check edges, and package the magnet." },
+        { id: "guide-specialty", icon: "SP", title: "Cards & Specialty", description: "Use a simple check-build-package flow for cards and specialty photo products." }
       ]
     },
     "poster-printer": {
@@ -211,6 +211,104 @@ const PE_DATA = {
         { number: "5", title: "Check ink warnings", text: "If an ink warning is present, replace the exact color shown before reprinting." },
         { number: "6", title: "Protect the output", text: "Make sure the output catcher is positioned so the finished print can come out smoothly." },
         { number: "7", title: "Escalate repeating issues", text: "If the same order fails twice after paper, ink, and settings are checked, stop and contact store leadership or the photo help desk." }
+      ]
+    },
+    "guide-canvas": {
+      title: "Canvas Assembly",
+      description: "Use this when a canvas order is ready to assemble. Keep the print clean, wrap the edges evenly, and inspect the finished corners before pickup.",
+      materialLocation: "Canvas materials should be kept with the Main Photo product assembly supplies. Match the canvas size on the order before opening or using a kit.",
+      steps: [
+        { number: "1", title: "Match the order to the kit", text: "Read the order size and product type first. Pull the matching canvas kit and confirm the print belongs to the same order." },
+        { number: "2", title: "Inspect the print", text: "Check for scratches, streaks, wrong crop, bent corners, or fingerprints before assembly. Reprint first if the print is not clean." },
+        { number: "3", title: "Lay everything out", text: "Use a clean, flat workspace. Keep the print face down only on a clean surface so the image does not pick up dust or marks." },
+        { number: "4", title: "Center the image", text: "Position the canvas frame or backing so the image wraps evenly. Check the top, bottom, and sides before securing anything." },
+        { number: "5", title: "Wrap and secure the edges", text: "Work opposite sides first, then the remaining sides. Keep tension even so the face stays smooth and the corners do not bunch." },
+        { number: "6", title: "Finish the corners", text: "Fold corners neatly and press or secure them flat. The front image should stay square, clean, and free of wrinkles." },
+        { number: "7", title: "Quality check and package", text: "Check the front, corners, back, and order label. Package the canvas so the image side is protected until pickup." }
+      ]
+    },
+    "guide-photo-books": {
+      title: "Photo Book Assembly",
+      description: "Use this when a photo book order is ready to assemble. Keep pages in order, protect the cover, and check the spine before packaging.",
+      materialLocation: "Photo book covers, pages, binding pieces, and packaging should be kept with Main Photo product assembly supplies. Match the book size and style to the order.",
+      steps: [
+        { number: "1", title: "Confirm the book details", text: "Check the customer order for book size, cover style, page count, and quantity before pulling materials." },
+        { number: "2", title: "Check page order", text: "Keep all pages in the printed order. Do not shuffle or flip pages while moving them to the assembly area." },
+        { number: "3", title: "Inspect the prints", text: "Look for streaks, blank pages, damaged corners, or pages from another order. Fix print issues before binding." },
+        { number: "4", title: "Align the pages", text: "Tap the page stack gently on a clean flat surface so the edges line up. Make sure every page faces the correct direction." },
+        { number: "5", title: "Attach or bind the book", text: "Use the matching cover and binding method for that book style. Keep the pages seated evenly while closing or securing the spine." },
+        { number: "6", title: "Check the spine and page turn", text: "Open the book carefully and make sure pages turn normally, the spine is secure, and no page is loose or upside down." },
+        { number: "7", title: "Package for pickup", text: "Wipe away loose paper dust, confirm the order label, and package the book so the cover does not get scratched." }
+      ]
+    },
+    "guide-calendars": {
+      title: "Calendar Assembly",
+      description: "Use this when a calendar order is ready to finish. Keep months in order, check orientation, and make sure the calendar is clean before pickup.",
+      materialLocation: "Calendar pages, binding supplies, hangers, and packaging should be kept with Main Photo product assembly supplies. Match the calendar type and size to the order.",
+      steps: [
+        { number: "1", title: "Confirm the order", text: "Check the calendar size, quantity, and customer name. Make sure every printed page belongs to the same order." },
+        { number: "2", title: "Put pages in order", text: "Arrange the cover and months in the correct sequence. Watch for upside-down or backward pages." },
+        { number: "3", title: "Inspect print quality", text: "Check faces, text, edges, and full-page color areas for streaks, smudges, or wrong cropping." },
+        { number: "4", title: "Square the stack", text: "Tap the pages into one even stack. The top edge should be straight before binding or fastening." },
+        { number: "5", title: "Bind or fasten the calendar", text: "Use the correct binding or assembly pieces for that calendar style. Keep pages aligned while securing them." },
+        { number: "6", title: "Check the flip-through", text: "Flip through the finished calendar once. Confirm month order, page direction, and that the hanger or binding is secure." },
+        { number: "7", title: "Package carefully", text: "Place the calendar in the correct package with the order information visible and the printed surface protected." }
+      ]
+    },
+    "guide-magnets": {
+      title: "Magnet Assembly",
+      description: "Use this when a magnet order is ready to assemble. Match the size, keep the print straight, and check the edges before pickup.",
+      materialLocation: "Magnet blanks, printed sheets, cutters or templates, and packaging should be kept with Main Photo product assembly supplies. Match the magnet size to the order.",
+      steps: [
+        { number: "1", title: "Match the order and blank", text: "Confirm the customer name, magnet size, quantity, and photo before opening or using a blank." },
+        { number: "2", title: "Inspect the print", text: "Check for streaks, fingerprints, wrong crop, or bent edges. Reprint before assembly if the image is not clean." },
+        { number: "3", title: "Align the image", text: "Place the print on the magnet blank or template straight. Check the top and side edges before pressing it down." },
+        { number: "4", title: "Apply smoothly", text: "Press from one side across to the other so the print lays flat. Avoid trapping bubbles or creating wrinkles." },
+        { number: "5", title: "Trim or separate if needed", text: "If the product requires trimming or separation, follow the product edge and keep the final shape clean." },
+        { number: "6", title: "Check the finished magnet", text: "Look at all edges, corners, and the image face. The magnet should be flat, clean, and correctly cropped." },
+        { number: "7", title: "Package the order", text: "Package magnets so they do not bend or scratch. Confirm quantity and order label before placing them for pickup." }
+      ]
+    },
+    "guide-specialty": {
+      title: "Cards & Specialty Products",
+      description: "Use this as the simple flow for cards and specialty photo products until each product gets its own photo guide.",
+      materialLocation: "Cards, envelopes, specialty blanks, inserts, and packaging should be kept with Main Photo product assembly supplies. Match product type, size, and quantity to the order.",
+      steps: [
+        { number: "1", title: "Read the product type", text: "Confirm exactly what the order is: card, envelope set, specialty print, insert, or another photo product." },
+        { number: "2", title: "Pull matching materials", text: "Match size, finish, quantity, and any included envelopes or inserts before starting assembly." },
+        { number: "3", title: "Inspect every print", text: "Check for streaks, wrong crop, bent corners, upside-down text, or missing pieces. Fix print problems before packaging." },
+        { number: "4", title: "Assemble in order", text: "Keep customer pieces grouped together. Fold, insert, attach, or organize items according to the product style." },
+        { number: "5", title: "Count the final pieces", text: "Confirm the finished quantity matches the order, including envelopes or extra included parts." },
+        { number: "6", title: "Do a pickup-ready check", text: "Make sure the customer-facing side is clean and the order looks professional before it leaves the photo area." },
+        { number: "7", title: "Package and label", text: "Package the order so pieces stay together and protected. Confirm the customer label is on the correct order." }
+      ]
+    },
+    "main-maintenance": {
+      title: "Main Photo Printer Maintenance",
+      description: "Use this for basic main-photo printer care before escalating. Start with the screen, paper, print kit, and visible paper path.",
+      materialLocation: "Main photo printer paper and print kits are stored with the Main Photo supplies. Match the printer model and supply type before replacing anything.",
+      steps: [
+        { number: "1", title: "Read the printer screen", text: "Start with the message on the printer. It usually points to paper, print kit, cover, ribbon, jam, or a printer-status issue." },
+        { number: "2", title: "Check paper and print kit levels", text: "Confirm the correct paper and print kit are loaded for that printer. Do not mix supplies between printer models." },
+        { number: "3", title: "Look for obvious jams", text: "Open only the normal customer-service access areas. Remove loose paper gently, and stop if anything feels stuck." },
+        { number: "4", title: "Keep the path clean", text: "Make sure no scraps, labels, tape, or packaging pieces are near the paper path or output area." },
+        { number: "5", title: "Close covers fully", text: "After checking supplies, close all doors and covers firmly. Many printer warnings stay active if a cover is slightly open." },
+        { number: "6", title: "Run one controlled test", text: "If the issue cleared, run or release one order/test print and inspect it before sending multiple jobs." },
+        { number: "7", title: "Escalate repeat issues", text: "If the same issue returns, stop repeated reprints and contact store leadership or the photo help desk." }
+      ]
+    },
+    "main-troubleshooting": {
+      title: "Main Photo Printer Troubleshooting",
+      description: "Use this when Main Photo output is delayed, jammed, poor quality, or not matching the order.",
+      materialLocation: "Start at the printer screen, the pending order queue, and the finished output area. Most issues come from printer status, supply mismatch, jams, or order mix-ups.",
+      steps: [
+        { number: "1", title: "Identify the symptom", text: "Decide whether the problem is no print, jammed paper, poor quality, missing order, wrong crop, or customer-order confusion." },
+        { number: "2", title: "Check the order queue", text: "Confirm the order is released to the correct printer and has not already printed or moved to another area." },
+        { number: "3", title: "Read the printer message", text: "Use the printer screen before opening anything. The message should guide the next check." },
+        { number: "4", title: "Check supplies", text: "Confirm paper, ribbon, print kit, and product size match the order and printer model." },
+        { number: "5", title: "Inspect output quality", text: "For streaks, color issues, scratches, or crop problems, inspect one sample before reprinting a full order." },
+        { number: "6", title: "Protect customer orders", text: "Keep questionable prints separate from pickup-ready orders so the wrong item does not reach the customer." },
+        { number: "7", title: "Escalate with details", text: "If the issue repeats, note the order type, printer message, supply checked, and what happened after one retry." }
       ]
     }
   },
