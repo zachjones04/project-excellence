@@ -392,6 +392,62 @@ const PE_DATA = {
         { number: "6", title: "Protect customer orders", text: "Keep questionable prints separate from pickup-ready orders so the wrong item does not reach the customer." },
         { number: "7", title: "Escalate with details", text: "If the issue repeats, note the order type, printer message, supply checked, and what happened after one retry." }
       ]
+    },
+    "guide-photo-checkout": {
+      title: "Photo Checkout",
+      description: "Use this when a customer is picking up a completed photo order at the register.",
+      materialLocation: "Completed photo orders should be staged in the photo pickup area or the store's designated completed-order location. Match the customer name and order details before ringing anything out.",
+      steps: [
+        { number: "1", title: "Greet and identify the order", text: "Ask for the customer name, order type, or pickup information. Do not hand over a photo order until you are confident it is the right customer." },
+        { number: "2", title: "Find the completed package", text: "Look in the completed photo pickup area. Match the name, order number, product type, and quantity when available." },
+        { number: "3", title: "Check that it is pickup-ready", text: "Make sure the package is sealed or organized, the prints/products look complete, and nothing appears damaged or mixed with another order." },
+        { number: "4", title: "Bring the order to IPOS", text: "Keep the order with you at the register. Avoid setting it where it can be confused with another customer's items." },
+        { number: "5", title: "Scan or enter the pickup sale", text: "Use the register's photo checkout flow, barcode, QR, or order lookup process available at your store." },
+        { number: "6", title: "Confirm price and payment", text: "Confirm the sale total shown on IPOS and complete payment through the normal register process." },
+        { number: "7", title: "Hand off and close the loop", text: "Give the completed order to the customer after checkout is complete. If anything does not match, pause and ask store leadership or a photo-trained colleague." }
+      ]
+    },
+    "guide-qr-pickup": {
+      title: "QR Pickup Scan",
+      description: "Use this when the customer or package has a QR code connected to a photo pickup order.",
+      materialLocation: "QR pickup information may be on the customer's phone, printed order paperwork, pickup label, or the completed photo package depending on the store workflow.",
+      steps: [
+        { number: "1", title: "Start with the QR source", text: "Ask the customer to show the pickup QR or locate the QR on the photo package or paperwork." },
+        { number: "2", title: "Open the scanner flow", text: "Use the register or pickup scanner flow available at IPOS. Keep the photo order nearby while scanning." },
+        { number: "3", title: "Scan steadily", text: "Hold the QR flat and in good light. If scanning from a phone, ask the customer to brighten the screen and avoid glare." },
+        { number: "4", title: "Confirm the order details", text: "After the scan, compare the displayed name, product type, and quantity against the physical order before completing checkout." },
+        { number: "5", title: "Handle scan failures calmly", text: "If the QR will not scan, try adjusting distance and lighting once. Then use the backup order lookup or ask a photo-trained colleague." },
+        { number: "6", title: "Complete checkout", text: "Finish the sale through the register once the order and customer match." },
+        { number: "7", title: "Escalate mismatches", text: "If the scan opens a different order, wrong name, wrong quantity, or no order, stop and ask store leadership before handing anything over." }
+      ]
+    },
+    "guide-register-troubleshooting": {
+      title: "Register Troubleshooting",
+      description: "Use this when IPOS will not complete a photo checkout or the pickup order does not appear correctly.",
+      materialLocation: "Start at IPOS with the physical photo order, pickup label, customer information, and any QR or barcode available.",
+      steps: [
+        { number: "1", title: "Identify the failure point", text: "Decide whether the issue is scanning, order lookup, price mismatch, payment, register response, or order/customer mismatch." },
+        { number: "2", title: "Check the physical order", text: "Confirm the package is complete and that the label, name, order type, and quantity make sense before trying again." },
+        { number: "3", title: "Try one clean scan or lookup", text: "Rescan the barcode or QR once, or re-enter lookup information carefully. Repeating the same failed scan many times usually does not help." },
+        { number: "4", title: "Check for simple register issues", text: "Make sure the scanner is awake, the register is on the correct screen, and the customer transaction is not stuck in another flow." },
+        { number: "5", title: "Avoid forcing a workaround", text: "Do not ring the order as a random item if the photo checkout information does not match. That can create pickup, pricing, or inventory confusion." },
+        { number: "6", title: "Ask for the right help", text: "If the order exists but IPOS will not process it, ask store leadership, a photo-trained colleague, or register support according to store process." },
+        { number: "7", title: "Keep the order protected", text: "If checkout cannot be completed immediately, keep the order in the designated photo area until the issue is resolved." }
+      ]
+    },
+    "guide-customer-questions": {
+      title: "Common Customer Questions",
+      description: "Use this when a customer asks about a photo pickup, missing order, wrong item, damaged product, or basic next step.",
+      materialLocation: "Start with the customer's pickup information and the completed-order area. Keep customer photos private and only open or inspect what is needed to resolve the question.",
+      steps: [
+        { number: "1", title: "Listen for the exact question", text: "Clarify whether the customer is asking where the order is, whether it is ready, why it looks wrong, how to pay, or what happens next." },
+        { number: "2", title: "Ask for pickup details", text: "Use the customer name, order number, phone/email pickup information, or product type to locate the right order." },
+        { number: "3", title: "Check completed orders first", text: "Look in the completed photo pickup area before assuming the order is missing." },
+        { number: "4", title: "Check pending or problem status", text: "If the order is not completed, check the photo system or ask a photo-trained colleague to see whether it is pending, printing, failed, or needs attention." },
+        { number: "5", title: "Protect privacy", text: "Do not show another customer's photos or order details. Keep packages closed unless checking the customer's own order is necessary." },
+        { number: "6", title: "Explain only what you know", text: "Give the customer the clear next step. Avoid guessing about timing, refunds, remakes, or exceptions if you are not sure." },
+        { number: "7", title: "Escalate sensitive issues", text: "For damaged products, missing paid orders, wrong customer photos, refunds, or upset customers, involve store leadership or a photo-trained colleague." }
+      ]
     }
   },
   guides: {
