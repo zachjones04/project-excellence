@@ -32,6 +32,18 @@ const PE_DATA = {
         { id: "guide-specialty", icon: "SP", title: "Cards & Specialty", description: "Use a simple check-build-package flow for cards and specialty photo products." }
       ]
     },
+    "main-maintenance": {
+      title: "Main Photo Printer Maintenance",
+      description: "Choose the equipment you are checking. Use the printer screen, access panel, paper path, ribbon or print kit area, and output area in that order.",
+      cards: [
+        { id: "guide-main-printer-checklist", icon: "MT", title: "General Printer Checklist", description: "Use this first when you are not sure which printer or issue you are dealing with." },
+        { id: "guide-kodak-305", icon: "305", title: "Kodak 305 Printer", description: "Open the printer, check the ribbon and instruction label, close it correctly, and test one print." },
+        { id: "guide-kodak-7000", icon: "7K", title: "Kodak 7000 Printer", description: "Check the control panel, top cover, upper compartment, paper area, and loading reference label." },
+        { id: "guide-kodak-8810", icon: "88", title: "Kodak 8810 Printer", description: "Check the side latch, side panel, paper roll, ribbon compartment, and installed ribbon." },
+        { id: "guide-cx3240", icon: "CX", title: "Fujifilm CX3240", description: "Open the output tray, confirm paper is loaded, set paper guides, and check output flow." },
+        { id: "guide-kodak-kiosk", icon: "KS", title: "Kodak Kiosk", description: "Check the front station, side door, and visible interior before escalating kiosk issues." }
+      ]
+    },
     "poster-printer": {
       title: "Poster Printer",
       description: "Use this hub for poster printing, large-format supplies, maintenance, and troubleshooting.",
@@ -283,7 +295,7 @@ const PE_DATA = {
         { number: "7", title: "Package and label", text: "Package the order so pieces stay together and protected. Confirm the customer label is on the correct order." }
       ]
     },
-    "main-maintenance": {
+    "guide-main-printer-checklist": {
       title: "Main Photo Printer Maintenance",
       description: "Use this for basic main-photo printer care before escalating. Start with the screen, paper, print kit, and visible paper path.",
       materialLocation: "Main photo printer paper and print kits are stored with the Main Photo supplies. Match the printer model and supply type before replacing anything.",
@@ -295,6 +307,76 @@ const PE_DATA = {
         { number: "5", title: "Close covers fully", text: "After checking supplies, close all doors and covers firmly. Many printer warnings stay active if a cover is slightly open." },
         { number: "6", title: "Run one controlled test", text: "If the issue cleared, run or release one order/test print and inspect it before sending multiple jobs." },
         { number: "7", title: "Escalate repeat issues", text: "If the same issue returns, stop repeated reprints and contact store leadership or the photo help desk." }
+      ]
+    },
+    "guide-kodak-305": {
+      title: "Kodak 305 Printer Check",
+      description: "Use this when the Kodak 305 needs a quick supply, jam, ribbon, or access-panel check.",
+      materialLocation: "Kodak 305 paper and ribbon supplies should stay with the Main Photo printer supplies. Match the Kodak 305 print kit before opening or replacing anything.",
+      steps: [
+        { number: "1", title: "Start with the printer overview", text: "Identify the Kodak 305 and read the printer status before opening it. Confirm the issue is on this printer, not another Main Photo printer." },
+        { number: "2", title: "Find the OPEN button", text: "Use the OPEN button or front handle area shown on the printer. Do not pry the cover or force the panel." },
+        { number: "3", title: "Open the front access area", text: "Open the printer slowly and look inside before touching the ribbon or paper path. Watch for loose paper, scraps, or a mis-seated supply." },
+        { number: "4", title: "Check the ribbon position", text: "Look at the ribbon and handle area. The ribbon should sit cleanly in place and should not be twisted, loose, or hanging out of the path." },
+        { number: "5", title: "Use the instruction label", text: "Compare what you see inside the printer to the loading instruction label. If the label and the supply position do not match, stop and reset the supply carefully." },
+        { number: "6", title: "Close and listen for the latch", text: "Close the access area firmly but gently. The printer should close evenly without a gap or resistance." },
+        { number: "7", title: "Test one print only", text: "After the warning clears, release or run one controlled print and inspect it before sending multiple orders." }
+      ]
+    },
+    "guide-kodak-7000": {
+      title: "Kodak 7000 Printer Check",
+      description: "Use this when the Kodak 7000 needs a supply, paper compartment, upper-compartment, or loading-reference check.",
+      materialLocation: "Kodak 7000 supplies should stay with Main Photo printer supplies. Confirm the supply type and printer model before opening compartments.",
+      steps: [
+        { number: "1", title: "Read the control panel", text: "Start at the Kodak 7000 screen or control panel. Do not open compartments until you know whether the issue is paper, ribbon, cover, or printer status." },
+        { number: "2", title: "Open the top cover", text: "Open the top cover using the normal access point. If the cover does not move normally, stop and escalate instead of forcing it." },
+        { number: "3", title: "Inspect ribbon and paper together", text: "Look inside the open printer and check that the ribbon and paper path look seated and straight." },
+        { number: "4", title: "Check the upper compartment label", text: "Use the upper-compartment label as the reference for how the internal area should look. Do not guess if the label does not match what you see." },
+        { number: "5", title: "Check the paper compartment", text: "Open the paper compartment only as intended. Look for loose paper, incorrect loading, or pieces blocking the path." },
+        { number: "6", title: "Use the loading reference", text: "Compare the paper compartment to the loading-instruction reference before closing the printer." },
+        { number: "7", title: "Close and test", text: "Close each compartment fully, confirm the message cleared, then run one controlled test or order print." }
+      ]
+    },
+    "guide-kodak-8810": {
+      title: "Kodak 8810 Printer Check",
+      description: "Use this when the Kodak 8810 needs a paper-roll, side-panel, ribbon-compartment, or installed-ribbon check.",
+      materialLocation: "Kodak 8810 paper and ribbon supplies should stay with Main Photo printer supplies. Match the supply to the Kodak 8810 before replacing anything.",
+      steps: [
+        { number: "1", title: "Confirm the printer is ready", text: "Identify the Kodak 8810 and read the status before opening the printer. Confirm the issue belongs to this printer." },
+        { number: "2", title: "Locate the side latch", text: "Find the side latch area first. Open the panel using the latch, not by pulling on the panel edge." },
+        { number: "3", title: "Open the side panel", text: "Swing the side panel open slowly and stop if the panel catches or feels blocked." },
+        { number: "4", title: "Check the installed paper roll", text: "Look at the paper roll area. The roll should sit evenly and feed without loose paper bunching inside the printer." },
+        { number: "5", title: "Check the ribbon compartment", text: "Inspect the ribbon compartment and compare it with the loading reference. The ribbon should be seated cleanly." },
+        { number: "6", title: "Verify the ribbon is installed", text: "Make sure the ribbon is fully installed and not twisted, slack, or out of its normal path." },
+        { number: "7", title: "Close, clear, and test", text: "Close the side panel fully, confirm the warning clears, and run one controlled print before continuing the queue." }
+      ]
+    },
+    "guide-cx3240": {
+      title: "Fujifilm CX3240 Paper Check",
+      description: "Use this when the CX3240 needs a paper tray, output tray, or paper-guide check.",
+      materialLocation: "CX3240 paper should stay with the Main Photo printer supplies. Confirm paper size and orientation before loading the tray.",
+      steps: [
+        { number: "1", title: "Identify the CX3240", text: "Start from the printer overview and confirm the issue is on the Fujifilm CX3240." },
+        { number: "2", title: "Open the output tray", text: "Make sure the output tray is open and has enough room for finished prints to exit cleanly." },
+        { number: "3", title: "Check the loaded paper", text: "Open or inspect the paper tray and confirm paper is loaded flat, clean, and facing the correct direction." },
+        { number: "4", title: "Set the paper guides", text: "Slide the paper guides so they touch the paper stack without bending it. Crooked guides can cause skewed prints or jams." },
+        { number: "5", title: "Remove obvious obstructions", text: "Check for loose scraps, bent paper, packaging pieces, or anything blocking the tray or output path." },
+        { number: "6", title: "Close the tray fully", text: "Push the tray back in straight and make sure it seats fully before releasing another print." },
+        { number: "7", title: "Print one controlled test", text: "After the message clears, release one print and watch the output path before sending more work." }
+      ]
+    },
+    "guide-kodak-kiosk": {
+      title: "Kodak Kiosk Basic Check",
+      description: "Use this when a Kodak kiosk needs a simple station, side-door, or visible-interior check before escalation.",
+      materialLocation: "Start at the customer-facing kiosk station. Keep customer media, cables, and loose parts organized and do not remove anything that is not part of the normal access area.",
+      steps: [
+        { number: "1", title: "Start at the front station", text: "Check the kiosk screen, scanner area, visible cables, and customer-facing work area before opening anything." },
+        { number: "2", title: "Confirm the symptom", text: "Identify whether the issue is screen response, card/media reading, printer communication, payment flow, or a visible hardware problem." },
+        { number: "3", title: "Open only the normal side door", text: "Use the normal side-door access point if the issue calls for an interior check. Do not force locked or restricted panels." },
+        { number: "4", title: "Look inside before touching", text: "Check for loose cables, blocked airflow, visible paper scraps, or items that clearly do not belong inside the kiosk." },
+        { number: "5", title: "Do not unplug randomly", text: "Avoid unplugging cables unless the store process or help desk directs you to. Random resets can make the issue harder to diagnose." },
+        { number: "6", title: "Close the door fully", text: "Close the side door securely and confirm the kiosk returns to the expected screen or status." },
+        { number: "7", title: "Escalate with clear details", text: "If the issue remains, note the screen message, what area you checked, and whether the side-door interior looked normal." }
       ]
     },
     "main-troubleshooting": {
