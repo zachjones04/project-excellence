@@ -17,6 +17,10 @@ The immediate focus has been the Epson SureColor P6000 **Load Roll Paper** guide
 
 End-session closeout: Zachery explicitly requested the public whole-site version bump and project record update. The site now displays version `2.6`, and `index.html` uses cache key `20260709-end-session-v26`.
 
+Overnight-style follow-up work added Main Photo quick-guide coverage without changing the public version number. The Main Photo Product Guides now have text-first seven-step quick guides for Canvas, Photo Books, Calendars, Magnets, and Cards & Specialty Products. Main Photo Printer Maintenance is now a hub with dedicated equipment checks for the general checklist, Kodak 305, Kodak 7000, Kodak 8810, Fujifilm CX3240, and Kodak Kiosk.
+
+The Google Drive photo library contains raw/reference photos for Kodak 305, Kodak 7000, Kodak 8810, Fujifilm CX3240, and Kodak Kiosk. Those photo sets were mapped in `MAIN_PHOTO_REFERENCE_PHOTO_MAP.md`, but they are **not** embedded in the public website yet because the Drive library marks them as raw source photos rather than approved web visuals, and Codex could not obtain repo-safe local image bytes through the connector during this pass. The next photo task is to export/review selected Main Photo images into `assets/main-photo/`, then add them to the matching guide steps.
+
 The poster-printer hub is intentionally simplified to task categories only: Supplies & Item Numbers, Load Roll Paper, Replace Ink, Troubleshooting, and Support Contacts. The broader **Full Poster Printer Guide** route still exists at `#guide-poster-products` for reuse/reference, but it is not shown as a top-level hub card.
 
 New website-ready P6000 assets added:
