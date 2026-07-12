@@ -14,7 +14,7 @@ const PE_DATA = {
       title: "Main Photo Printer & Assembly",
       description: "Use this hub for product assembly, main photo printer supplies, maintenance, and troubleshooting.",
       cards: [
-        { id: "main-products", icon: "BOX", title: "Product Guides", description: "Canvas, books, calendars, magnets, cards, and specialty products." },
+        { id: "main-products", icon: "BOX", title: "Product Guides", description: "Canvas, books, calendars, magnets, wall tile, and specialty products." },
         { id: "main-supplies", icon: "#", title: "Supplies & Item Numbers", description: "Look up supply names, item numbers, and notes." },
         { id: "main-maintenance", icon: "MT", title: "Printer Maintenance", description: "Replace paper, replace print kits, daily checks, and basic care." },
         { id: "main-troubleshooting", icon: "!", title: "Troubleshooting", description: "Printer offline, paper jams, poor print quality, and common fixes." },
@@ -26,10 +26,10 @@ const PE_DATA = {
       description: "Select the photo product you are making.",
       cards: [
         { id: "guide-canvas", icon: "CV", title: "Canvas", description: "Gather the kit, inspect the print, wrap the canvas, and quality check the corners." },
-        { id: "guide-photo-books", icon: "BK", title: "Photo Books", description: "Check page order, assemble cleanly, inspect the spine, and package the book." },
-        { id: "guide-calendars", icon: "CAL", title: "Calendars", description: "Verify month order, bind or assemble the pages, and check the finished calendar." },
-        { id: "guide-magnets", icon: "MAG", title: "Magnets", description: "Match the order, apply the print cleanly, check edges, and package the magnet." },
-        { id: "guide-specialty", icon: "SP", title: "Cards & Specialty", description: "Use a simple check-build-package flow for cards and specialty photo products." }
+        { id: "guide-photo-books", icon: "BK", title: "Photo Books", description: "Assemble the custom cover layflat clamp photobook and check the finished spine." },
+        { id: "guide-calendars", icon: "CAL", title: "Calendars", description: "Use the 8x10 single-sided calendar guide to align, attach, and check the finished calendar." },
+        { id: "guide-magnets", icon: "MAG", title: "Magnets", description: "Trim and assemble acrylic magnets with the acrylic front, back, and sleeve." },
+        { id: "guide-specialty", icon: "SP", title: "Wall Tile & Specialty", description: "Assemble wall tile orders and use the specialty product quality check before pickup." }
       ]
     },
     "main-maintenance": {
@@ -72,9 +72,16 @@ const PE_DATA = {
       title: "Main Photo Supplies",
       description: "Use this reference to identify common Main Photo supplies, item numbers, and counting notes.",
       rows: [
-        ["Print Kit", "Kodak 6850 Digital Print Kit", "265443", "Count print kit in printer as .5"],
-        ["Print Kit", "Kodak 8800 Digital Print Kit", "832490", "Count print kit in printer as .5"],
+        ["Print Kit", "Kodak 7000 / 6R Photo Print Kit", "CAT 109 6650", "Use with Kodak 7000 / 6R printer"],
+        ["Print Kit", "Kodak 8800 / 8810L Photo Print Kit", "CAT 109 0786", "Use with Kodak 8800 / 8810L printer"],
         ["Print Kit", "Kodak 305 5R Print Kit", "252064", "Count whole/half"],
+        ["Assembly", "8x10 Slide-In Calendar", "551915", "New photo product / calendar guide"],
+        ["Assembly", "Photo Book Covers 8x10", "439957", "Photo book cover supply"],
+        ["Assembly", "Photo Panel 4x6", "212120", "Case pack of 10 pieces"],
+        ["Assembly", "Photo Panel 6x8", "212116", "Case pack of 10 pieces"],
+        ["Assembly", "Photo Panel 8x10", "212117", "Case pack of 10 pieces"],
+        ["Assembly", "Solid Wood Photo Panel 8x10", "354391", "Case pack of 6 pieces"],
+        ["Assembly", "Acrylic Photo with Stand 8x10", "398489", "Case pack of 10 pieces"],
         ["CD/DVD", "CVS/Kodak Co-Branded CD", "897311 / 425302", "Full spindle or single count"],
         ["DVD", "Kodak Archive DVD", "858518", "Count as single DVDs"],
         ["DVD", "Kodak Picture Movie DVD", "392782", "Count as single DVDs"]
@@ -202,13 +209,13 @@ const PE_DATA = {
       description: "Use this when the P6000 screen asks for ink. Match the exact color, remove the old cartridge, and dispose of it correctly.",
       materialLocation: "Poster ink is stored with the poster-printer supplies. Use the exact color shown on the printer screen. Used cartridges should be handled as store hazardous-waste material according to local store process.",
       steps: [
-        { number: "1", title: "Read the screen first", text: "Write down or remember the exact ink color the printer is asking for before opening the ink area." },
-        { number: "2", title: "Find the matching cartridge", text: "Match the color name on the new cartridge to the color shown on the printer screen. Do not swap a close color." },
-        { number: "3", title: "Open the ink door", text: "Open the ink compartment for the cartridge side shown by the printer. Keep the new cartridge nearby but sealed until you are ready." },
-        { number: "4", title: "Release and remove the old ink", text: "Press the cartridge release and pull the old cartridge straight out. Do not twist it or force it." },
-        { number: "5", title: "Install the new cartridge", text: "Slide the new cartridge into the same slot until it seats fully. Close the ink door." },
-        { number: "6", title: "Bag the used cartridge", text: "Place the used cartridge in the approved disposal bag or hazardous-waste area used by your store." },
-        { number: "7", title: "Confirm the warning cleared", text: "Check the screen again. If the same warning stays on, confirm the color and cartridge position, then escalate." }
+        { number: "1", title: "Read the screen first", text: "Use the printer screen to identify the exact ink color that needs attention. Do not remove a cartridge until you know the color.", image: "assets/p6000/ink/color-map-label.jpg", alt: "In-store Epson P6000 ink color guide label showing the cartridge color positions." },
+        { number: "2", title: "Find the matching cartridge", text: "Match the color code on the replacement cartridge to the color shown by the printer. Similar-looking colors are not interchangeable.", image: "assets/p6000/ink/cartridge-labels.jpg", alt: "Close-up of Epson ink cartridges installed in the printer with visible color labels." },
+        { number: "3", title: "Open the ink door", text: "Open the side ink door using the normal latch area. Keep the new cartridge nearby, but leave it sealed until you are ready to install it.", image: "assets/p6000/ink/ink-door-latch.jpg", alt: "Close-up of the Epson P6000 ink door latch location." },
+        { number: "4", title: "Check the cartridge row", text: "Before touching anything, compare the cartridge row to the color label. Confirm you are working on the exact slot the printer called out.", image: "assets/p6000/ink/installed-cartridges.jpg", alt: "In-store view of Epson P6000 ink cartridges installed behind the opened side door." },
+        { number: "5", title: "Release the old cartridge", text: "Press the cartridge straight in at the labeled PUSH area to release it, then pull it straight out. Do not twist, pry, or force the cartridge.", image: "assets/p6000/ink/push-cartridge.jpg", alt: "Close-up of a hand pointing at the PUSH area on an Epson P6000 ink cartridge." },
+        { number: "6", title: "Install the new cartridge", text: "Slide the new cartridge into the same slot with the label facing the correct direction. Push until it seats fully, then close the ink door.", image: "assets/p6000/ink/open-ink-door.jpg", alt: "In-store photo of the Epson P6000 side ink door being opened." },
+        { number: "7", title: "Confirm the warning cleared", text: "Check the printer screen again. If the same warning stays on, recheck the color and slot once, then escalate instead of repeatedly removing cartridges." }
       ]
     },
     "guide-poster-troubleshooting": {
@@ -227,72 +234,72 @@ const PE_DATA = {
     },
     "guide-canvas": {
       title: "Canvas Assembly",
-      description: "Use this when a canvas order is ready to assemble. Keep the print clean, wrap the edges evenly, and inspect the finished corners before pickup.",
-      materialLocation: "Canvas materials should be kept with the Main Photo product assembly supplies. Match the canvas size on the order before opening or using a kit.",
+      description: "Use this when an 11x14 canvas frame order is ready to finish. Assemble the canvas print first, then snap it into the frame and package it cleanly.",
+      materialLocation: "Canvas frames and gift boxes should be kept with Main Photo product assembly supplies. Match the order size before opening the red gift box.",
       steps: [
-        { number: "1", title: "Match the order to the kit", text: "Read the order size and product type first. Pull the matching canvas kit and confirm the print belongs to the same order." },
-        { number: "2", title: "Inspect the print", text: "Check for scratches, streaks, wrong crop, bent corners, or fingerprints before assembly. Reprint first if the print is not clean." },
-        { number: "3", title: "Lay everything out", text: "Use a clean, flat workspace. Keep the print face down only on a clean surface so the image does not pick up dust or marks." },
-        { number: "4", title: "Center the image", text: "Position the canvas frame or backing so the image wraps evenly. Check the top, bottom, and sides before securing anything." },
-        { number: "5", title: "Wrap and secure the edges", text: "Work opposite sides first, then the remaining sides. Keep tension even so the face stays smooth and the corners do not bunch." },
-        { number: "6", title: "Finish the corners", text: "Fold corners neatly and press or secure them flat. The front image should stay square, clean, and free of wrinkles." },
-        { number: "7", title: "Quality check and package", text: "Check the front, corners, back, and order label. Package the canvas so the image side is protected until pickup." }
+        { number: "1", title: "Assemble the canvas print first", text: "Make sure the canvas print is already assembled on the canvas stretcher. Do not apply the back to the canvas print before framing it.", image: "assets/main-photo/assembly/canvas-guide-step-1.jpg", alt: "In-store photo of the CVS canvas framing guide showing step 1." },
+        { number: "2", title: "Remove the frame from the box", text: "Take the canvas frame out of the red gift box and remove the protective bubble bag. Keep the bubble bag and box for final packaging.", image: "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg", alt: "In-store photo of the CVS canvas framing guide showing steps 2 through 4." },
+        { number: "3", title: "Set the frame on a flat surface", text: "Place the frame flat on the counter with all corners supported. Do not let one corner hang off the edge while pressing." },
+        { number: "4", title: "Center the canvas over the frame", text: "Place the assembled canvas print over the face of the frame. Check that it is straight before pressing down." },
+        { number: "5", title: "Press until the hooks lock", text: "Use two hands to press down gently around the frame edges. You should feel the frame hooks lock onto the canvas stretcher on all four sides." },
+        { number: "6", title: "Check all four sides", text: "Make sure the canvas is fully seated, square, and not lifted at any corner. Recheck the front for dust or fingerprints." },
+        { number: "7", title: "Package it back into the box", text: "Place the framed canvas into the bubble bag, then into the red cardboard gift box with the order information attached." }
       ]
     },
     "guide-photo-books": {
       title: "Photo Book Assembly",
-      description: "Use this when a photo book order is ready to assemble. Keep pages in order, protect the cover, and check the spine before packaging.",
-      materialLocation: "Photo book covers, pages, binding pieces, and packaging should be kept with Main Photo product assembly supplies. Match the book size and style to the order.",
+      description: "Use this for the custom cover layflat clamp photobook. Keep the printed cover aligned, wrap it around the black photobook, then slide the pages into the clamp.",
+      materialLocation: "Photo book covers, black photobooks, clamp slides, printed covers, printed layflat pages, and packaging should be kept with Main Photo product assembly supplies. Match the book size before starting.",
       steps: [
-        { number: "1", title: "Confirm the book details", text: "Check the customer order for book size, cover style, page count, and quantity before pulling materials." },
-        { number: "2", title: "Check page order", text: "Keep all pages in the printed order. Do not shuffle or flip pages while moving them to the assembly area." },
-        { number: "3", title: "Inspect the prints", text: "Look for streaks, blank pages, damaged corners, or pages from another order. Fix print issues before binding." },
-        { number: "4", title: "Align the pages", text: "Tap the page stack gently on a clean flat surface so the edges line up. Make sure every page faces the correct direction." },
-        { number: "5", title: "Attach or bind the book", text: "Use the matching cover and binding method for that book style. Keep the pages seated evenly while closing or securing the spine." },
-        { number: "6", title: "Check the spine and page turn", text: "Open the book carefully and make sure pages turn normally, the spine is secure, and no page is loose or upside down." },
-        { number: "7", title: "Package for pickup", text: "Wipe away loose paper dust, confirm the order label, and package the book so the cover does not get scratched." }
+        { number: "1", title: "Gather the required pieces", text: "You need the white printed cover, black photobook, printed layflat pages, and clamp slide. Keep the order together before peeling any liners.", image: "assets/main-photo/assembly/photobook-early-steps.jpg", alt: "In-store reference photo of the layflat clamp photobook early assembly steps." },
+        { number: "2", title: "Print and inspect the cover", text: "Print the white cover and check that it is straight, clean, and facing the correct direction before attaching it to the book." },
+        { number: "3", title: "Place the cover face down", text: "Lay the printed cover face down on a clean flat surface. Remove only the liners the instruction sheet calls for at that point." },
+        { number: "4", title: "Stand the black photobook upright", text: "Place the black photobook upright on the printed cover and align the spine before wrapping." },
+        { number: "5", title: "Wrap the cover around the book", text: "Wrap the printed cover around the black photobook, fold in the flaps, and press along the front edge and spine so the cover sticks cleanly." },
+        { number: "6", title: "Attach the back and inside flaps", text: "Flip the book as shown on the reference sheet, peel the remaining liners, and adhere the back cover and inside flap without wrinkles.", image: "assets/main-photo/assembly/photobook-final-steps.jpg", alt: "In-store reference photo of final layflat clamp photobook cover steps." },
+        { number: "7", title: "Insert pages and clamp the spine", text: "Slide the printed pages onto the clamp slide with the photos close to the edge nearest the clamp, then fold the photobook inside out and slide the clamp through both guides to finish." }
       ]
     },
     "guide-calendars": {
-      title: "Calendar Assembly",
-      description: "Use this when a calendar order is ready to finish. Keep months in order, check orientation, and make sure the calendar is clean before pickup.",
-      materialLocation: "Calendar pages, binding supplies, hangers, and packaging should be kept with Main Photo product assembly supplies. Match the calendar type and size to the order.",
+      title: "8x10 Single-Sided Calendar Assembly",
+      description: "Use this for the 8x10 single-sided calendar guide. Line up the calendar, attach the cover cleanly, then repeat until the calendar is complete.",
+      materialLocation: "8x10 single-sided calendar materials are stored with Main Photo product assembly supplies. The supply box label shown in the photos lists item 551915.",
       steps: [
-        { number: "1", title: "Confirm the order", text: "Check the calendar size, quantity, and customer name. Make sure every printed page belongs to the same order." },
-        { number: "2", title: "Put pages in order", text: "Arrange the cover and months in the correct sequence. Watch for upside-down or backward pages." },
-        { number: "3", title: "Inspect print quality", text: "Check faces, text, edges, and full-page color areas for streaks, smudges, or wrong cropping." },
-        { number: "4", title: "Square the stack", text: "Tap the pages into one even stack. The top edge should be straight before binding or fastening." },
-        { number: "5", title: "Bind or fasten the calendar", text: "Use the correct binding or assembly pieces for that calendar style. Keep pages aligned while securing them." },
-        { number: "6", title: "Check the flip-through", text: "Flip through the finished calendar once. Confirm month order, page direction, and that the hanger or binding is secure." },
-        { number: "7", title: "Package carefully", text: "Place the calendar in the correct package with the order information visible and the printed surface protected." }
+        { number: "1", title: "Separate the instruction sheet", text: "Tear the instruction sheet away from the calendar and set it aside where you can read it while working.", image: "assets/main-photo/assembly/calendar-steps-1-2.jpg", alt: "In-store photo of the 8x10 single-sided calendar guide showing steps 1 and 2." },
+        { number: "2", title: "Line up the calendar", text: "Line up the calendar with the top of the guide. Keep the spiral edge straight and seated against the guide." },
+        { number: "3", title: "Place the calendar in the guide", text: "Place the calendar in the guide with the polycover outside the guide, as shown on the instruction sheet." },
+        { number: "4", title: "Peel the liner", text: "Peel off the white liner to expose the adhesive on the end sheet. Avoid touching the adhesive with your fingers." },
+        { number: "5", title: "Align and press the cover", text: "Align the cover page along the bottom and side edges of the guide. Run your finger over the cover so the adhesive sticks smoothly." },
+        { number: "6", title: "Repeat for the remaining pages", text: "Flip the cover page outside the guide and repeat the peel, align, and press steps until the calendar is finished." },
+        { number: "7", title: "Remove and check the calendar", text: "Remove the calendar from the guide. Flip through it once to confirm page order, clean edges, and secure adhesion." }
       ]
     },
     "guide-magnets": {
-      title: "Magnet Assembly",
-      description: "Use this when a magnet order is ready to assemble. Match the size, keep the print straight, and check the edges before pickup.",
-      materialLocation: "Magnet blanks, printed sheets, cutters or templates, and packaging should be kept with Main Photo product assembly supplies. Match the magnet size to the order.",
+      title: "Acrylic Magnet Assembly",
+      description: "Use this for acrylic magnet orders. Trim the photo, layer it between the acrylic pieces, and package it in the sleeve.",
+      materialLocation: "Acrylic magnet sleeves, acrylic fronts and backs, and the passport cutter should be kept with Main Photo product assembly supplies. Match quantity before trimming.",
       steps: [
-        { number: "1", title: "Match the order and blank", text: "Confirm the customer name, magnet size, quantity, and photo before opening or using a blank." },
-        { number: "2", title: "Inspect the print", text: "Check for streaks, fingerprints, wrong crop, or bent edges. Reprint before assembly if the image is not clean." },
-        { number: "3", title: "Align the image", text: "Place the print on the magnet blank or template straight. Check the top and side edges before pressing it down." },
-        { number: "4", title: "Apply smoothly", text: "Press from one side across to the other so the print lays flat. Avoid trapping bubbles or creating wrinkles." },
-        { number: "5", title: "Trim or separate if needed", text: "If the product requires trimming or separation, follow the product edge and keep the final shape clean." },
-        { number: "6", title: "Check the finished magnet", text: "Look at all edges, corners, and the image face. The magnet should be flat, clean, and correctly cropped." },
-        { number: "7", title: "Package the order", text: "Package magnets so they do not bend or scratch. Confirm quantity and order label before placing them for pickup." }
+        { number: "1", title: "Remove the acrylic pieces", text: "Take the acrylic front and acrylic back out of the sleeve. Keep the sleeve because the finished magnet goes back into it.", image: "assets/main-photo/assembly/acrylic-magnet-instructions.jpg", alt: "In-store photo of the acrylic magnet assembly instruction sheet." },
+        { number: "2", title: "Trim the photo", text: "Trim the photo to 2x2 using the passport cutter. Check the crop before placing it into the acrylic." },
+        { number: "3", title: "Set the back down first", text: "Place the acrylic back part down with the magnets facing up." },
+        { number: "4", title: "Place the photo face up", text: "Set the trimmed photo face up on the acrylic back. Keep the photo straight and centered." },
+        { number: "5", title: "Click the front into place", text: "Place the acrylic front part onto the photo. The magnets should pull the back and front acrylic pieces together." },
+        { number: "6", title: "Check the finished magnet", text: "Make sure the photo is straight, clean, and fully inside the acrylic edges." },
+        { number: "7", title: "Return it to the sleeve", text: "Place the assembled acrylic magnetic square back into the sleeve and confirm the quantity before pickup." }
       ]
     },
     "guide-specialty": {
-      title: "Cards & Specialty Products",
-      description: "Use this as the simple flow for cards and specialty photo products until each product gets its own photo guide.",
-      materialLocation: "Cards, envelopes, specialty blanks, inserts, and packaging should be kept with Main Photo product assembly supplies. Match product type, size, and quantity to the order.",
+      title: "Wall Tile & Specialty Products",
+      description: "Use this for wall tile assembly. For other specialty products, match the order to the supply label and use the final quality check before pickup.",
+      materialLocation: "Wall tile frames, chipboard, spacer tools, specialty blanks, and packaging should be kept with Main Photo product assembly supplies. Match product type, size, and quantity to the order.",
       steps: [
-        { number: "1", title: "Read the product type", text: "Confirm exactly what the order is: card, envelope set, specialty print, insert, or another photo product." },
-        { number: "2", title: "Pull matching materials", text: "Match size, finish, quantity, and any included envelopes or inserts before starting assembly." },
-        { number: "3", title: "Inspect every print", text: "Check for streaks, wrong crop, bent corners, upside-down text, or missing pieces. Fix print problems before packaging." },
-        { number: "4", title: "Assemble in order", text: "Keep customer pieces grouped together. Fold, insert, attach, or organize items according to the product style." },
-        { number: "5", title: "Count the final pieces", text: "Confirm the finished quantity matches the order, including envelopes or extra included parts." },
-        { number: "6", title: "Do a pickup-ready check", text: "Make sure the customer-facing side is clean and the order looks professional before it leaves the photo area." },
-        { number: "7", title: "Package and label", text: "Package the order so pieces stay together and protected. Confirm the customer label is on the correct order." }
+        { number: "1", title: "Check what is in the box", text: "Confirm you have the chipboard, frame assembly, and spacer tool before starting the wall tile.", image: "assets/main-photo/assembly/wall-tile-instructions.jpg", alt: "In-store photo of the wall tile assembly instruction sheet." },
+        { number: "2", title: "Separate the frame assembly", text: "Place the frame back on the table facing up. Flex the frame front away from the backer to separate the pieces." },
+        { number: "3", title: "Place the photo on the chipboard", text: "Set the photo onto the chipboard and make sure the image is straight before placing it into the frame." },
+        { number: "4", title: "Load the back frame", text: "Make sure the frame back is facing upward, then place the chipboard and photo into the frame back." },
+        { number: "5", title: "Add the frame front", text: "Place the frame front on top of the assembled frame back without shifting the photo." },
+        { number: "6", title: "Snap all four corners", text: "Press down on all four corners until the frame snaps together. Check that the photo is clean and centered." },
+        { number: "7", title: "Package with the spacer tool", text: "Place the assembled wall tile and one spacer tool into the packaging box. Make sure the spiral disk is locked in place before packaging." }
       ]
     },
     "guide-main-printer-checklist": {
@@ -315,11 +322,11 @@ const PE_DATA = {
       materialLocation: "Kodak 305 paper and ribbon supplies should stay with the Main Photo printer supplies. Match the Kodak 305 print kit before opening or replacing anything.",
       steps: [
         { number: "1", title: "Start with the printer overview", text: "Identify the Kodak 305 and read the printer status before opening it. Confirm the issue is on this printer, not another Main Photo printer.", image: "assets/main-photo/kodak305/overview.jpg", alt: "In-store overview of the Kodak 305 printer with the front area visible." },
-        { number: "2", title: "Find the OPEN button", text: "Use the OPEN button or front handle area shown on the printer. Do not pry the cover or force the panel." },
-        { number: "3", title: "Open the front access area", text: "Open the printer slowly and look inside before touching the ribbon or paper path. Watch for loose paper, scraps, or a mis-seated supply.", image: "assets/main-photo/kodak305/open-interior-overview.jpg", alt: "In-store view of the Kodak 305 opened with the interior area visible." },
-        { number: "4", title: "Check the ribbon position", text: "Look at the ribbon and handle area. The ribbon should sit cleanly in place and should not be twisted, loose, or hanging out of the path." },
-        { number: "5", title: "Use the instruction label", text: "Compare what you see inside the printer to the loading instruction label. If the label and the supply position do not match, stop and reset the supply carefully." },
-        { number: "6", title: "Close and listen for the latch", text: "Close the access area firmly but gently. The printer should close evenly without a gap or resistance." },
+        { number: "2", title: "Press OPEN", text: "Use the OPEN button on the front right side. If the panel does not release normally, stop and ask for help instead of prying it open.", image: "assets/main-photo/kodak305/open-button-closeup.jpg", alt: "Close-up of the Kodak 305 OPEN button on the front of the printer." },
+        { number: "3", title: "Pull the front area open", text: "Use the front handle area and open the printer slowly. Look inside before touching the ribbon or paper path.", image: "assets/main-photo/kodak305/front-handle-area.jpg", alt: "In-store view of the Kodak 305 front access area being opened." },
+        { number: "4", title: "Inspect the inside", text: "Check for loose paper, scraps, a lifted ribbon, or anything sitting outside the normal path. Do not touch the gear mechanism.", image: "assets/main-photo/kodak305/open-interior-overview.jpg", alt: "In-store view of the Kodak 305 opened with the ribbon and paper area visible." },
+        { number: "5", title: "Check the ribbon cassette", text: "The ribbon cassette should sit cleanly in its guides. If it looks crooked, loose, or twisted, compare it to the instruction label before moving it.", image: "assets/main-photo/kodak305/ribbon-cassette-closeup.jpg", alt: "Close-up of the Kodak 305 ribbon cassette inside the open printer." },
+        { number: "6", title: "Use the instruction label", text: "Compare the printer to the printed label inside the front cover. Follow the label if you need to reseat ribbon or paper.", image: "assets/main-photo/kodak305/instruction-caution-label.jpg", alt: "Close-up of the Kodak 305 instruction and caution label inside the printer." },
         { number: "7", title: "Test one print only", text: "After the warning clears, release or run one controlled print and inspect it before sending multiple orders." }
       ]
     },
@@ -329,11 +336,11 @@ const PE_DATA = {
       materialLocation: "Kodak 7000 supplies should stay with Main Photo printer supplies. Confirm the supply type and printer model before opening compartments.",
       steps: [
         { number: "1", title: "Read the control panel", text: "Start at the Kodak 7000 screen or control panel. Do not open compartments until you know whether the issue is paper, ribbon, cover, or printer status.", image: "assets/main-photo/kodak7000/control-panel-ready.jpg", alt: "In-store photo of the Kodak 7000 control panel ready screen." },
-        { number: "2", title: "Open the top cover", text: "Open the top cover using the normal access point. If the cover does not move normally, stop and escalate instead of forcing it." },
-        { number: "3", title: "Inspect ribbon and paper together", text: "Look inside the open printer and check that the ribbon and paper path look seated and straight.", image: "assets/main-photo/kodak7000/open-interior-ribbon-paper.jpg", alt: "In-store view inside the Kodak 7000 showing the ribbon and paper area." },
-        { number: "4", title: "Check the upper compartment label", text: "Use the upper-compartment label as the reference for how the internal area should look. Do not guess if the label does not match what you see." },
-        { number: "5", title: "Check the paper compartment", text: "Open the paper compartment only as intended. Look for loose paper, incorrect loading, or pieces blocking the path." },
-        { number: "6", title: "Use the loading reference", text: "Compare the paper compartment to the loading-instruction reference before closing the printer." },
+        { number: "2", title: "Open the top cover", text: "Use the normal OPEN area on top of the printer. If the cover does not move normally, stop instead of forcing it.", image: "assets/main-photo/kodak7000/open-button-overview.jpg", alt: "Top view of the Kodak 7000 printer showing the open button area." },
+        { number: "3", title: "Inspect ribbon and paper together", text: "With the printer open, check that the ribbon and paper path look seated, straight, and free of scraps.", image: "assets/main-photo/kodak7000/open-interior-ribbon-paper.jpg", alt: "In-store view inside the Kodak 7000 showing the ribbon and paper area." },
+        { number: "4", title: "Use the loading label", text: "Compare the inside of the printer to the loading instruction label. The label shows the normal ribbon and paper direction.", image: "assets/main-photo/kodak7000/ribbon-loading-label.jpg", alt: "Close-up of the Kodak 7000 ribbon and paper loading instruction label." },
+        { number: "5", title: "Check the ribbon path", text: "The ribbon should roll smoothly across the top path and should not be slack, twisted, or pulled out of its guides.", image: "assets/main-photo/kodak7000/ribbon-paper-closeup.jpg", alt: "Close-up inside the Kodak 7000 showing the ribbon and paper path." },
+        { number: "6", title: "Check the paper roll area", text: "Open the paper roll area only as intended. The paper should sit evenly under the cover and feed forward without bunching.", image: "assets/main-photo/kodak7000/paper-roll-loaded.jpg", alt: "Kodak 7000 paper roll loaded under the open cover." },
         { number: "7", title: "Close and test", text: "Close each compartment fully, confirm the message cleared, then run one controlled test or order print." }
       ]
     },
@@ -455,7 +462,7 @@ const PE_DATA = {
     "guide-photo-books": "Photo Book Assembly",
     "guide-calendars": "Calendar Assembly",
     "guide-magnets": "Magnet Assembly",
-    "guide-specialty": "Cards & Specialty Products",
+    "guide-specialty": "Wall Tile & Specialty Products",
     "guide-photo-checkout": "Photo Checkout",
     "guide-qr-pickup": "QR Pickup Scan",
     "guide-register-troubleshooting": "Register Troubleshooting",
