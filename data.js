@@ -215,12 +215,9 @@ const PE_DATA = {
       description: "Keep the puzzle sheet whole from printer to customer bag. Never separate the pieces.",
       materialLocation: "Each order needs one puzzle sheet, one puzzle box, and one customer bag. Keep all three together before printing.",
       steps: [
-        { number: "1", title: "Gather the complete set", text: "Confirm you have one blank puzzle sheet, the matching puzzle box, and one customer bag." },
-        { number: "2", title: "Feed the sheet vertically", text: "Hold the puzzle sheet by its edges and align its edge straight with the printer. Keep the marked rectangle at the top.", image: "assets/generated-guides/puzzle-step-1.webp", alt: "Color demonstration of a blank puzzle sheet being fed vertically and straight into the printer." },
-        { number: "3", title: "Support the finished sheet", text: "When printing finishes, support the puzzle sheet from the bottom with both hands so it does not flex or break apart.", image: "assets/generated-guides/puzzle-step-2.webp", alt: "Color demonstration of a finished puzzle sheet supported from underneath with both hands." },
-        { number: "4", title: "Leave every piece connected", text: "Do not test, loosen, or remove puzzle pieces. Inspect the image while the sheet remains intact.", image: "assets/generated-guides/puzzle-step-2.webp", alt: "Finished printed puzzle sheet shown intact with every puzzle piece still connected." },
-        { number: "5", title: "Bag it picture-side up", text: "Place the intact printed puzzle sheet into the customer bag with the picture facing up.", image: "assets/generated-guides/puzzle-step-3.webp", alt: "Color demonstration of an intact printed puzzle sheet placed picture-side up in a clear customer bag." },
-        { number: "6", title: "Add the puzzle box", text: "Place the puzzle box with the bagged sheet, attach the order information, and keep the package flat.", image: "assets/generated-guides/puzzle-step-4.webp", alt: "Color demonstration of a puzzle box packaged with the bagged printed puzzle sheet." }
+        { number: "1", title: "Feed the puzzle sheet vertically", text: "Carefully hold the puzzle sheet by its edges and feed it vertically into the printer. Keep the 3 x 4 rectangle at the top and align the sheet edge straight with the printer." },
+        { number: "2", title: "Support the printed sheet", text: "When printing is complete, carefully remove the puzzle sheet and support it from the bottom with both hands." },
+        { number: "3", title: "Place it in the customer bag", text: "Place the printed puzzle sheet in the customer bag with the picture side facing up. Keep every puzzle piece connected." }
       ]
     },
     "guide-vinyl-banner": {
@@ -241,12 +238,17 @@ const PE_DATA = {
       description: "Attach the two wooden bars and hanging string, then roll and box the finished canvas.",
       materialLocation: "The kit contains two wooden hangbars, four plastic plugs, one hanging string, one printed canvas, and packaging paper or box.",
       steps: [
-        { number: "1", title: "Check the kit", text: "Lay out two wooden bars, four plugs, the string, printed canvas, and packaging. Confirm the canvas holes are present." },
-        { number: "2", title: "Place the canvas face down", text: "Put the printed canvas on a clean counter with the picture side down and the white back facing up.", image: "assets/generated-guides/hangbar-step-1.webp", alt: "Color demonstration of printed canvas placed picture-side down with pre-punched holes visible." },
-        { number: "3", title: "Prepare the top bar", text: "Insert the hanging string into the channel on the back of the top wooden bar and seat its knot in the slot.", image: "assets/generated-guides/hangbar-step-2.webp", alt: "Color close-up of hanging string being inserted into the channel of the top wooden bar." },
-        { number: "4", title: "Align bars and holes", text: "Place the top and bottom bars across the canvas edges. The plastic-plug holes must line up with the pre-punched canvas holes.", image: "assets/generated-guides/hangbar-step-3.webp", alt: "Color demonstration of wooden bars aligned with the pre-punched canvas holes." },
-        { number: "5", title: "Press the plugs in", text: "Push each plug straight down through the canvas into the bar. Pull up to remove a mistake; never twist the fastener.", image: "assets/generated-guides/hangbar-step-3.webp", alt: "Color close-up of clear plastic plugs pressed straight through the canvas into the wooden bars." },
-        { number: "6", title: "Roll and package", text: "Place packaging paper over the print, roll the bottom bar toward the top bar, and slide the finished canvas into its box.", image: "assets/generated-guides/hangbar-step-4.webp", alt: "Color demonstration of a wooden hangbar canvas rolled carefully and placed into its packaging box." }
+        { number: "1", title: "Feed the canvas into the printer", text: "Feed the canvas into the printer with the pre-punched holes at the top and bottom." },
+        { number: "2", title: "Peel the canvas from the backer", text: "After printing, peel the printed canvas carefully off the backing sheet." },
+        { number: "3", title: "Place the top wooden bar", text: "Place one wooden hangbar front side down on a clean work surface with its holes facing up." },
+        { number: "4", title: "Insert the hanging string", text: "Insert the string into the channel on the back of the wooden bar and seat the knot in the slot." },
+        { number: "5", title: "Insert the canvas into the top slot", text: "Place the canvas printed side down with its holes facing up. Insert the top edge into the bar slot and line up the canvas holes with the bar holes." },
+        { number: "6", title: "Insert the top plastic plugs", text: "Push the plastic plugs through the white back side of the canvas into the top wooden bar." },
+        { number: "7", title: "Install the bottom wooden bar", text: "Install the bottom bar with the white canvas side at the back. Insert its plugs through the white side of the canvas." },
+        { number: "8", title: "Cover the print with packaging paper", text: "Place the supplied packaging paper on top of the printed canvas." },
+        { number: "9", title: "Roll the canvas", text: "Slowly roll the bottom wooden bar toward the top wooden bar." },
+        { number: "10", title: "Keep the roll tight", text: "Make sure the printed canvas is tightly and evenly rolled." },
+        { number: "11", title: "Slide it into the box", text: "Carefully slide the rolled canvas into the provided packaging box." }
       ]
     },
     "guide-yard-sign": {
@@ -254,12 +256,12 @@ const PE_DATA = {
       description: "Fold the printed vinyl, secure the clips, and install the metal stake.",
       materialLocation: "Each yard sign uses one metal stake, three adhesive tabs on each sign sheet, two plastic clips, and one printed vinyl sign.",
       steps: [
-        { number: "1", title: "Inspect and fold the print", text: "Place the print on a clean surface and fold it exactly in half. The vinyl is designed shorter than the stake crossbar.", image: "assets/generated-guides/yard-sign-step-1.webp", alt: "Color demonstration of a printed vinyl yard sign folded exactly in half." },
-        { number: "2", title: "Start at one lower corner", text: "Apply the corner adhesive tab so it can wrap around the bottom edge and help hold the two sides together.", image: "assets/generated-guides/yard-sign-step-2.webp", alt: "Color close-up of an adhesive tab positioned at a lower yard-sign corner." },
-        { number: "3", title: "Add the remaining tabs", text: "Place the other corner tab and middle tab in the matching positions. Press each firmly.", image: "assets/generated-guides/yard-sign-step-2.webp", alt: "Color demonstration of the corner and middle adhesive tabs pressed firmly onto the folded sign." },
-        { number: "4", title: "Attach the two clips", text: "Put the round side of each clip toward the top of the sign. Align the clip bottoms with the bottom edge of the vinyl.", image: "assets/generated-guides/yard-sign-step-3.webp", alt: "Color close-up of the two clear clips aligned with the bottom edge of the folded vinyl sign." },
-        { number: "5", title: "Wrap tabs around the wire", text: "Secure the adhesive tabs around the stake wire so the clips and sign cannot slide.", image: "assets/generated-guides/yard-sign-step-3.webp", alt: "Color close-up of the adhesive tabs secured around the yard-sign stake wire." },
-        { number: "6", title: "Install the stake", text: "Slide the yard-sign stake into the two clips, center the sign, and verify it sits straight before packaging.", image: "assets/generated-guides/yard-sign-step-4.webp", alt: "Color demonstration of a completed yard sign installed straight on its metal stake." }
+        { number: "1", title: "Set up the print", text: "Print the yard-sign sheet and place it on a clean work surface." },
+        { number: "2", title: "Fold the yard sign in half", text: "Fold the printed vinyl exactly in half. The vinyl is intentionally shorter than the middle bar of the stake." },
+        { number: "3", title: "Apply the corner tabs", text: "Start at a bottom corner. Place a corner adhesive tab so it can wrap around the edge. Repeat at the other bottom corner." },
+        { number: "4", title: "Apply the middle tab", text: "Center the middle adhesive tab with one side in the middle and the bottom sticking off. Peel off the adhesive liner and wrap it around to the back." },
+        { number: "5", title: "Push both clips onto the wire", text: "Keep the round side of each plastic clip facing the top of the sign. Line each clip up over a bottom adhesive tab and push it onto the wire until it clips in place." },
+        { number: "6", title: "Align the clips with the vinyl", text: "Make sure the bottom of both plastic clips aligns with the bottom edge of the vinyl before packaging the finished sign." }
       ]
     },
     "guide-waiting-bin": {

@@ -3,46 +3,70 @@ const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main
 
 const productSourcePhotos = {
   "guide-canvas": [
-    "assets/main-photo/assembly/canvas-guide-step-1.jpg",
-    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg",
-    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg",
-    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg"
+    "assets/main-photo/assembly/steps/canvas-step-1.jpg",
+    "assets/main-photo/assembly/steps/canvas-step-2.jpg",
+    "assets/main-photo/assembly/steps/canvas-step-3.jpg",
+    "assets/main-photo/assembly/steps/canvas-step-4.jpg"
   ],
   "guide-photo-books": [
-    "assets/main-photo/assembly/photobook-early-steps.jpg",
-    "assets/main-photo/assembly/photobook-early-steps.jpg",
-    "assets/main-photo/assembly/photobook-early-steps.jpg",
-    "assets/main-photo/assembly/photobook-early-steps.jpg",
-    "assets/main-photo/assembly/photobook-final-steps.jpg",
-    "assets/main-photo/assembly/photobook-final-steps.jpg",
-    "assets/main-photo/assembly/photobook-final-steps.jpg"
+    "assets/main-photo/assembly/steps/photobook-step-1-materials.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-2-print-cover.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-3-lay-cover.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-4-stand-book.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-5-wrap-cover.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-6-attach-flaps.jpg",
+    "assets/main-photo/assembly/steps/photobook-step-7-clamp-pages.jpg"
   ],
   "guide-calendars": [
-    "assets/main-photo/assembly/calendar-steps-1-2.jpg",
-    "assets/main-photo/assembly/calendar-steps-1-2.jpg",
-    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
-    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
-    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
-    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg"
+    "assets/main-photo/assembly/steps/calendar-step-1-line-up.jpg",
+    "assets/main-photo/assembly/steps/calendar-step-2-place-guide.jpg",
+    "assets/main-photo/assembly/steps/calendar-step-3-peel-liner.jpg",
+    "assets/main-photo/assembly/steps/calendar-step-4-align-cover.jpg",
+    "assets/main-photo/assembly/steps/calendar-step-5-repeat-pages.jpg",
+    "assets/main-photo/assembly/steps/calendar-step-6-remove-check.jpg"
   ],
-  "guide-magnets": Array(6).fill("assets/main-photo/assembly/acrylic-magnet-instructions.jpg"),
-  "guide-specialty": Array(7).fill("assets/main-photo/assembly/wall-tile-instructions.jpg"),
-  "guide-photo-puzzle": Array(6).fill("assets/main-photo/assembly/raw-guides/photo-puzzle-instructions.jpg"),
+  "guide-magnets": [
+    "assets/main-photo/assembly/steps/magnet-step-1-remove-pieces.jpg",
+    "assets/main-photo/assembly/steps/magnet-step-2-trim-photo.jpg",
+    "assets/main-photo/assembly/steps/magnet-step-3-back-down.jpg",
+    "assets/main-photo/assembly/steps/magnet-step-4-photo-face-up.jpg",
+    "assets/main-photo/assembly/steps/magnet-step-5-front-click.jpg",
+    "assets/main-photo/assembly/steps/magnet-step-6-sleeve.jpg"
+  ],
+  "guide-specialty": [
+    "assets/main-photo/assembly/steps/wall-tile-step-1-check-box.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-2-frame-parts.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-3-separate-frame.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-4-photo-chipboard.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-5-load-frame.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-6-snap-corners.jpg",
+    "assets/main-photo/assembly/steps/wall-tile-step-7-package.jpg"
+  ],
+  "guide-photo-puzzle": [
+    "assets/main-photo/assembly/step-crops/raw/puzzle-step-1-feed.jpg",
+    "assets/main-photo/assembly/step-crops/raw/puzzle-step-2-support.jpg",
+    "assets/main-photo/assembly/step-crops/raw/puzzle-step-3-bag.jpg"
+  ],
   "guide-wooden-hangbar": [
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-preparation.jpg",
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-preparation.jpg",
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-assembly.jpg",
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-assembly.jpg",
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-plug-removal.jpg",
-    "assets/main-photo/assembly/raw-guides/wooden-hangbar-packaging.jpg"
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-1-feed.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-2-peel.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-3-place-bar.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-4-string.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-5-top-slot.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-6-top-plugs.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-7-bottom-bar.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-8-paper.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-9-roll.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-10-tight-roll.jpg",
+    "assets/main-photo/assembly/step-crops/raw/hangbar-step-11-box.jpg"
   ],
   "guide-yard-sign": [
-    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
-    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
-    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
-    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg",
-    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg",
-    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg"
+    "assets/main-photo/assembly/step-crops/raw/yard-step-1-print.jpg",
+    "assets/main-photo/assembly/step-crops/raw/yard-step-2-fold.jpg",
+    "assets/main-photo/assembly/step-crops/raw/yard-step-3-tabs.jpg",
+    "assets/main-photo/assembly/step-crops/raw/yard-step-4-middle-tabs.jpg",
+    "assets/main-photo/assembly/step-crops/raw/yard-step-5-clips.jpg",
+    "assets/main-photo/assembly/step-crops/raw/yard-step-6-align-clips.jpg"
   ]
 };
 
