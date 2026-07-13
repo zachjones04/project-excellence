@@ -1,5 +1,5 @@
 const app = document.getElementById("app");
-const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","main-troubleshooting":"main-photo","poster-supplies":"poster-printer","support-main":"main-photo","support-poster":"poster-printer","support-ipos":"ipos","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-main-printer-checklist":"main-maintenance","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-poster-troubleshooting":"poster-printer","guide-photo-checkout":"ipos","guide-qr-pickup":"ipos","guide-register-troubleshooting":"ipos","guide-customer-questions":"ipos"};
+const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","poster-supplies":"poster-printer","guide-order-flow":"main-photo","guide-package-order":"main-photo","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-photo-puzzle":"main-products","guide-wooden-hangbar":"main-products","guide-yard-sign":"main-products","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-print-poster":"poster-printer","guide-vinyl-banner":"poster-printer","guide-photo-checkout":"ipos","guide-qr-pickup":"ipos","guide-waiting-bin":"ipos"};
 
 function routeTo(id, push = true) {
   const target = id || "home";
@@ -43,7 +43,7 @@ function render(id = "home") {
 }
 
 function label(id) {
-  return ["main-photo", "poster-printer", "ipos"].includes(id) ? "WORKSTATION" : id.startsWith("support-") ? "ESCALATION" : id.includes("supplies") ? "REFERENCE" : "GUIDE";
+  return ["main-photo", "poster-printer", "ipos"].includes(id) ? "WORKSTATION" : id.includes("supplies") ? "REFERENCE" : "GUIDE";
 }
 
 function cards(items) {
@@ -82,14 +82,7 @@ function printerGuide(id, guideData) {
 }
 
 function guide(id, title) {
-  if (id.startsWith("support-")) return support(id);
-  return `${heading(title, "Use this as a quick decision page when a dedicated guide is not available yet.", id)}<article class="guide simple-guide"><section class="guide-section"><span class="section-number">01</span><div><h3>Start at the workstation</h3><p>Identify the order, product, printer, register, or customer question before changing supplies or moving an order.</p></div></section><section class="guide-section"><span class="section-number">02</span><div><h3>Use the closest finished guide</h3><p>Return to the workstation hub and choose the closest matching guide. If the guide does not match what you see, ask a photo-trained colleague or shift supervisor before forcing a workaround.</p></div></section></article>`;
-}
-
-function support(id) {
-  const area = id === "support-poster" ? "Poster Printer" : id === "support-ipos" ? "IPOS Register" : "Main Photo";
-  const technical = id === "support-ipos" ? "Register or checkout issue" : id === "support-poster" ? "Printer, paper, ink, or output issue" : "Printer, product, kiosk, or order-production issue";
-  return `${heading("Support Contacts", `Use this when the ${area} guide does not solve the problem or the next step is unclear.`, id)}<article class="guide"><div class="guide-banner dark"><div class="guide-banner-icon">TEL</div><div><span>ESCALATION SUPPORT</span><strong>Get the right help quickly</strong></div></div><div class="support-grid"><section><h3>Who to involve first</h3><ul><li><span>Start with</span><strong>Photo-trained colleague or shift supervisor</strong></li><li><span>Then involve</span><strong>Store leadership when the order, customer, or equipment issue cannot be resolved at the workstation</strong></li><li><span>Have ready</span><strong>Order type, printer/register message, supplies checked, and what step failed</strong></li></ul></section><section><h3>When to escalate</h3><ul><li><span>${technical}</span><strong>Escalate after the guide steps fail once and a repeat attempt would risk waste, damage, or customer confusion</strong></li><li><span>Customer-impact issue</span><strong>Escalate missing orders, wrong customer photos, refunds, damaged products, or upset customers</strong></li><li><span>Do not force it</span><strong>Stop if a part, panel, cartridge, roll, register flow, or order lookup does not match the guide</strong></li></ul></section></div></article>`;
+  return `${heading(title, "Open a workstation and choose one of its complete step-by-step guides.", id)}<button class="primary-action" type="button" onclick="routeTo('home')">Return home</button>`;
 }
 
 function filterTable() {
