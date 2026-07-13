@@ -1,72 +1,74 @@
 const app = document.getElementById("app");
 const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","poster-supplies":"poster-printer","guide-package-order":"main-photo","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-photo-puzzle":"main-products","guide-wooden-hangbar":"main-products","guide-yard-sign":"main-products","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-print-poster":"poster-printer","guide-vinyl-banner":"poster-printer","guide-photo-checkout":"ipos","guide-waiting-bin":"ipos"};
 
+const sourcePhoto = (src, focus = "center center", zoom = 1) => ({ src, focus, zoom });
+
 const productSourcePhotos = {
   "guide-canvas": [
-    "assets/main-photo/assembly/steps/canvas-step-1.jpg",
-    "assets/main-photo/assembly/steps/canvas-step-2.jpg",
-    "assets/main-photo/assembly/steps/canvas-step-3.jpg",
-    "assets/main-photo/assembly/steps/canvas-step-4.jpg"
+    sourcePhoto("assets/main-photo/assembly/steps/canvas-step-1.jpg", "right center", 2.7),
+    sourcePhoto("assets/main-photo/assembly/steps/canvas-step-2.jpg", "right center", 3.2),
+    sourcePhoto("assets/main-photo/assembly/steps/canvas-step-3.jpg", "right center", 3),
+    sourcePhoto("assets/main-photo/assembly/steps/canvas-step-4.jpg", "right center", 5)
   ],
   "guide-photo-books": [
-    "assets/main-photo/assembly/steps/photobook-step-1-materials.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-2-print-cover.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-3-lay-cover.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-4-stand-book.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-5-wrap-cover.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-6-attach-flaps.jpg",
-    "assets/main-photo/assembly/steps/photobook-step-7-clamp-pages.jpg"
+    null,
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-2-print-cover.jpg", "left top", 2),
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-3-lay-cover.jpg", "center top", 1.6),
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-4-stand-book.jpg", "center top", 1.4),
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-5-wrap-cover.jpg", "center top", 1.7),
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-6-attach-flaps.jpg", "center top", 1.8),
+    sourcePhoto("assets/main-photo/assembly/steps/photobook-step-7-clamp-pages.jpg", "center top", 1.7)
   ],
   "guide-calendars": [
-    "assets/main-photo/assembly/steps/calendar-step-1-line-up.jpg",
-    "assets/main-photo/assembly/steps/calendar-step-2-place-guide.jpg",
-    "assets/main-photo/assembly/steps/calendar-step-3-peel-liner.jpg",
-    "assets/main-photo/assembly/steps/calendar-step-4-align-cover.jpg",
-    "assets/main-photo/assembly/steps/calendar-step-5-repeat-pages.jpg",
-    "assets/main-photo/assembly/steps/calendar-step-6-remove-check.jpg"
+    sourcePhoto("assets/main-photo/assembly/steps/calendar-step-1-line-up.jpg", "left top", 1.7),
+    sourcePhoto("assets/main-photo/assembly/steps/calendar-step-2-place-guide.jpg", "center top", 1.4),
+    sourcePhoto("assets/main-photo/assembly/steps/calendar-step-3-peel-liner.jpg", "center top", 1.5),
+    sourcePhoto("assets/main-photo/assembly/steps/calendar-step-4-align-cover.jpg", "right top", 1.6),
+    sourcePhoto("assets/main-photo/assembly/steps/calendar-step-5-repeat-pages.jpg", "center top", 1.5),
+    null
   ],
   "guide-magnets": [
-    "assets/main-photo/assembly/steps/magnet-step-1-remove-pieces.jpg",
-    "assets/main-photo/assembly/steps/magnet-step-2-trim-photo.jpg",
-    "assets/main-photo/assembly/steps/magnet-step-3-back-down.jpg",
-    "assets/main-photo/assembly/steps/magnet-step-4-photo-face-up.jpg",
-    "assets/main-photo/assembly/steps/magnet-step-5-front-click.jpg",
-    "assets/main-photo/assembly/steps/magnet-step-6-sleeve.jpg"
+    sourcePhoto("assets/main-photo/assembly/steps/magnet-step-1-remove-pieces.jpg", "left bottom", 2),
+    sourcePhoto("assets/main-photo/assembly/steps/magnet-step-2-trim-photo.jpg", "center bottom", 1.5),
+    sourcePhoto("assets/main-photo/assembly/steps/magnet-step-3-back-down.jpg", "center bottom", 1.8),
+    sourcePhoto("assets/main-photo/assembly/steps/magnet-step-4-photo-face-up.jpg", "center bottom", 1.5),
+    sourcePhoto("assets/main-photo/assembly/steps/magnet-step-5-front-click.jpg", "center bottom", 1.8),
+    null
   ],
   "guide-specialty": [
-    "assets/main-photo/assembly/steps/wall-tile-step-1-check-box.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-2-frame-parts.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-3-separate-frame.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-4-photo-chipboard.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-5-load-frame.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-6-snap-corners.jpg",
-    "assets/main-photo/assembly/steps/wall-tile-step-7-package.jpg"
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-1-check-box.jpg", "center center", 1.8),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-2-frame-parts.jpg", "center center", 1.6),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-3-separate-frame.jpg", "center center", 2),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-4-photo-chipboard.jpg", "center bottom", 1.55),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-5-load-frame.jpg", "center bottom", 1.6),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-6-snap-corners.jpg", "center bottom", 1.55),
+    sourcePhoto("assets/main-photo/assembly/steps/wall-tile-step-7-package.jpg", "center center", 1.8)
   ],
   "guide-photo-puzzle": [
-    "assets/main-photo/assembly/step-crops/raw/puzzle-step-1-feed.jpg",
-    "assets/main-photo/assembly/step-crops/raw/puzzle-step-2-support.jpg",
-    "assets/main-photo/assembly/step-crops/raw/puzzle-step-3-bag.jpg"
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/puzzle-step-1-feed.jpg", "center bottom", 1.8),
+    null,
+    null
   ],
   "guide-wooden-hangbar": [
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-1-feed.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-2-peel.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-3-place-bar.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-4-string.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-5-top-slot.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-6-top-plugs.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-7-bottom-bar.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-8-paper.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-9-roll.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-10-tight-roll.jpg",
-    "assets/main-photo/assembly/step-crops/raw/hangbar-step-11-box.jpg"
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-1-feed.jpg", "center bottom", 2),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-2-peel.jpg", "center bottom", 1.6),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-3-place-bar.jpg", "center bottom", 1.2),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-4-string.jpg", "right center", 2.4),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-5-top-slot.jpg", "right center", 1.8),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-6-top-plugs.jpg", "center bottom", 1.6),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-7-bottom-bar.jpg", "center bottom", 1.7),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-8-paper.jpg", "center bottom", 1.6),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-9-roll.jpg", "right bottom", 1.7),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-10-tight-roll.jpg", "center bottom", 1.6),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/hangbar-step-11-box.jpg", "right bottom", 1.7)
   ],
   "guide-yard-sign": [
-    "assets/main-photo/assembly/step-crops/raw/yard-step-1-print.jpg",
-    "assets/main-photo/assembly/step-crops/raw/yard-step-2-fold.jpg",
-    "assets/main-photo/assembly/step-crops/raw/yard-step-3-tabs.jpg",
-    "assets/main-photo/assembly/step-crops/raw/yard-step-4-middle-tabs.jpg",
-    "assets/main-photo/assembly/step-crops/raw/yard-step-5-clips.jpg",
-    "assets/main-photo/assembly/step-crops/raw/yard-step-6-align-clips.jpg"
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-1-print.jpg", "center bottom", 1.7),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-2-fold.jpg", "center bottom", 1.7),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-3-tabs.jpg", "center bottom", 1.8),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-4-middle-tabs.jpg", "center bottom", 1.8),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-5-clips.jpg", "center bottom", 1.8),
+    sourcePhoto("assets/main-photo/assembly/step-crops/raw/yard-step-6-align-clips.jpg", "center bottom", 1.7)
   ]
 };
 
@@ -135,7 +137,7 @@ function supplies(id) {
 }
 
 function stepCards(steps = []) {
-  return steps.map(step => `<article class="visual-step instruction-step">${step.image ? `<div class="visual-step-media"><img src="${step.image}" alt="${step.alt || ""}" loading="lazy" decoding="async"></div>` : ""}<div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p></div></div></article>`).join("");
+  return steps.map(step => `<article class="visual-step instruction-step">${step.image ? `<div class="visual-step-media source-photo-window"><img class="source-photo-crop" src="${step.image}" alt="${step.alt || ""}" loading="lazy" decoding="async" style="--photo-focus:${step.focus || "center center"};--photo-zoom:${step.zoom || 1}"></div>` : ""}<div class="visual-step-copy"><span class="visual-step-number">${step.number}</span><div><h3>${step.title}</h3><p>${step.text}</p></div></div></article>`).join("");
 }
 
 function employeeGuide(id, guideData) {
@@ -143,8 +145,10 @@ function employeeGuide(id, guideData) {
   const steps = sourcePhotos
     ? guideData.steps.map((step, index) => ({
         ...step,
-        image: sourcePhotos[index],
-        alt: `Photographed CVS source instruction sheet for ${guideData.title}, step ${step.number}: ${step.title}.`
+        image: sourcePhotos[index]?.src,
+        focus: sourcePhotos[index]?.focus,
+        zoom: sourcePhotos[index]?.zoom,
+        alt: sourcePhotos[index] ? `Cropped source photo showing ${guideData.title}, step ${step.number}: ${step.title}.` : ""
       }))
     : guideData.steps;
   return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(steps)}</div></div></section></article>`;
