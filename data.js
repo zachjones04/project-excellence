@@ -2,11 +2,11 @@ const PE_DATA = {
   version: "2.6",
   home: {
     title: "Select Your Workstation",
-    description: "Choose the area where you need help. QR codes link directly to each workstation.",
+    description: "Choose the workstation, then choose the basic task you need to complete.",
     cards: [
       { id: "main-photo", icon: "MP", title: "Main Photo Printer & Assembly", description: "Order processing, product assembly, printer basics, supplies, and item numbers." },
       { id: "poster-printer", icon: "PP", title: "Poster Printer", description: "Poster media, ink, paper loading, large-format products, and packaging." },
-      { id: "ipos", icon: "$", title: "IPOS Register", description: "Photo checkout, QR pickup scanning, and waiting-bin placement." }
+      { id: "ipos", icon: "$", title: "IPOS Register", description: "Organize completed photo orders in the waiting bin." }
     ]
   },
   pages: {
@@ -27,7 +27,7 @@ const PE_DATA = {
         { id: "guide-photo-books", icon: "BK", title: "Photo Books", description: "Assemble the custom cover layflat clamp photobook and check the finished spine." },
         { id: "guide-calendars", icon: "CAL", title: "Calendars", description: "Use the 8x10 single-sided calendar guide to align, attach, and check the finished calendar." },
         { id: "guide-magnets", icon: "MAG", title: "Magnets", description: "Trim and assemble acrylic magnets with the acrylic front, back, and sleeve." },
-        { id: "guide-specialty", icon: "SP", title: "Wall Tile & Specialty", description: "Assemble wall tile orders and use the specialty product quality check before pickup." },
+        { id: "guide-specialty", icon: "WT", title: "Wall Tile", description: "Assemble a wall tile from the supplied frame, chipboard, photo, and spacer tool." },
         { id: "guide-photo-puzzle", icon: "PZ", title: "Photo Puzzle", description: "Print the puzzle sheet, keep the pieces intact, and package it with the box." },
         { id: "guide-wooden-hangbar", icon: "HB", title: "Wooden Hangbar Canvas", description: "Install the wood bars, plugs, and string, then roll and package it." },
         { id: "guide-yard-sign", icon: "YS", title: "Yard Sign", description: "Fold the vinyl sign, attach the clips and tabs, and install the stake." }
@@ -37,11 +37,11 @@ const PE_DATA = {
       title: "Main Photo Printer Basics",
       description: "Choose the printer in front of you. Each guide identifies the normal access point, paper or ribbon area, and final ready check.",
       cards: [
-        { id: "guide-kodak-305", icon: "305", title: "Kodak 305 Printer", description: "Open the printer, check the ribbon and instruction label, close it correctly, and test one print." },
-        { id: "guide-kodak-7000", icon: "7K", title: "Kodak 7000 Printer", description: "Check the control panel, top cover, upper compartment, paper area, and loading reference label." },
-        { id: "guide-kodak-8810", icon: "88", title: "Kodak 8810 Printer", description: "Check the side latch, side panel, paper roll, ribbon compartment, and installed ribbon." },
-        { id: "guide-cx3240", icon: "CX", title: "Fujifilm CX3240", description: "Open the output tray, confirm paper is loaded, set paper guides, and check output flow." },
-        { id: "guide-kodak-kiosk", icon: "KS", title: "Kodak Kiosk", description: "Identify the kiosk, keep the station ready, and use only the normal front-store access area." }
+        { id: "guide-kodak-305", icon: "305", title: "Load Kodak 305 Paper & Ribbon", description: "Open the printer, load the matching paper and ribbon, close it, and confirm ready." },
+        { id: "guide-kodak-7000", icon: "7K", title: "Load Kodak 7000 Paper & Ribbon", description: "Load the paper roll and ribbon in the directions shown inside the printer." },
+        { id: "guide-kodak-8810", icon: "88", title: "Load Kodak 8810 Paper & Ribbon", description: "Open the correct covers, load the paper and ribbon, then confirm ready." },
+        { id: "guide-cx3240", icon: "CX", title: "Load Fujifilm CX3240 Paper", description: "Fill the paper tray, set the guides, and return the printer to ready." },
+        { id: "guide-kodak-kiosk", icon: "KS", title: "Use the Kodak Kiosk", description: "Guide a customer through a basic photo order at the kiosk." }
       ]
     },
     "poster-printer": {
@@ -58,9 +58,8 @@ const PE_DATA = {
     },
     "ipos": {
       title: "IPOS Register",
-      description: "Use this hub for register-side photo checkout support. IPOS rings up the order and scans the pickup QR.",
+      description: "Use this hub to organize completed photo orders so any colleague can find them quickly.",
       cards: [
-        { id: "guide-photo-checkout", icon: "$", title: "Photo Checkout", description: "Find the completed order and follow the checkout steps." },
         { id: "guide-waiting-bin", icon: "WB", title: "Waiting Bin", description: "Package, label, and file a completed order so it can be found quickly." }
       ]
     }
@@ -98,116 +97,19 @@ const PE_DATA = {
       ]
     }
   },
-  printerGuides: {
-    "guide-poster-products": {
-      title: "Full Poster Printer Guide - Epson SureColor P6000",
-      description: "Use this page first when you are not sure where to start. It points you to the correct paper, ink, output, and packaging steps.",
-      heroLabel: "Poster printer overview",
-      heroTitle: "Start with the printer, then choose the right next action",
-      heroText: "The P6000 handles large-format poster material. Check the loaded roll, the ink area, the output catcher, and the screen message before changing anything.",
-      heroImage: "assets/p6000/overview.jpg",
-      heroAlt: "In-store overview of the Epson SureColor P6000 poster printer area with paper rolls nearby.",
-      actions: [
-        { label: "Paper", title: "Load Roll Paper", text: "Use when the roll is empty, wrong, loose, or needs to be seated again.", target: "guide-load-paper" },
-        { label: "Ink", title: "Replace Ink", text: "Use when the printer asks for a cartridge or a color is empty.", target: "guide-replace-ink" },
-        { label: "#", title: "Item Numbers", text: "Use when you need paper, vinyl, sticker material, metallic paper, or ink item numbers.", target: "poster-supplies" },
-      ],
-      sections: [
-        {
-          label: "Daily setup",
-          title: "Quick checks before printing",
-          items: [
-            "Confirm the printer is powered on and the screen is not showing an unresolved error.",
-            "Make sure the roll-paper cover is closed and the loaded roll matches the order material.",
-            "Lower or position the output catcher so finished prints do not bend, drag, or hit the floor.",
-            "Keep the poster area clear enough that the paper can feed straight."
-          ]
-        },
-        {
-          label: "Material decisions",
-          title: "Pick the guide based on what changed",
-          items: [
-            "If the paper roll is empty, crooked, loose, or the wrong material, open Load Roll Paper.",
-            "If the screen asks for ink, open Replace Ink and match the exact color before removing anything.",
-            "If you only need an item number, open Supplies & Item Numbers instead of opening the printer.",
-            "If the order printed poorly, keep it separate from pickup-ready work and stop before wasting more material."
-          ]
-        },
-        {
-          label: "Stop points",
-          title: "When to stop the basic task",
-          items: [
-            "Stop if a part feels stuck or you have to force the roll, adapter, cover, or ink cartridge.",
-            "Stop if the printer reports a service error that does not clear after the basic checks.",
-            "Stop if the same order fails twice after paper, ink, and material settings look correct.",
-            "Do not continue when the printer state does not match the basic guide."
-          ]
-        }
-      ],
-      steps: [
-        {
-          number: "1",
-          title: "Identify the printer area",
-          text: "Start at the Epson P6000 station. Locate the roll-paper cover, control panel, output catcher, paper rolls, and supply area before opening anything.",
-          image: "assets/p6000/overview.jpg",
-          alt: "In-store overview of the Epson P6000 printer station."
-        },
-        {
-          number: "2",
-          title: "Check the loaded roll",
-          text: "Look at the roll inside the printer. It should sit evenly on both adapters with the paper feeding forward and straight.",
-          image: "assets/p6000/loaded-roll.jpg",
-          alt: "In-store photo of roll paper loaded inside the Epson P6000."
-        },
-        {
-          number: "3",
-          title: "Use the paper guide when needed",
-          text: "If the roll needs to be changed or reseated, use the Load Roll Paper guide and follow each photo in order.",
-          image: "assets/p6000/unlock-lever.jpg",
-          alt: "In-store close-up of the Epson P6000 blue lock lever."
-        },
-        {
-          number: "4",
-          title: "Confirm feed and settings",
-          text: "After loading paper, make sure the leading edge is straight and confirm the media information on the printer screen before printing.",
-          image: "assets/p6000/verify.jpg",
-          alt: "In-store Epson P6000 control panel with the load-paper button being pressed."
-        }
-      ],
-      checks: [
-        "Correct material is loaded for the order.",
-        "Paper edge is straight and the cover is closed.",
-        "The correct ink color and slot are confirmed.",
-        "Output catcher is ready for the print.",
-        "The screen is ready before sending or resending the order."
-      ]
-    }
-  },
   employeeGuides: {
-    "guide-package-order": {
-      title: "Package a Finished Photo Order",
-      description: "Finish every order the same way so the customer receives the right product and another colleague can find it quickly.",
-      materialLocation: "Use the package supplied for the product whenever one is included. Standard print envelopes, product boxes, bags, and order labels are kept in the Photo finishing area.",
-      steps: [
-        { number: "1", title: "Match the order again", text: "Compare the customer name, product, size, and quantity on the order summary to the finished pieces." },
-        { number: "2", title: "Do a final quality check", text: "Look for fingerprints, scratches, bent corners, missing pages, loose parts, incorrect orientation, and damaged packaging." },
-        { number: "3", title: "Use the correct package", text: "Return specialty products to their supplied sleeve or box. Place prints flat in the correct envelope. Do not force a product into undersized packaging." },
-        { number: "4", title: "Keep accessories with it", text: "Include every envelope, stand, spacer, hanging part, instruction sheet, or separate printed piece that belongs to the order." },
-        { number: "5", title: "Attach the correct label", text: "Make sure the label belongs to the same customer and order. Keep the name and pickup information readable." },
-        { number: "6", title: "Place it in Waiting Bin", text: "File the order in the correct waiting-bin location with the identifying label visible and the product protected from bending." }
-      ]
-    },
     "guide-print-poster": {
       title: "Print and Package a Poster",
-      description: "Use this after the correct roll material is loaded in the Epson P6000.",
+      description: "Match the order to the loaded material, print it, inspect it, and package it without damaging the image.",
       materialLocation: "Poster paper, repositionable material, vinyl, metallic media, packaging tubes, and the reusable roll adapters are stored in the poster-printer supply area.",
       steps: [
-        { number: "1", title: "Read the product and material", text: "Confirm whether the order is a poster, repositionable print, vinyl banner, or another large-format product." },
-        { number: "2", title: "Check the loaded roll", text: "Open the roll-paper cover only if needed. Confirm the roll matches the order and the paper edge is feeding straight." },
-        { number: "3", title: "Prepare the output area", text: "Position the catcher and clear the floor so the print cannot drag, fold, or hit another object." },
-        { number: "4", title: "Release the order in Apex", text: "Release the correct order only after the printer shows ready and the matching material is loaded." },
-        { number: "5", title: "Support and inspect the print", text: "Handle the output by clean edges. Check the image, size, surface, and trimming before packaging." },
-        { number: "6", title: "Package without creasing", text: "Roll ordinary posters with the printed surface protected and place them in the correct tube. Use the product-specific guide for banners or puzzles." }
+        { number: "1", title: "Match the order to the material", text: "Read the product name on the photo order. Use poster paper for a poster, repositionable material for a repositionable print, and vinyl only for a banner." },
+        { number: "2", title: "Confirm the correct roll is loaded", text: "Open the roll-paper cover and read the roll label if you are not sure. The roll must match the product, sit evenly on both adapters, and feed straight.", image: "assets/p6000/loaded-roll.jpg", alt: "Approved in-store photo of a roll seated evenly inside the Epson P6000." },
+        { number: "3", title: "Prepare the output catcher", text: "Open and position the catcher below the printer. Clear boxes and supplies away so the poster cannot drag, fold, or touch the floor.", image: "assets/p6000/overview.jpg", alt: "Epson P6000 station with the output area visible below the printer." },
+        { number: "4", title: "Send the matching order", text: "On the photo-lab order screen, select the customer order and confirm the product and size one more time. Choose the normal Print or Release action once the P6000 shows ready." },
+        { number: "5", title: "Let the printer finish", text: "Do not pull the material. Guide the finished print into the catcher only after it exits the printer and is released.", image: "assets/p6000/feed.jpg", alt: "Approved in-store close-up of large-format material feeding straight through the Epson P6000." },
+        { number: "6", title: "Inspect the finished poster", text: "Hold clean edges and check the customer image, size, surface, and cut. Keep the printed face away from the counter and from fingerprints." },
+        { number: "7", title: "Roll and package it", text: "Roll an ordinary poster loosely with the printed face inward, place it in the correct tube, and attach the matching order label. Use the banner or puzzle guide for those products." }
       ]
     },
     "guide-photo-puzzle": {
@@ -225,12 +127,12 @@ const PE_DATA = {
       description: "Apply each clear adhesive grommet at its printed mark, punch the center, and roll the banner safely.",
       materialLocation: "Vinyl banner media and clear adhesive grommets are kept with poster supplies. A handheld hole punch is required for the grommet centers.",
       steps: [
-        { number: "1", title: "Print on vinyl media", text: "Load the vinyl roll, release the correct banner order in Apex, and let the banner finish before touching the printed surface." },
+        { number: "1", title: "Print on vinyl media", text: "Load the vinyl roll, select the matching banner order on the photo-lab order screen, and choose the normal Print or Release action. Let the banner finish before touching the printed surface.", image: "assets/p6000/feed.jpg", alt: "Approved in-store close-up of material feeding straight through the Epson P6000." },
         { number: "2", title: "Peel one grommet", text: "Remove one clear adhesive grommet from its sheet without touching more adhesive than necessary.", image: "assets/generated-guides/banner-step-1.webp", alt: "Color close-up of a clear adhesive banner grommet being peeled from its sheet." },
         { number: "3", title: "Center it on the cross mark", text: "Line up the grommet edges with the banner edge. The printed cross mark should sit at the grommet center.", image: "assets/generated-guides/banner-step-2.webp", alt: "Color close-up of a clear grommet centered over the banner cross mark." },
         { number: "4", title: "Fold and press", text: "Stick one half to the banner face, fold the other half over the edge, and press firmly on a solid counter.", image: "assets/generated-guides/banner-step-3.webp", alt: "Color close-up of a clear adhesive grommet folded over the vinyl edge and pressed firmly." },
         { number: "5", title: "Punch the center", text: "Slide the grommet into the hole-punch gate and squeeze through the exact center. Repeat for every printed mark.", image: "assets/generated-guides/banner-step-4.webp", alt: "Color close-up of a handheld punch piercing the exact center of a clear banner grommet." },
-        { number: "6", title: "Roll print-side inward", text: "Inspect every grommet, then roll the completed banner with the printed surface facing inward to protect it.", image: "assets/generated-guides/banner-step-4.webp", alt: "Completed vinyl banner rolled with the printed surface facing inward for protection." }
+        { number: "6", title: "Roll print-side inward", text: "Inspect every grommet, then roll the completed banner with the printed surface facing inward to protect it." }
       ]
     },
     "guide-wooden-hangbar": {
@@ -273,8 +175,8 @@ const PE_DATA = {
         { number: "2", title: "Read the customer label", text: "Confirm the customer name and order information are readable and match the product inside the package.", image: "assets/generated-guides/order-step-4.webp", alt: "Sealed photo envelope with a blank label area ready for the correct order information." },
         { number: "3", title: "Keep one order together", text: "If an order uses more than one bag or box, secure and mark the pieces so they are retrieved together.", image: "assets/generated-guides/pickup-step-2.webp", alt: "One complete sealed photo order kept together at the pickup counter." },
         { number: "4", title: "Choose the correct location", text: "File ordinary envelopes in the correct waiting-bin section. Put oversized, rigid, or fragile products in the designated large-order area.", image: "assets/generated-guides/pickup-step-1.webp", alt: "Organized waiting bin with sealed photo envelopes filed upright in separate sections." },
-        { number: "5", title: "Leave the identifier visible", text: "Position the package so another colleague can read the label without opening or moving unrelated customer orders.", image: "assets/generated-guides/pickup-step-1.webp", alt: "Sealed photo envelopes positioned in the waiting bin with their blank label areas visible." },
-        { number: "6", title: "Protect the product", text: "Keep prints flat, canvases upright or boxed, and large products away from moisture, bending, or floor contact.", image: "assets/generated-guides/pickup-step-1.webp", alt: "Protected sealed photo orders stored upright in a clean organized waiting bin." }
+        { number: "5", title: "Leave the identifier visible", text: "Position the package so another colleague can read the customer name without opening or moving unrelated orders." },
+        { number: "6", title: "Protect the product", text: "Keep prints flat, canvases upright or boxed, and large products away from moisture, bending, or floor contact." }
       ]
     },
     "guide-load-paper": {
@@ -299,13 +201,13 @@ const PE_DATA = {
       description: "Use this when the P6000 screen asks for ink. Match the exact color, remove the old cartridge, and dispose of it correctly.",
       materialLocation: "Poster ink is stored with the poster-printer supplies. Use the exact color shown on the printer screen. Used cartridges should be handled as store hazardous-waste material according to local store process.",
       steps: [
-        { number: "1", title: "Read the screen first", text: "Use the printer screen to identify the exact ink color that needs attention. Do not remove a cartridge until you know the color.", image: "assets/p6000/ink/color-map-label.jpg", alt: "In-store Epson P6000 ink color guide label showing the cartridge color positions." },
+        { number: "1", title: "Read the screen first", text: "Use the printer screen to identify the exact ink color that needs attention. Do not remove a cartridge until you know the color." },
         { number: "2", title: "Find the matching cartridge", text: "Match the color code on the replacement cartridge to the color shown by the printer. Similar-looking colors are not interchangeable.", image: "assets/p6000/ink/cartridge-labels.jpg", alt: "Close-up of Epson ink cartridges installed in the printer with visible color labels." },
         { number: "3", title: "Open the ink door", text: "Open the side ink door using the normal latch area. Keep the new cartridge nearby, but leave it sealed until you are ready to install it.", image: "assets/p6000/ink/ink-door-latch.jpg", alt: "Close-up of the Epson P6000 ink door latch location." },
         { number: "4", title: "Check the cartridge row", text: "Before touching anything, compare the cartridge row to the color label. Confirm you are working on the exact slot the printer called out.", image: "assets/p6000/ink/installed-cartridges.jpg", alt: "In-store view of Epson P6000 ink cartridges installed behind the opened side door." },
         { number: "5", title: "Release the old cartridge", text: "Press the cartridge straight in at the labeled PUSH area to release it, then pull it straight out. Do not twist, pry, or force the cartridge.", image: "assets/p6000/ink/push-cartridge.jpg", alt: "Close-up of a hand pointing at the PUSH area on an Epson P6000 ink cartridge." },
         { number: "6", title: "Install the new cartridge", text: "Slide the new cartridge into the same slot with the label facing the correct direction. Push until it seats fully, then close the ink door.", image: "assets/p6000/ink/open-ink-door.jpg", alt: "In-store photo of the Epson P6000 side ink door being opened." },
-        { number: "7", title: "Confirm the warning cleared", text: "Check the printer screen again. If the same warning stays on, recheck the color and slot once and stop instead of repeatedly removing cartridges.", image: "assets/p6000/ink/color-map-label.jpg", alt: "Epson P6000 ink color map used for a final color and slot check." }
+        { number: "7", title: "Close the door and confirm ready", text: "Close the ink door completely. Check that the printer recognizes the new cartridge and returns to ready before releasing an order." }
       ]
     },
     "guide-canvas": {
@@ -360,9 +262,9 @@ const PE_DATA = {
       ]
     },
     "guide-specialty": {
-      title: "Wall Tile & Specialty Products",
-      description: "Use this for wall tile assembly. For other specialty products, match the order to the supply label and use the final quality check before pickup.",
-      materialLocation: "Wall tile frames, chipboard, spacer tools, specialty blanks, and packaging should be kept with Main Photo product assembly supplies. Match product type, size, and quantity to the order.",
+      title: "Wall Tile Assembly",
+      description: "Use this guide only for the wall tile shown in the step photos.",
+      materialLocation: "Wall tile frames, chipboard, spacer tools, and packaging are kept with Main Photo product assembly supplies. Match the wall-tile size and quantity to the order before opening the box.",
       steps: [
         { number: "1", title: "Check what is in the box", text: "Confirm you have the chipboard, frame assembly, and spacer tool before starting the wall tile.", image: "assets/main-photo/assembly/steps-v4/wall-tile-step-1-check-box.jpg", alt: "Clean demonstration image showing the chipboard, frame assembly, and spacer tool." },
         { number: "2", title: "Identify the frame parts", text: "Check the frame top, frame back, and spiral disk pad before separating the frame assembly.", image: "assets/main-photo/assembly/steps-v4/wall-tile-step-2-frame-parts.jpg", alt: "Clean demonstration image identifying the wall tile frame parts and spiral disk." },
@@ -374,87 +276,73 @@ const PE_DATA = {
       ]
     },
     "guide-kodak-305": {
-      title: "Kodak 305 Printer Check",
-      description: "Use this when the Kodak 305 needs a quick supply, jam, ribbon, or access-panel check.",
-      materialLocation: "Kodak 305 paper and ribbon supplies should stay with the Main Photo printer supplies. Match the Kodak 305 print kit before opening or replacing anything.",
+      title: "Load Kodak 305 Paper and Ribbon",
+      description: "Replace the paper and ribbon together with one matching Kodak 305 print kit.",
+      materialLocation: "Kodak 305 print kits are stored with Main Photo printer supplies. The kit contains one paper roll and one ribbon cassette made to be used together.",
       steps: [
-        { number: "1", title: "Start with the printer overview", text: "Identify the Kodak 305 and read the printer status before opening it. Confirm the issue is on this printer, not another Main Photo printer.", image: "assets/main-photo/kodak305/overview.jpg", alt: "In-store overview of the Kodak 305 printer with the front area visible." },
-        { number: "2", title: "Press OPEN", text: "Use the OPEN button on the front right side. If the panel does not release normally, stop and ask for help instead of prying it open.", image: "assets/main-photo/kodak305/open-button-closeup.jpg", alt: "Close-up of the Kodak 305 OPEN button on the front of the printer." },
-        { number: "3", title: "Pull the front area open", text: "Use the front handle area and open the printer slowly. Look inside before touching the ribbon or paper path.", image: "assets/main-photo/kodak305/front-handle-area.jpg", alt: "In-store view of the Kodak 305 front access area being opened." },
-        { number: "4", title: "Inspect the inside", text: "Check for loose paper, scraps, a lifted ribbon, or anything sitting outside the normal path. Do not touch the gear mechanism.", image: "assets/main-photo/kodak305/open-interior-overview.jpg", alt: "In-store view of the Kodak 305 opened with the ribbon and paper area visible." },
-        { number: "5", title: "Check the ribbon cassette", text: "The ribbon cassette should sit cleanly in its guides. If it looks crooked, loose, or twisted, compare it to the instruction label before moving it.", image: "assets/main-photo/kodak305/ribbon-cassette-closeup.jpg", alt: "Close-up of the Kodak 305 ribbon cassette inside the open printer." },
-        { number: "6", title: "Use the instruction label", text: "Compare the printer to the printed label inside the front cover. Follow the label if you need to reseat ribbon or paper.", image: "assets/main-photo/kodak305/instruction-caution-label.jpg", alt: "Close-up of the Kodak 305 instruction and caution label inside the printer." },
-        { number: "7", title: "Test one print only", text: "After the warning clears, release or run one controlled print and inspect it before sending multiple orders.", image: "assets/main-photo/kodak305/overview.jpg", alt: "Kodak 305 printer closed and ready for one controlled test print." }
+        { number: "1", title: "Get one matching print kit", text: "Use a Kodak 305 print kit. Keep its new paper roll and ribbon cassette together; do not mix either piece with another kit.", image: "assets/main-photo/kodak305/overview.jpg", alt: "In-store overview used to identify the Kodak 305 printer." },
+        { number: "2", title: "Press OPEN", text: "Press the OPEN button on the front-right side, then use the front handle to slide the printing unit open.", image: "assets/main-photo/kodak305/open-button-closeup.jpg", alt: "Close-up of the OPEN button on the Kodak 305 printer." },
+        { number: "3", title: "Remove the used supplies", text: "Lift out the used ribbon cassette by its handle. Remove the empty paper roll and keep both used pieces away from the new kit.", image: "assets/main-photo/kodak305/open-interior-overview.jpg", alt: "Open Kodak 305 showing the paper-roll and ribbon-cassette areas." },
+        { number: "4", title: "Load the new paper roll", text: "Set the new paper roll in the paper area in the direction shown on the inside label. Feed the paper between the roller and guide until the printer beeps, then stop feeding.", image: "assets/main-photo/kodak305/instruction-caution-label.jpg", alt: "Kodak 305 inside label showing the correct paper-feed direction." },
+        { number: "5", title: "Install the new ribbon cassette", text: "Hold the ribbon cassette by its handle. Line up its tabs with the printer guides and slide it in as far as it will go without forcing it.", image: "assets/main-photo/kodak305/ribbon-cassette-closeup.jpg", alt: "Close-up of the Kodak 305 ribbon cassette seated in its guides." },
+        { number: "6", title: "Close the printing unit", text: "Keep fingers on the outside edges. Push the left and right sides evenly until the unit clicks fully closed.", image: "assets/main-photo/kodak305/front-handle-area.jpg", alt: "Front handle and safe outside edges used to close the Kodak 305 printing unit." },
+        { number: "7", title: "Confirm ready", text: "Wait for the printer to finish its automatic paper setup. Confirm the warning clears before releasing the next photo order." }
       ]
     },
     "guide-kodak-7000": {
-      title: "Kodak 7000 Printer Check",
-      description: "Use this when the Kodak 7000 needs a supply, paper compartment, upper-compartment, or loading-reference check.",
-      materialLocation: "Kodak 7000 supplies should stay with Main Photo printer supplies. Confirm the supply type and printer model before opening compartments.",
+      title: "Load Kodak 7000 Paper and Ribbon",
+      description: "Replace the paper roll and ribbon together with the matching Kodak 7000 print kit.",
+      materialLocation: "Kodak 7000 paper and ribbon kits are stored with Main Photo printer supplies. Keep the paper and ribbon from one opened kit together.",
       steps: [
-        { number: "1", title: "Read the control panel", text: "Start at the Kodak 7000 screen or control panel. Do not open compartments until you know whether the issue is paper, ribbon, cover, or printer status.", image: "assets/main-photo/kodak7000/control-panel-ready.jpg", alt: "In-store photo of the Kodak 7000 control panel ready screen." },
-        { number: "2", title: "Open the top cover", text: "Use the normal OPEN area on top of the printer. If the cover does not move normally, stop instead of forcing it.", image: "assets/main-photo/kodak7000/open-button-overview.jpg", alt: "Top view of the Kodak 7000 printer showing the open button area." },
-        { number: "3", title: "Inspect ribbon and paper together", text: "With the printer open, check that the ribbon and paper path look seated, straight, and free of scraps.", image: "assets/main-photo/kodak7000/open-interior-ribbon-paper.jpg", alt: "In-store view inside the Kodak 7000 showing the ribbon and paper area." },
-        { number: "4", title: "Use the loading label", text: "Compare the inside of the printer to the loading instruction label. The label shows the normal ribbon and paper direction.", image: "assets/main-photo/kodak7000/ribbon-loading-label.jpg", alt: "Close-up of the Kodak 7000 ribbon and paper loading instruction label." },
-        { number: "5", title: "Check the ribbon path", text: "The ribbon should roll smoothly across the top path and should not be slack, twisted, or pulled out of its guides.", image: "assets/main-photo/kodak7000/ribbon-paper-closeup.jpg", alt: "Close-up inside the Kodak 7000 showing the ribbon and paper path." },
-        { number: "6", title: "Check the paper roll area", text: "Open the paper roll area only as intended. The paper should sit evenly under the cover and feed forward without bunching.", image: "assets/main-photo/kodak7000/paper-roll-loaded.jpg", alt: "Kodak 7000 paper roll loaded under the open cover." },
-        { number: "7", title: "Close and test", text: "Close each compartment fully, confirm the message cleared, then run one controlled test or order print.", image: "assets/main-photo/kodak7000/control-panel-ready.jpg", alt: "Kodak 7000 control panel showing the printer ready after the compartments are closed." }
+        { number: "1", title: "Get one matching print kit", text: "Use the Kodak 7000 kit that matches this printer. Keep its paper roll and ribbon together throughout the change.", image: "assets/main-photo/kodak7000/control-panel-ready.jpg", alt: "Kodak 7000 control panel and printer used to confirm the correct machine." },
+        { number: "2", title: "Open the printer", text: "Use the normal OPEN button and lift the top cover. Open the paper-roll cover so both supply areas are accessible.", image: "assets/main-photo/kodak7000/open-button-overview.jpg", alt: "Top of the Kodak 7000 showing the normal OPEN area." },
+        { number: "3", title: "Remove the used paper and ribbon", text: "Lift out the used ribbon and remove the empty paper roll. Keep used pieces separate from the new kit.", image: "assets/main-photo/kodak7000/open-interior-ribbon-paper.jpg", alt: "Open Kodak 7000 showing the ribbon and paper supply areas." },
+        { number: "4", title: "Load the new paper roll", text: "Place the new roll in the paper compartment in the direction shown on the inside label. Pull the leading edge straight into the feed area.", image: "assets/main-photo/kodak7000/paper-roll-loaded.jpg", alt: "Kodak 7000 paper roll seated evenly in the paper compartment." },
+        { number: "5", title: "Load the new ribbon", text: "Place the new ribbon in the upper compartment with each end seated in the matching holder. The ribbon must be flat, centered, and not twisted.", image: "assets/main-photo/kodak7000/ribbon-paper-closeup.jpg", alt: "Close-up of the Kodak 7000 ribbon installed flat in its holders." },
+        { number: "6", title: "Compare with the loading label", text: "Before closing, compare the paper and ribbon direction with the diagram inside the printer. Correct anything that is reversed or outside its guides.", image: "assets/main-photo/kodak7000/ribbon-loading-label.jpg", alt: "Kodak 7000 inside diagram showing the correct paper and ribbon loading direction." },
+        { number: "7", title: "Close and confirm ready", text: "Close the paper cover and top cover completely. Wait for automatic setup and confirm the ready message before releasing an order." }
       ]
     },
     "guide-kodak-8810": {
-      title: "Kodak 8810 Printer Check",
-      description: "Use this when the Kodak 8810 needs a paper-roll, side-panel, ribbon-compartment, or installed-ribbon check.",
-      materialLocation: "Kodak 8810 paper and ribbon supplies should stay with Main Photo printer supplies. Match the supply to the Kodak 8810 before replacing anything.",
+      title: "Load Kodak 8810 Paper and Ribbon",
+      description: "Replace the paper roll and ribbon together with one matching Kodak 8810 print kit.",
+      materialLocation: "Kodak 8810 print kits are stored with Main Photo printer supplies. Use the paper and ribbon from the same opened kit.",
       steps: [
-        { number: "1", title: "Confirm the printer is ready", text: "Identify the Kodak 8810 and read the status before opening the printer. Confirm the issue belongs to this printer.", image: "assets/main-photo/kodak8810/printer-overview-ready.jpg", alt: "In-store overview of the Kodak 8810 printer in the ready position." },
-        { number: "2", title: "Locate the side latch", text: "Find the side latch area first. Open the panel using the latch, not by pulling on the panel edge.", image: "assets/main-photo/kodak8810/side-panel-open.jpg", alt: "Kodak 8810 side-panel area shown open to identify the normal latch and access location." },
-        { number: "3", title: "Open the side panel", text: "Swing the side panel open slowly and stop if the panel catches or feels blocked.", image: "assets/main-photo/kodak8810/side-panel-open.jpg", alt: "In-store view of the Kodak 8810 with the side panel open." },
-        { number: "4", title: "Check the installed paper roll", text: "Look at the paper roll area. The roll should sit evenly and feed without loose paper bunching inside the printer.", image: "assets/main-photo/kodak8810/side-panel-open.jpg", alt: "Open Kodak 8810 side panel providing a clear view into the supply area." },
-        { number: "5", title: "Check the ribbon compartment", text: "Inspect the ribbon compartment and compare it with the loading reference. The ribbon should be seated cleanly.", image: "assets/main-photo/kodak8810/side-panel-open.jpg", alt: "Open Kodak 8810 supply compartment used to check the ribbon area." },
-        { number: "6", title: "Verify the ribbon is installed", text: "Make sure the ribbon is fully installed and not twisted, slack, or out of its normal path.", image: "assets/main-photo/kodak8810/side-panel-open.jpg", alt: "Kodak 8810 open supply area used to verify that the ribbon path is seated normally." },
-        { number: "7", title: "Close, clear, and test", text: "Close the side panel fully, confirm the warning clears, and run one controlled print before continuing the queue.", image: "assets/main-photo/kodak8810/printer-overview-ready.jpg", alt: "Kodak 8810 closed and showing a ready status before a controlled test print." }
+        { number: "1", title: "Get one matching print kit", text: "Use a Kodak 8810 print kit. Keep its paper roll and ribbon together and away from any used supplies.", image: "assets/main-photo/kodak8810/printer-overview-ready.jpg", alt: "In-store overview used to identify the Kodak 8810 printer." },
+        { number: "2", title: "Open the paper area", text: "Pull the lower paper compartment open using its normal handle. Remove the empty roll and its holders." },
+        { number: "3", title: "Install the new paper roll", text: "Move the reusable holders to the new roll, then seat the roll evenly in the lower compartment with the paper feeding in the direction shown inside the printer.", image: "assets/main-photo/kodak8810/paper-roll-loaded.jpg", alt: "Kodak 8810 paper roll seated evenly between its reusable holders." },
+        { number: "4", title: "Open the ribbon compartment", text: "Release and lift the upper cover. Remove both used ribbon spools without touching the new ribbon surface.", image: "assets/main-photo/kodak8810/rear-cover.jpg", alt: "Kodak 8810 upper cover opened to reach the ribbon compartment." },
+        { number: "5", title: "Install the new ribbon", text: "Seat each ribbon spool in the matching side holder. Stretch the ribbon flat across the path; it must not be twisted or folded.", image: "assets/main-photo/kodak8810/ribbon-installed.jpg", alt: "Open Kodak 8810 showing a ribbon installed flat across both spool holders." },
+        { number: "6", title: "Check the inside diagram", text: "Compare the loaded ribbon with the diagram inside the compartment. Confirm both spool ends are fully seated before closing.", image: "assets/main-photo/kodak8810/ribbon-label.jpg", alt: "Kodak 8810 interior diagram beside the installed ribbon path." },
+        { number: "7", title: "Close and confirm ready", text: "Close the ribbon cover and paper compartment completely. Wait for automatic setup and confirm the ready message before releasing an order." }
       ]
     },
     "guide-cx3240": {
-      title: "Fujifilm CX3240 Paper Check",
-      description: "Use this when the CX3240 needs a paper tray, output tray, or paper-guide check.",
-      materialLocation: "CX3240 paper should stay with the Main Photo printer supplies. Confirm paper size and orientation before loading the tray.",
+      title: "Load Fujifilm CX3240 Paper",
+      description: "Fill the correct paper tray, set the paper guides, and return the printer to ready.",
+      materialLocation: "CX3240 paper is stored with Main Photo printer supplies. Match the paper size and product to the tray before opening a package.",
       steps: [
-        { number: "1", title: "Identify the CX3240", text: "Start from the printer overview and confirm the issue is on the Fujifilm CX3240.", image: "assets/main-photo/cx3240/printer-overview.jpg", alt: "In-store overview of the Fujifilm CX3240 printer." },
-        { number: "2", title: "Open the output tray", text: "Make sure the output tray is open and has enough room for finished prints to exit cleanly.", image: "assets/main-photo/cx3240/printer-overview.jpg", alt: "Fujifilm CX3240 overview showing the output area that must remain open and clear." },
-        { number: "3", title: "Check the loaded paper", text: "Open or inspect the paper tray and confirm paper is loaded flat, clean, and facing the correct direction.", image: "assets/main-photo/cx3240/paper-loaded-in-tray.jpg", alt: "In-store view of paper loaded flat in the Fujifilm CX3240 tray." },
-        { number: "4", title: "Set the paper guides", text: "Slide the paper guides so they touch the paper stack without bending it. Crooked guides can cause skewed prints or jams.", image: "assets/main-photo/cx3240/paper-loaded-in-tray.jpg", alt: "Paper loaded flat in the CX3240 tray with the guide area visible beside the stack." },
-        { number: "5", title: "Remove obvious obstructions", text: "Check for loose scraps, bent paper, packaging pieces, or anything blocking the tray or output path.", image: "assets/main-photo/cx3240/paper-loaded-in-tray.jpg", alt: "CX3240 paper tray shown clear of scraps, bent sheets, and packaging." },
-        { number: "6", title: "Close the tray fully", text: "Push the tray back in straight and make sure it seats fully before releasing another print.", image: "assets/main-photo/cx3240/printer-overview.jpg", alt: "Fujifilm CX3240 overview used to confirm the paper tray is closed and seated." },
-        { number: "7", title: "Print one controlled test", text: "After the message clears, release one print and watch the output path before sending more work.", image: "assets/main-photo/cx3240/printer-overview.jpg", alt: "Fujifilm CX3240 ready for one controlled test print through the output path." }
+        { number: "1", title: "Get the correct paper", text: "Read the product and size on the order, then select the matching CX3240 paper package.", image: "assets/main-photo/cx3240/printer-overview.jpg", alt: "In-store overview used to identify the Fujifilm CX3240 printer and its paper tray." },
+        { number: "2", title: "Pull out the paper tray", text: "Pull the matching tray straight out and place it on a clean, dry surface." },
+        { number: "3", title: "Load a flat paper stack", text: "Remove the paper from its wrapper and place it flat in the tray in the orientation shown on the tray. Do not load bent, damp, or damaged sheets.", image: "assets/main-photo/cx3240/paper-loaded-in-tray.jpg", alt: "CX3240 paper loaded flat and square in the paper tray." },
+        { number: "4", title: "Set both paper guides", text: "Slide the side and end guides until they just touch the stack. The guides should hold the paper square without bending it." },
+        { number: "5", title: "Return the tray", text: "Keep the stack flat and slide the tray straight into the printer until it is fully seated." },
+        { number: "6", title: "Open and clear the output tray", text: "Open the output tray and remove any finished pieces so the next print has room to exit." },
+        { number: "7", title: "Confirm ready", text: "Wait for the printer to recognize the tray and confirm it is ready before releasing the next order." }
       ]
     },
     "guide-kodak-kiosk": {
       title: "Kodak Kiosk Basics",
-      description: "Use this to identify the customer kiosk, keep the station ready, and complete only the normal front-store access checks.",
-      materialLocation: "Start at the customer-facing kiosk station. Keep customer media, cables, and loose parts organized and do not remove anything that is not part of the normal access area.",
+      description: "Use this to guide a customer through a basic photo order without taking control of their personal device.",
+      materialLocation: "The Kodak kiosk is the customer-facing touchscreen in the Photo area. The customer should keep control of their phone, memory card, cable, and personal photos.",
       steps: [
-        { number: "1", title: "Start at the front station", text: "Check the kiosk screen, scanner area, visible cables, and customer-facing work area before opening anything.", image: "assets/main-photo/kiosk/front-overview.jpg", alt: "In-store overview of the Kodak kiosk front station." },
-        { number: "2", title: "Keep the work area ready", text: "Remove abandoned receipts, packaging, and loose customer media from the work surface without opening or viewing customer files." },
-        { number: "3", title: "Open only the normal side door", text: "Use the normal side-door access point if the issue calls for an interior check. Do not force locked or restricted panels.", image: "assets/main-photo/kiosk/side-door-open-interior.jpg", alt: "Kodak kiosk shown with only the normal side-access door open." },
-        { number: "4", title: "Look inside before touching", text: "Check for loose cables, blocked airflow, visible paper scraps, or items that clearly do not belong inside the kiosk.", image: "assets/main-photo/kiosk/side-door-open-interior.jpg", alt: "In-store view inside the Kodak kiosk side door." },
-        { number: "5", title: "Leave cables connected", text: "Do not unplug or rearrange kiosk cables during a normal front-store check." },
-        { number: "6", title: "Close the door fully", text: "Close the side door securely and confirm the kiosk returns to the expected screen or status.", image: "assets/main-photo/kiosk/front-overview.jpg", alt: "Kodak kiosk front station shown closed after the normal side door is secured." },
-        { number: "7", title: "Return the station to ready", text: "Leave the kiosk closed, clean, and ready for the next customer. Do not continue if the screen or hardware is not in its normal ready state.", image: "assets/main-photo/kiosk/front-overview.jpg", alt: "Kodak kiosk front overview showing the station closed and ready for the next customer." }
-      ]
-    },
-    "guide-photo-checkout": {
-      title: "Photo Checkout",
-      description: "Use this when a customer is picking up a completed photo order at the register.",
-      materialLocation: "Completed photo orders should be staged in the photo pickup area or the store's designated completed-order location. Match the customer name and order details before ringing anything out.",
-      steps: [
-        { number: "1", title: "Greet and identify the order", text: "Ask for the customer name, order type, or pickup information. Do not hand over a photo order until you are confident it is the right customer.", image: "assets/generated-guides/pickup-step-1.webp", alt: "Color demonstration of comparing generic pickup information with a sealed photo order in an organized waiting bin." },
-        { number: "2", title: "Find the completed package", text: "Look in the completed photo pickup area. Match the name, order number, product type, and quantity when available.", image: "assets/generated-guides/pickup-step-1.webp", alt: "Color demonstration of locating the matching sealed photo envelope in an organized waiting bin." },
-        { number: "3", title: "Check that it is pickup-ready", text: "Make sure the package is sealed or organized, the prints/products look complete, and nothing appears damaged or mixed with another order.", image: "assets/generated-guides/pickup-step-2.webp", alt: "Color demonstration of a sealed photo order checked and kept together at the pickup counter." },
-        { number: "4", title: "Bring the order to IPOS", text: "Keep the order with you at the register. Avoid setting it where it can be confused with another customer's items.", image: "assets/generated-guides/pickup-step-2.webp", alt: "Color demonstration of one matching sealed photo order brought to the checkout counter." },
-        { number: "5", title: "Scan or enter the pickup sale", text: "Use the register's photo checkout flow, barcode, QR, or order lookup process available at your store.", image: "assets/generated-guides/pickup-step-3.webp", alt: "Color close-up of a generic pickup QR held flat under a handheld register scanner." },
-        { number: "6", title: "Confirm price and payment", text: "Confirm the sale total shown on IPOS and complete payment through the normal register process." },
-        { number: "7", title: "Hand off and close the loop", text: "Give the completed order to the customer only after checkout is complete. If the order does not match, stop and keep it protected in the Photo area.", image: "assets/generated-guides/pickup-step-4.webp", alt: "Color demonstration of a sealed photo package handed to the customer after checkout is complete." }
+        { number: "1", title: "Start at the customer screen", text: "Wake the touchscreen and choose the option to begin a new photo order.", image: "assets/main-photo/kiosk/front-overview.jpg", alt: "In-store overview of the customer-facing Kodak photo kiosk." },
+        { number: "2", title: "Let the customer connect their photos", text: "Ask the customer to choose the source shown on screen and connect their own phone or media. Let them handle their device and photo permissions." },
+        { number: "3", title: "Choose the product", text: "Have the customer select Prints or the product they want, then choose the size and quantity shown on screen." },
+        { number: "4", title: "Select and review photos", text: "The customer selects their images. Before continuing, have them review cropping, orientation, quantities, and the estimated total." },
+        { number: "5", title: "Enter pickup information", text: "Have the customer enter the requested name and contact information so the finished order can be identified." },
+        { number: "6", title: "Submit the order", text: "Choose the final Submit or Place Order action only after the customer confirms the order summary. Wait for the kiosk to confirm the order was sent." },
+        { number: "7", title: "Finish at the counter", text: "Give the customer any printed claim ticket or on-screen pickup instructions, then leave the kiosk at its starting screen for the next customer." }
       ]
     },
   },
