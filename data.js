@@ -14,7 +14,6 @@ const PE_DATA = {
       title: "Main Photo Printer & Assembly",
       description: "Use this hub for basic order processing, product assembly, printer supplies, and packaging.",
       cards: [
-        { id: "guide-order-flow", icon: "GO", title: "Process a Photo Order", description: "Read the order, use the correct equipment, inspect the output, and package it for pickup." },
         { id: "main-products", icon: "BOX", title: "Product Guides", description: "Canvas, books, calendars, magnets, wall tile, and specialty products." },
         { id: "main-supplies", icon: "#", title: "Supplies & Item Numbers", description: "Look up supply names, item numbers, and notes." },
         { id: "main-maintenance", icon: "MT", title: "Printer Basics", description: "Choose the printer in front of you and follow its basic paper, ribbon, or supply steps." }
@@ -62,7 +61,6 @@ const PE_DATA = {
       description: "Use this hub for register-side photo checkout support. IPOS rings up the order and scans the pickup QR.",
       cards: [
         { id: "guide-photo-checkout", icon: "$", title: "Photo Checkout", description: "Find the completed order and follow the checkout steps." },
-        { id: "guide-qr-pickup", icon: "QR", title: "QR Pickup Scan", description: "Find the pickup QR and follow the scan steps." },
         { id: "guide-waiting-bin", icon: "WB", title: "Waiting Bin", description: "Package, label, and file a completed order so it can be found quickly." }
       ]
     }
@@ -186,20 +184,6 @@ const PE_DATA = {
     }
   },
   employeeGuides: {
-    "guide-order-flow": {
-      title: "Process a Photo Order",
-      description: "Use this same basic flow for every order: read it, send it to the right equipment, inspect it, and keep it together.",
-      materialLocation: "Start at the Apex photo workstation and the printed order summary. Keep the summary with the order until the finished package is labeled.",
-      steps: [
-        { number: "1", title: "Read the whole order", text: "Confirm the customer name, product, size, quantity, and promised time. Do not begin from memory or from the image alone.", image: "assets/generated-guides/order-step-1.webp", alt: "Color demonstration of a colleague reading a generic photo order summary before starting." },
-        { number: "2", title: "Match the product to equipment", text: "Standard prints use the matching Kodak printer. Cards and photo-book pages use the Fujifilm CX3240. Large products use the Epson P6000.", image: "assets/generated-guides/order-step-2.webp", alt: "Color demonstration of matching a photo order to the correct printer and paper supply." },
-        { number: "3", title: "Load the required supply", text: "Check the printer and product guide before releasing the order. Match paper, roll media, card stock, print kit, or product blank exactly." },
-        { number: "4", title: "Release one order", text: "Release the order in Apex only after the correct equipment and material are ready. Keep the order summary beside the output area." },
-        { number: "5", title: "Collect every piece", text: "Count prints, pages, envelopes, boxes, covers, and assembly parts against the order. Never mix two customers on the same work surface.", image: "assets/generated-guides/order-step-3.webp", alt: "Color demonstration of finished prints being counted while one customer order remains isolated on the counter." },
-        { number: "6", title: "Inspect before assembly", text: "Check orientation, crop, color, blank areas, streaks, bends, and fingerprints before using product materials.", image: "assets/generated-guides/order-step-3.webp", alt: "Color close-up of a colleague inspecting finished prints for quality and completeness." },
-        { number: "7", title: "Assemble and package", text: "Open the matching product guide, finish the product, then attach the order information to the correct package.", image: "assets/generated-guides/order-step-4.webp", alt: "Color demonstration of inspected photo prints being placed into a clean pickup envelope." }
-      ]
-    },
     "guide-package-order": {
       title: "Package a Finished Photo Order",
       description: "Finish every order the same way so the customer receives the right product and another colleague can find it quickly.",
@@ -471,20 +455,6 @@ const PE_DATA = {
         { number: "7", title: "Hand off and close the loop", text: "Give the completed order to the customer only after checkout is complete. If the order does not match, stop and keep it protected in the Photo area.", image: "assets/generated-guides/pickup-step-4.webp", alt: "Color demonstration of a sealed photo package handed to the customer after checkout is complete." }
       ]
     },
-    "guide-qr-pickup": {
-      title: "QR Pickup Scan",
-      description: "Use this when the customer or package has a QR code connected to a photo pickup order.",
-      materialLocation: "QR pickup information may be on the customer's phone, printed order paperwork, pickup label, or the completed photo package depending on the store workflow.",
-      steps: [
-        { number: "1", title: "Start with the QR source", text: "Ask the customer to show the pickup QR or locate the QR on the photo package or paperwork.", image: "assets/generated-guides/pickup-step-3.webp", alt: "Generic pickup QR card held flat and ready to scan without showing a real customer order." },
-        { number: "2", title: "Open the scanner flow", text: "Use the register or pickup scanner flow available at IPOS. Keep the photo order nearby while scanning.", image: "assets/generated-guides/pickup-step-2.webp", alt: "Sealed matching photo order kept beside the checkout area before scanning." },
-        { number: "3", title: "Scan steadily", text: "Hold the QR flat and in good light. If scanning from a phone, ask the customer to brighten the screen and avoid glare.", image: "assets/generated-guides/pickup-step-3.webp", alt: "Color close-up of a handheld scanner aimed steadily at a flat generic QR code." },
-        { number: "4", title: "Confirm the order details", text: "After the scan, compare the displayed name, product type, and quantity against the physical order before completing checkout.", image: "assets/generated-guides/pickup-step-2.webp", alt: "Sealed physical photo order held for confirmation before checkout is completed." },
-        { number: "5", title: "Try one clean rescan", text: "If the QR will not scan, adjust the distance and lighting once. Do not repeatedly scan or complete a different order." },
-        { number: "6", title: "Complete checkout", text: "Finish the sale through the register once the order and customer match.", image: "assets/generated-guides/pickup-step-4.webp", alt: "Color demonstration of the matching sealed order being handed over after checkout." },
-        { number: "7", title: "Stop on a mismatch", text: "If the scan opens a different order, wrong name, wrong quantity, or no order, stop and keep the physical order in the Photo area." }
-      ]
-    }
   },
   guides: {}
 };

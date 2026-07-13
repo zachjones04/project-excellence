@@ -1,5 +1,50 @@
 const app = document.getElementById("app");
-const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","poster-supplies":"poster-printer","guide-order-flow":"main-photo","guide-package-order":"main-photo","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-photo-puzzle":"main-products","guide-wooden-hangbar":"main-products","guide-yard-sign":"main-products","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-print-poster":"poster-printer","guide-vinyl-banner":"poster-printer","guide-photo-checkout":"ipos","guide-qr-pickup":"ipos","guide-waiting-bin":"ipos"};
+const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","poster-supplies":"poster-printer","guide-package-order":"main-photo","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-photo-puzzle":"main-products","guide-wooden-hangbar":"main-products","guide-yard-sign":"main-products","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-poster-products":"poster-printer","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-print-poster":"poster-printer","guide-vinyl-banner":"poster-printer","guide-photo-checkout":"ipos","guide-waiting-bin":"ipos"};
+
+const productSourcePhotos = {
+  "guide-canvas": [
+    "assets/main-photo/assembly/canvas-guide-step-1.jpg",
+    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg",
+    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg",
+    "assets/main-photo/assembly/canvas-guide-steps-2-4.jpg"
+  ],
+  "guide-photo-books": [
+    "assets/main-photo/assembly/photobook-early-steps.jpg",
+    "assets/main-photo/assembly/photobook-early-steps.jpg",
+    "assets/main-photo/assembly/photobook-early-steps.jpg",
+    "assets/main-photo/assembly/photobook-early-steps.jpg",
+    "assets/main-photo/assembly/photobook-final-steps.jpg",
+    "assets/main-photo/assembly/photobook-final-steps.jpg",
+    "assets/main-photo/assembly/photobook-final-steps.jpg"
+  ],
+  "guide-calendars": [
+    "assets/main-photo/assembly/calendar-steps-1-2.jpg",
+    "assets/main-photo/assembly/calendar-steps-1-2.jpg",
+    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
+    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
+    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg",
+    "assets/main-photo/assembly/raw-guides/calendar-steps-3-6.jpg"
+  ],
+  "guide-magnets": Array(6).fill("assets/main-photo/assembly/acrylic-magnet-instructions.jpg"),
+  "guide-specialty": Array(7).fill("assets/main-photo/assembly/wall-tile-instructions.jpg"),
+  "guide-photo-puzzle": Array(6).fill("assets/main-photo/assembly/raw-guides/photo-puzzle-instructions.jpg"),
+  "guide-wooden-hangbar": [
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-preparation.jpg",
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-preparation.jpg",
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-assembly.jpg",
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-assembly.jpg",
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-plug-removal.jpg",
+    "assets/main-photo/assembly/raw-guides/wooden-hangbar-packaging.jpg"
+  ],
+  "guide-yard-sign": [
+    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
+    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
+    "assets/main-photo/assembly/raw-guides/yard-sign-assembly.jpg",
+    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg",
+    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg",
+    "assets/main-photo/assembly/raw-guides/yard-sign-clips.jpg"
+  ]
+};
 
 function routeTo(id, push = true) {
   const target = id || "home";
@@ -70,7 +115,15 @@ function stepCards(steps = []) {
 }
 
 function employeeGuide(id, guideData) {
-  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(guideData.steps)}</div></div></section></article>`;
+  const sourcePhotos = productSourcePhotos[id];
+  const steps = sourcePhotos
+    ? guideData.steps.map((step, index) => ({
+        ...step,
+        image: sourcePhotos[index],
+        alt: `Photographed CVS source instruction sheet for ${guideData.title}, step ${step.number}: ${step.title}.`
+      }))
+    : guideData.steps;
+  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(steps)}</div></div></section></article>`;
 }
 
 function printerGuide(id, guideData) {
