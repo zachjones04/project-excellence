@@ -1,7 +1,11 @@
 const app = document.getElementById("app");
 const parents = {"main-photo":"home","poster-printer":"home","ipos":"home","main-products":"main-photo","main-supplies":"main-photo","main-maintenance":"main-photo","poster-supplies":"poster-printer","guide-canvas":"main-products","guide-photo-books":"main-products","guide-calendars":"main-products","guide-magnets":"main-products","guide-specialty":"main-products","guide-photo-puzzle":"main-products","guide-wooden-hangbar":"main-products","guide-yard-sign":"main-products","guide-kodak-305":"main-maintenance","guide-kodak-7000":"main-maintenance","guide-kodak-8810":"main-maintenance","guide-cx3240":"main-maintenance","guide-kodak-kiosk":"main-maintenance","guide-load-paper":"poster-printer","guide-replace-ink":"poster-printer","guide-print-poster":"poster-printer","guide-vinyl-banner":"poster-printer","guide-waiting-bin":"ipos"};
 
-const sourcePhoto = (src, focus = "center center", zoom = 1) => ({ src, focus, zoom });
+const sourcePhoto = (src, focus = "center center", zoom = 1) => ({
+  src: `${src}?v=20260723-compact-markers`,
+  focus,
+  zoom
+});
 
 const productSourcePhotos = {
   "guide-canvas": [
