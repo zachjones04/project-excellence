@@ -5,70 +5,124 @@ const sourcePhoto = (src, focus = "center center", zoom = 1) => ({ src, focus, z
 
 const productSourcePhotos = {
   "guide-canvas": [
-    sourcePhoto("assets/main-photo/assembly/steps-v5/canvas-step-1.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/canvas-step-2.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/canvas-step-3.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/canvas-step-4.jpg")
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/canvas-step-1-verify.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/canvas-step-2-unpack.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/canvas-step-3-press.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/canvas-step-4-check.jpg")
   ],
   "guide-photo-books": [
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-1-materials.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-2-print-cover.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-3-lay-cover.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-4-stand-book.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-5-wrap-cover.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-6-attach-flaps.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/photobook-step-7-clamp-pages.jpg")
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-1-materials.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-2-check.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-3-peel.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-4-align.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-5-wrap.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-6-flaps.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/photobook-step-7-slide.jpg")
   ],
   "guide-calendars": [
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-1-line-up.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-2-place-guide.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-3-peel-liner.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-4-align-cover.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-5-repeat-pages.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/calendar-step-6-remove-check.jpg")
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-1-align.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-2-insert.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-3-peel.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-4-press.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-5-repeat.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/calendar-step-6-check.jpg")
   ],
   "guide-magnets": [
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-1-remove-pieces.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-2-trim-photo.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-3-back-down.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-4-photo-face-up.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-5-front-click.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/magnet-step-6-sleeve.jpg")
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-1-remove.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-2-trim.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-3-magnets-up.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-4-photo-up.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-5-press.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/magnet-step-6-sleeve.jpg")
   ],
   "guide-specialty": [
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-1-check-box.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-2-frame-parts.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-3-separate-frame.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-4-photo-chipboard.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-5-load-frame.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-6-snap-corners.jpg"),
-    sourcePhoto("assets/main-photo/assembly/steps-v5/wall-tile-step-7-package.jpg")
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-1-parts.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-2-identify.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-3-separate.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-4-place.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-5-load.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-6-snap.jpg"),
+    sourcePhoto("assets/main-photo/assembly/annotated-v1/wall-tile-step-7-package.jpg")
   ],
   "guide-photo-puzzle": [
-    sourcePhoto("assets/generated-guides/puzzle-step-1.webp"),
-    sourcePhoto("assets/generated-guides/puzzle-step-2.webp"),
-    sourcePhoto("assets/generated-guides/puzzle-step-3.webp")
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/puzzle-step-1-feed.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/puzzle-step-2-support.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/puzzle-step-3-bag.jpg")
   ],
   "guide-wooden-hangbar": [
-    null,
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/hangbar-step-2-peel.jpg"),
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/hangbar-step-3-place-bar.jpg"),
-    sourcePhoto("assets/generated-guides/hangbar-step-2.webp"),
-    null,
-    sourcePhoto("assets/generated-guides/hangbar-step-3.webp"),
-    null,
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/hangbar-step-8-paper.jpg"),
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/hangbar-step-9-roll.jpg"),
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/hangbar-step-10-tight-roll.jpg"),
-    sourcePhoto("assets/generated-guides/hangbar-step-4.webp")
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-1-feed.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-2-peel.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-3-place.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-4-string.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-5-top-slot.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-6-plugs.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-7-bottom.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-8-paper.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-9-roll.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-10-tight.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/hangbar-step-11-box.jpg")
   ],
   "guide-yard-sign": [
-    null,
-    sourcePhoto("assets/generated-guides/yard-sign-step-1.webp"),
-    sourcePhoto("assets/generated-guides/yard-sign-step-2.webp"),
-    sourcePhoto("assets/main-photo/assembly/step-crops/clean/yard-step-4-middle-tabs.jpg"),
-    sourcePhoto("assets/generated-guides/yard-sign-step-3.webp"),
-    sourcePhoto("assets/generated-guides/yard-sign-step-4.webp")
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-1-print.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-2-fold.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-3-tabs.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-4-middle.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-5-clips.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/yard-step-6-align.jpg")
+  ],
+  "guide-vinyl-banner": [
+    sourcePhoto("assets/p6000/feed.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-2-peel.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-3-align.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-4-apply.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-5-fold.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-6-press.jpg"),
+    sourcePhoto("assets/main-photo/assembly/source-steps-v1/banner-step-7-punch.jpg")
+  ],
+  "guide-replace-ink": [
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-1-read-color.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-2-match-label.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-3-open-latch.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-4-find-slot.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-5-push-release.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-6-insert.jpg"),
+    sourcePhoto("assets/p6000/ink/annotated-v1/step-7-ready.jpg")
+  ],
+  "guide-kodak-305": [
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-1-identify.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-2-press-open.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-3-remove.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-4-feed-paper.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-5-insert-ribbon.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-6-close.jpg"),
+    sourcePhoto("assets/main-photo/kodak305/annotated-v1/step-7-ready.jpg")
+  ],
+  "guide-kodak-7000": [
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-1-identify.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-2-press-open.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-3-remove.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-4-load-paper.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-5-load-ribbon.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-6-check-path.jpg"),
+    sourcePhoto("assets/main-photo/kodak7000/annotated-v1/step-7-ready.jpg")
+  ],
+  "guide-kodak-8810": [
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-1-identify.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-2-open-paper.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-3-load-paper.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-4-open-ribbon.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-5-load-ribbon.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-6-check-path.jpg"),
+    sourcePhoto("assets/main-photo/kodak8810/annotated-v1/step-7-ready.jpg")
+  ],
+  "guide-cx3240": [
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-1-identify.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-2-pull-tray.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-3-load-paper.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-4-set-guides.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-5-return-tray.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-6-clear-output.jpg"),
+    sourcePhoto("assets/main-photo/cx3240/annotated-v1/step-7-ready.jpg")
   ]
 };
 
@@ -148,10 +202,11 @@ function employeeGuide(id, guideData) {
         image: sourcePhotos[index]?.src,
         focus: sourcePhotos[index]?.focus,
         zoom: sourcePhotos[index]?.zoom,
-        alt: sourcePhotos[index] ? `Step image for ${guideData.title}, step ${step.number}: ${step.title}.` : ""
+        alt: sourcePhotos[index] ? `${guideData.title}, step ${step.number}: ${step.title}. The red arrow marks the exact control or action area.` : (step.alt || "")
       }))
     : guideData.steps;
-  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3><div class="visual-steps">${stepCards(steps)}</div></div></section></article>`;
+  const actionKey = sourcePhotos ? `<p class="action-key"><span class="action-key-icon" aria-hidden="true">→</span><span><strong>Follow the red marker:</strong> it shows the exact place to press, pull, lift, slide, or align.</span></p>` : "";
+  return `${heading(guideData.title, guideData.description, id)}<article class="guide simple-guide"><section class="guide-section material-note"><div><h3>Material Location</h3><p>${guideData.materialLocation}</p></div></section><section class="guide-section guide-steps-section"><div><h3>Step-by-Step Instructions</h3>${actionKey}<div class="visual-steps">${stepCards(steps)}</div></div></section></article>`;
 }
 
 function printerGuide(id, guideData) {
